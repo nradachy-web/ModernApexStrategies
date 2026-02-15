@@ -489,6 +489,11 @@
     box-shadow: 0 0 20px var(--red-glow);
   }
 
+  .funnel-step.complete .funnel-step-num {
+    border-color: rgba(230,57,70,0.45);
+    color: rgba(230,57,70,0.9);
+  }
+
   .funnel-step-label {
     font-size: 0.7rem;
     letter-spacing: 0.12em;
@@ -499,6 +504,10 @@
 
   .funnel-step.active .funnel-step-label {
     color: var(--red);
+  }
+
+  .funnel-step.complete .funnel-step-label {
+    color: rgba(255,255,255,0.65);
   }
 
   .funnel-step-line {
@@ -523,7 +532,7 @@
     margin-bottom: 0.5rem;
   }
 
-  .funnel-form > p {
+  .funnel-panel > p {
     color: var(--gray);
     font-size: 0.9rem;
     margin-bottom: 2rem;
@@ -545,7 +554,9 @@
 
   .form-group label .req { color: var(--red); }
 
-  .form-group input {
+  .form-group input:not([type="checkbox"]),
+  .form-group select,
+  .form-group textarea {
     width: 100%;
     padding: 1rem 1.2rem;
     background: var(--dark-card);
@@ -558,23 +569,106 @@
     outline: none;
   }
 
-  .form-group input::placeholder {
+  .form-group input:not([type="checkbox"])::placeholder,
+  .form-group textarea::placeholder {
     color: rgba(255,255,255,0.25);
   }
 
-  .form-group input:focus {
+  .form-group input:not([type="checkbox"]):focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
     border-color: var(--red);
     box-shadow: 0 0 0 3px var(--red-glow);
   }
 
-  .funnel-submit {
+  .form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .funnel-panel {
+    display: none;
+    animation: fadeInUp 0.25s ease;
+  }
+
+  .funnel-panel.active {
+    display: block;
+  }
+
+  .funnel-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .funnel-option {
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.8rem 0.9rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    background: rgba(255,255,255,0.01);
+    font-size: 0.86rem;
+    color: var(--light-gray);
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .funnel-option:hover {
+    border-color: rgba(230,57,70,0.35);
+    background: rgba(230,57,70,0.05);
+  }
+
+  .funnel-option.invalid {
+    border-color: rgba(230,57,70,0.9);
+    background: rgba(230,57,70,0.08);
+  }
+
+  .funnel-option input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--red);
+  }
+
+  .funnel-help {
+    color: var(--gray);
+    font-size: 0.8rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .funnel-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
     margin-top: 2rem;
   }
 
-  .funnel-submit .btn-primary {
+  .funnel-actions .btn-primary {
     padding: 1rem 2.5rem;
+  }
+
+  .funnel-error,
+  .funnel-success {
+    min-height: 1.25rem;
+    font-size: 0.85rem;
+    margin-top: 0.8rem;
+    text-align: left;
+  }
+
+  .funnel-error {
+    color: #ff8f97;
+  }
+
+  .funnel-success {
+    color: #8ff0b6;
+  }
+
+  .invalid {
+    border-color: var(--red) !important;
+    box-shadow: 0 0 0 3px rgba(230,57,70,0.22) !important;
   }
 
   /* ============ SERVICES ============ */
@@ -1492,6 +1586,16 @@
     .nav-links { display: none; }
     .process-step { flex-direction: column; text-align: center; align-items: center; }
     .process-num::after { display: none; }
+    .funnel-options { grid-template-columns: 1fr; }
+    .funnel-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .funnel-actions .btn-primary,
+    .funnel-actions .btn-secondary {
+      justify-content: center;
+      width: 100%;
+    }
   }
 
   /* ============ PREMIUM TECH EFFECTS ============ */
@@ -1792,25 +1896,95 @@
       </div>
     </div>
 
-    <div class="funnel-form">
-      <h3>Let's start with the basics</h3>
-      <p>Tell us about your business so we can tailor everything.</p>
-      <div class="form-group">
-        <label>Your Email <span class="req">*</span></label>
-        <input type="email" placeholder="you@company.com">
+    <form class="funnel-form" id="strategyForm" novalidate>
+      <div class="funnel-panel active" data-step="1">
+        <h3>Let's start with the basics</h3>
+        <p>Tell us about your business so we can tailor everything.</p>
+        <div class="form-group">
+          <label for="funnelEmail">Your Email <span class="req">*</span></label>
+          <input id="funnelEmail" name="email" type="email" placeholder="you@company.com" required>
+        </div>
+        <div class="form-group">
+          <label for="funnelBusiness">Business Name <span class="req">*</span></label>
+          <input id="funnelBusiness" name="business_name" type="text" placeholder="Your business name" required>
+        </div>
+        <div class="form-group">
+          <label for="funnelWebsite">Website <span class="req">*</span></label>
+          <input id="funnelWebsite" name="website" type="url" placeholder="https://yourbusiness.com" required>
+        </div>
       </div>
-      <div class="form-group">
-        <label>Business Name <span class="req">*</span></label>
-        <input type="text" placeholder="Your business name">
+
+      <div class="funnel-panel" data-step="2">
+        <h3>What do you want help with?</h3>
+        <p>Select every service you want included in your campaign roadmap.</p>
+        <div class="funnel-options">
+          <label class="funnel-option"><input type="checkbox" name="services" value="Search Ads"> Search Ads</label>
+          <label class="funnel-option"><input type="checkbox" name="services" value="Performance Max"> Performance Max</label>
+          <label class="funnel-option"><input type="checkbox" name="services" value="Remarketing"> Remarketing</label>
+          <label class="funnel-option"><input type="checkbox" name="services" value="Landing Page Optimization"> Landing Page Optimization</label>
+          <label class="funnel-option"><input type="checkbox" name="services" value="Conversion Tracking"> Conversion Tracking</label>
+          <label class="funnel-option"><input type="checkbox" name="services" value="SEO + Ads Strategy"> SEO + Ads Strategy</label>
+        </div>
+        <p class="funnel-help">Pick at least one service.</p>
       </div>
-      <div class="form-group">
-        <label>Website <span class="req">*</span></label>
-        <input type="url" placeholder="https://yourbusiness.com">
+
+      <div class="funnel-panel" data-step="3">
+        <h3>Tell us about your target audience</h3>
+        <p>This helps us build the right targeting and budget strategy.</p>
+        <div class="form-group">
+          <label for="funnelLocation">Target Location(s) <span class="req">*</span></label>
+          <input id="funnelLocation" name="target_locations" type="text" placeholder="City, state, or service area" required>
+        </div>
+        <div class="form-group">
+          <label for="funnelBudget">Monthly Ad Budget <span class="req">*</span></label>
+          <select id="funnelBudget" name="monthly_budget" required>
+            <option value="">Select budget range</option>
+            <option value="$1,000-$2,499">$1,000 - $2,499</option>
+            <option value="$2,500-$4,999">$2,500 - $4,999</option>
+            <option value="$5,000-$9,999">$5,000 - $9,999</option>
+            <option value="$10,000+">$10,000+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="funnelGoal">Primary Goal <span class="req">*</span></label>
+          <select id="funnelGoal" name="primary_goal" required>
+            <option value="">Select primary goal</option>
+            <option value="More calls/leads">More calls/leads</option>
+            <option value="Booked appointments">Booked appointments</option>
+            <option value="Ecommerce sales">Ecommerce sales</option>
+            <option value="Improve ROAS">Improve ROAS</option>
+          </select>
+        </div>
       </div>
-      <div class="funnel-submit">
-        <button class="btn-primary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Funnel - Next Step'})">Next Step <span>→</span></button>
+
+      <div class="funnel-panel" data-step="4">
+        <h3>Final strategy details</h3>
+        <p>One last step and we will prepare your custom campaign roadmap.</p>
+        <div class="form-group">
+          <label for="funnelChallenge">Biggest Growth Challenge <span class="req">*</span></label>
+          <textarea id="funnelChallenge" name="biggest_challenge" placeholder="What's your biggest challenge with lead generation right now?" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="funnelTimeline">Preferred Start Timeline <span class="req">*</span></label>
+          <select id="funnelTimeline" name="start_timeline" required>
+            <option value="">Select timeline</option>
+            <option value="ASAP">ASAP</option>
+            <option value="Within 30 days">Within 30 days</option>
+            <option value="Within 60 days">Within 60 days</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </div>
       </div>
-    </div>
+
+      <p class="funnel-error" id="funnelError" aria-live="polite"></p>
+      <p class="funnel-success" id="funnelSuccess" aria-live="polite"></p>
+
+      <div class="funnel-actions">
+        <button type="button" class="btn-secondary" id="funnelBack" hidden>Back</button>
+        <button type="button" class="btn-primary" id="funnelNext">Next Step <span>→</span></button>
+        <button type="submit" class="btn-primary" id="funnelSubmit" hidden>Get Strategy Plan <span>→</span></button>
+      </div>
+    </form>
   </div>
 </section>
 
@@ -2161,6 +2335,136 @@
       nav.style.background = 'rgba(10,10,10,0.85)';
     }
   });
+
+  // Strategy funnel
+  const strategyForm = document.getElementById('strategyForm');
+  if (strategyForm) {
+    const funnelPanels = Array.from(strategyForm.querySelectorAll('.funnel-panel'));
+    const funnelSteps = Array.from(document.querySelectorAll('.funnel-steps .funnel-step'));
+    const nextBtn = document.getElementById('funnelNext');
+    const backBtn = document.getElementById('funnelBack');
+    const submitBtn = document.getElementById('funnelSubmit');
+    const errorEl = document.getElementById('funnelError');
+    const successEl = document.getElementById('funnelSuccess');
+    const recipient = 'hello@modernapexstrategies.com';
+    let currentStep = 1;
+
+    const trackClick = (label) => {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'click', { event_category: 'CTA', event_label: label });
+      }
+    };
+
+    const updateFunnelView = () => {
+      funnelPanels.forEach((panel, index) => {
+        panel.classList.toggle('active', index === currentStep - 1);
+      });
+
+      funnelSteps.forEach((step, index) => {
+        step.classList.toggle('active', index === currentStep - 1);
+        step.classList.toggle('complete', index < currentStep - 1);
+      });
+
+      backBtn.hidden = currentStep === 1;
+      nextBtn.hidden = currentStep === funnelPanels.length;
+      submitBtn.hidden = currentStep !== funnelPanels.length;
+    };
+
+    const clearValidationState = () => {
+      strategyForm.querySelectorAll('.invalid').forEach((el) => el.classList.remove('invalid'));
+      errorEl.textContent = '';
+    };
+
+    strategyForm.querySelectorAll('input, select, textarea').forEach((field) => {
+      const events = field.type === 'checkbox' ? ['change'] : ['input', 'change'];
+      events.forEach((eventName) => {
+        field.addEventListener(eventName, () => {
+          field.classList.remove('invalid');
+          field.closest('.funnel-option')?.classList.remove('invalid');
+          errorEl.textContent = '';
+        });
+      });
+    });
+
+    const validateCurrentStep = () => {
+      clearValidationState();
+      successEl.textContent = '';
+
+      const panel = funnelPanels[currentStep - 1];
+      let isValid = true;
+      let message = 'Please complete all required fields before continuing.';
+
+      panel.querySelectorAll('input[required], select[required], textarea[required]').forEach((field) => {
+        const value = typeof field.value === 'string' ? field.value.trim() : field.value;
+        if (!value || !field.checkValidity()) {
+          isValid = false;
+          field.classList.add('invalid');
+        }
+      });
+
+      if (currentStep === 2) {
+        const serviceCheckboxes = Array.from(panel.querySelectorAll('input[name="services"]'));
+        const selectedAny = serviceCheckboxes.some((field) => field.checked);
+        if (!selectedAny) {
+          isValid = false;
+          message = 'Pick at least one service to continue.';
+          serviceCheckboxes.forEach((field) => {
+            field.closest('.funnel-option')?.classList.add('invalid');
+          });
+        }
+      }
+
+      if (!isValid) {
+        errorEl.textContent = message;
+      }
+
+      return isValid;
+    };
+
+    backBtn.addEventListener('click', () => {
+      trackClick('Funnel - Back Step');
+      currentStep = Math.max(1, currentStep - 1);
+      updateFunnelView();
+      clearValidationState();
+      successEl.textContent = '';
+    });
+
+    nextBtn.addEventListener('click', () => {
+      trackClick('Funnel - Next Step');
+      if (!validateCurrentStep()) return;
+      currentStep = Math.min(funnelPanels.length, currentStep + 1);
+      updateFunnelView();
+    });
+
+    strategyForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      trackClick('Funnel - Submit');
+      if (!validateCurrentStep()) return;
+
+      const formData = new FormData(strategyForm);
+      const selectedServices = formData.getAll('services');
+      const lines = [
+        `Email: ${formData.get('email') || ''}`,
+        `Business Name: ${formData.get('business_name') || ''}`,
+        `Website: ${formData.get('website') || ''}`,
+        `Services: ${selectedServices.join(', ') || 'None selected'}`,
+        `Target Locations: ${formData.get('target_locations') || ''}`,
+        `Monthly Budget: ${formData.get('monthly_budget') || ''}`,
+        `Primary Goal: ${formData.get('primary_goal') || ''}`,
+        `Biggest Challenge: ${formData.get('biggest_challenge') || ''}`,
+        `Start Timeline: ${formData.get('start_timeline') || ''}`
+      ];
+
+      const subject = encodeURIComponent('New Campaign Strategy Request');
+      const body = encodeURIComponent(lines.join('\n'));
+      window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+
+      successEl.textContent = 'Thanks. Your details are ready and your email app should open to send the request.';
+      errorEl.textContent = '';
+    });
+
+    updateFunnelView();
+  }
 
   // Revenue Chart — real data from Ole Man RB's case study
   const revenueData = [

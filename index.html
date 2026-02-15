@@ -2346,7 +2346,22 @@
     const submitBtn = document.getElementById('funnelSubmit');
     const errorEl = document.getElementById('funnelError');
     const successEl = document.getElementById('funnelSuccess');
-    const recipient = 'hello@modernapexstrategies.com';
+    const googleFormAction = 'https://docs.google.com/forms/d/e/1FAIpQLSeWeBTuQsYttS1AkJQSey9cdyXugaSccU4p3QS4icArwG-32Q/formResponse';
+    const googleFields = {
+      businessName: 'entry.2106943644',
+      website: 'entry.2121495189',
+      services: 'entry.1433799951',
+      strategyNotes: 'entry.1913911702',
+      idealCustomer: 'entry.533825556',
+      nonIdealCustomer: 'entry.559745165',
+      primaryLocation: 'entry.1529976769',
+      secondaryLocation: 'entry.786584099',
+      industryFocus: 'entry.1552136455',
+      credentialPrimary: 'entry.1439045767',
+      credentialSecondary: 'entry.1654001695',
+      additionalNotes: 'entry.804264223',
+      metaAds: 'entry.908662757'
+    };
     let currentStep = 1;
 
     const trackClick = (label) => {
@@ -2373,6 +2388,14 @@
     const clearValidationState = () => {
       strategyForm.querySelectorAll('.invalid').forEach((el) => el.classList.remove('invalid'));
       errorEl.textContent = '';
+    };
+
+    const setSubmittingState = (isSubmitting) => {
+      nextBtn.disabled = isSubmitting;
+      backBtn.disabled = isSubmitting;
+      submitBtn.disabled = isSubmitting;
+      submitBtn.style.opacity = isSubmitting ? '0.75' : '1';
+      submitBtn.style.cursor = isSubmitting ? 'wait' : 'pointer';
     };
 
     strategyForm.querySelectorAll('input, select, textarea').forEach((field) => {
@@ -2436,31 +2459,70 @@
       updateFunnelView();
     });
 
-    strategyForm.addEventListener('submit', (event) => {
+    strategyForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       trackClick('Funnel - Submit');
       if (!validateCurrentStep()) return;
 
       const formData = new FormData(strategyForm);
-      const selectedServices = formData.getAll('services');
-      const lines = [
-        `Email: ${formData.get('email') || ''}`,
-        `Business Name: ${formData.get('business_name') || ''}`,
-        `Website: ${formData.get('website') || ''}`,
-        `Services: ${selectedServices.join(', ') || 'None selected'}`,
-        `Target Locations: ${formData.get('target_locations') || ''}`,
-        `Monthly Budget: ${formData.get('monthly_budget') || ''}`,
-        `Primary Goal: ${formData.get('primary_goal') || ''}`,
-        `Biggest Challenge: ${formData.get('biggest_challenge') || ''}`,
-        `Start Timeline: ${formData.get('start_timeline') || ''}`
+      const selectedServices = formData.getAll('services').filter(Boolean);
+      const values = {
+        email: String(formData.get('email') || '').trim(),
+        businessName: String(formData.get('business_name') || '').trim(),
+        website: String(formData.get('website') || '').trim(),
+        targetLocations: String(formData.get('target_locations') || '').trim(),
+        monthlyBudget: String(formData.get('monthly_budget') || '').trim(),
+        primaryGoal: String(formData.get('primary_goal') || '').trim(),
+        biggestChallenge: String(formData.get('biggest_challenge') || '').trim(),
+        startTimeline: String(formData.get('start_timeline') || '').trim()
+      };
+
+      const summaryLines = [
+        `Email: ${values.email || 'Not provided'}`,
+        `Primary Goal: ${values.primaryGoal || 'Not provided'}`,
+        `Monthly Budget: ${values.monthlyBudget || 'Not provided'}`,
+        `Target Locations: ${values.targetLocations || 'Not provided'}`,
+        `Timeline: ${values.startTimeline || 'Not provided'}`,
+        `Biggest Challenge: ${values.biggestChallenge || 'Not provided'}`
       ];
 
-      const subject = encodeURIComponent('New Campaign Strategy Request');
-      const body = encodeURIComponent(lines.join('\n'));
-      window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+      const payload = new URLSearchParams();
+      payload.append(googleFields.businessName, values.businessName || 'Website Funnel Lead');
+      payload.append(googleFields.website, values.website || 'Not provided');
+      payload.append(googleFields.services, selectedServices.join(', ') || 'Not provided');
+      payload.append(googleFields.strategyNotes, summaryLines.join('\n'));
+      payload.append(googleFields.idealCustomer, values.primaryGoal || 'Google Ads lead generation');
+      payload.append(googleFields.nonIdealCustomer, `Budget: ${values.monthlyBudget || 'Not provided'}`);
+      payload.append(googleFields.primaryLocation, values.targetLocations || 'Not provided');
+      payload.append(googleFields.secondaryLocation, values.startTimeline || 'Not provided');
+      payload.append(googleFields.industryFocus, 'Service Companies');
+      payload.append(googleFields.credentialPrimary, 'Website Funnel Submission');
+      payload.append(googleFields.credentialSecondary, 'Modern Apex Strategies');
+      payload.append(googleFields.additionalNotes, values.biggestChallenge || 'None provided');
+      payload.append(googleFields.metaAds, 'no');
 
-      successEl.textContent = 'Thanks. Your details are ready and your email app should open to send the request.';
-      errorEl.textContent = '';
+      try {
+        setSubmittingState(true);
+        await fetch(googleFormAction, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+          },
+          body: payload.toString()
+        });
+
+        strategyForm.reset();
+        currentStep = 1;
+        updateFunnelView();
+        clearValidationState();
+        successEl.textContent = 'Thanks. Your strategy request was sent successfully.';
+        errorEl.textContent = '';
+      } catch (error) {
+        errorEl.textContent = 'We could not submit right now. Please try again in a moment.';
+      } finally {
+        setSubmittingState(false);
+      }
     });
 
     updateFunnelView();

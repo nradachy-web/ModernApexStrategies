@@ -2444,6 +2444,53 @@
       updateFunnelView();
     });
 
+    const submitToGoogleForm = (values) => {
+      const frameId = 'googleFormSubmitFrame';
+      let frame = document.getElementById(frameId);
+      if (!frame) {
+        frame = document.createElement('iframe');
+        frame.id = frameId;
+        frame.name = frameId;
+        frame.style.display = 'none';
+        frame.setAttribute('title', 'Google Form submission target');
+        document.body.appendChild(frame);
+      }
+
+      const postForm = document.createElement('form');
+      postForm.action = googleFormAction;
+      postForm.method = 'POST';
+      postForm.target = frameId;
+      postForm.style.display = 'none';
+
+      const entryMap = [
+        ['businessName', values.businessName],
+        ['website', values.website],
+        ['services', values.services],
+        ['strategyNotes', values.strategyNotes],
+        ['idealCustomer', values.idealCustomer],
+        ['nonIdealCustomer', values.nonIdealCustomer],
+        ['primaryLocation', values.primaryLocation],
+        ['secondaryLocation', values.secondaryLocation],
+        ['industryFocus', values.industryFocus],
+        ['credentialPrimary', values.credentialPrimary],
+        ['credentialSecondary', values.credentialSecondary],
+        ['additionalNotes', values.additionalNotes],
+        ['metaAds', values.metaAds]
+      ];
+
+      entryMap.forEach(([fieldKey, value]) => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = googleFields[fieldKey];
+        input.value = value;
+        postForm.appendChild(input);
+      });
+
+      document.body.appendChild(postForm);
+      postForm.submit();
+      document.body.removeChild(postForm);
+    };
+
     strategyForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       trackClick('Funnel - Submit');
@@ -2466,40 +2513,23 @@
         metaAds: String(formData.get('meta_ads') || '').trim()
       };
 
-      const payload = new URLSearchParams();
-      payload.append(googleFields.businessName, values.businessName || 'Website Funnel Lead');
-      payload.append(googleFields.website, values.website || 'Not provided');
-      payload.append(googleFields.services, values.services || 'Not provided');
-      payload.append(googleFields.strategyNotes, values.strategyNotes || 'Not provided');
-      payload.append(googleFields.idealCustomer, values.idealCustomer || 'Not provided');
-      payload.append(googleFields.nonIdealCustomer, values.nonIdealCustomer || 'Not provided');
-      payload.append(googleFields.primaryLocation, values.primaryLocation || 'Not provided');
-      payload.append(googleFields.secondaryLocation, values.secondaryLocation || 'Not provided');
-      payload.append(googleFields.industryFocus, values.industryFocus || 'Not provided');
-      payload.append(googleFields.credentialPrimary, values.credentialPrimary || 'Not provided');
-      payload.append(googleFields.credentialSecondary, values.credentialSecondary || 'Not provided');
-      payload.append(googleFields.additionalNotes, values.additionalNotes || 'Not provided');
-      payload.append(googleFields.metaAds, values.metaAds || 'Not provided');
+      if (Object.values(values).some((value) => !value)) {
+        errorEl.textContent = 'Please complete every field before submitting.';
+        return;
+      }
 
       try {
         setSubmittingState(true);
-        await fetch(googleFormAction, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-          },
-          body: payload.toString()
-        });
+        submitToGoogleForm(values);
 
         strategyForm.reset();
         currentStep = 1;
         updateFunnelView();
         clearValidationState();
-        successEl.textContent = 'Thanks. Your strategy request was sent successfully.';
+        successEl.textContent = 'Thanks. Your submission was sent to Google Forms successfully.';
         errorEl.textContent = '';
       } catch (error) {
-        errorEl.textContent = 'We could not submit right now. Please try again in a moment.';
+        errorEl.textContent = 'Google Form submission failed. Please try again.';
       } finally {
         setSubmittingState(false);
       }

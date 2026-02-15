@@ -1898,80 +1898,77 @@
 
     <form class="funnel-form" id="strategyForm" novalidate>
       <div class="funnel-panel active" data-step="1">
-        <h3>Let's start with the basics</h3>
-        <p>Tell us about your business so we can tailor everything.</p>
-        <div class="form-group">
-          <label for="funnelEmail">Your Email <span class="req">*</span></label>
-          <input id="funnelEmail" name="email" type="email" placeholder="you@company.com" required>
-        </div>
+        <h3>Business Profile</h3>
+        <p>Step 1 of 4. These match the first Google Form fields exactly.</p>
         <div class="form-group">
           <label for="funnelBusiness">Business Name <span class="req">*</span></label>
-          <input id="funnelBusiness" name="business_name" type="text" placeholder="Your business name" required>
+          <input id="funnelBusiness" name="business_name" type="text" placeholder="Modern Apex Strategies" required>
         </div>
         <div class="form-group">
           <label for="funnelWebsite">Website <span class="req">*</span></label>
-          <input id="funnelWebsite" name="website" type="url" placeholder="https://yourbusiness.com" required>
+          <input id="funnelWebsite" name="website" type="text" placeholder="ModernApexStrategies.com" required>
+        </div>
+        <div class="form-group">
+          <label for="funnelServices">Core Services <span class="req">*</span></label>
+          <textarea id="funnelServices" name="services" placeholder="PPC, SEO, Website Development" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="funnelStrategyNotes">Service/Offer Notes <span class="req">*</span></label>
+          <textarea id="funnelStrategyNotes" name="strategy_notes" placeholder="We do not do meta ads" required></textarea>
         </div>
       </div>
 
       <div class="funnel-panel" data-step="2">
-        <h3>What do you want help with?</h3>
-        <p>Select every service you want included in your campaign roadmap.</p>
-        <div class="funnel-options">
-          <label class="funnel-option"><input type="checkbox" name="services" value="Search Ads"> Search Ads</label>
-          <label class="funnel-option"><input type="checkbox" name="services" value="Performance Max"> Performance Max</label>
-          <label class="funnel-option"><input type="checkbox" name="services" value="Remarketing"> Remarketing</label>
-          <label class="funnel-option"><input type="checkbox" name="services" value="Landing Page Optimization"> Landing Page Optimization</label>
-          <label class="funnel-option"><input type="checkbox" name="services" value="Conversion Tracking"> Conversion Tracking</label>
-          <label class="funnel-option"><input type="checkbox" name="services" value="SEO + Ads Strategy"> SEO + Ads Strategy</label>
+        <h3>Audience Details</h3>
+        <p>Step 2 of 4. Enter your exact audience details.</p>
+        <div class="form-group">
+          <label for="funnelIdealCustomer">Ideal Customers <span class="req">*</span></label>
+          <textarea id="funnelIdealCustomer" name="ideal_customer" placeholder="Service companies, companies spending 2-3k/month on Google Ads" required></textarea>
         </div>
-        <p class="funnel-help">Pick at least one service.</p>
+        <div class="form-group">
+          <label for="funnelNonIdealCustomer">Non-Ideal Customers <span class="req">*</span></label>
+          <textarea id="funnelNonIdealCustomer" name="non_ideal_customer" placeholder="Low budget / small companies" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="funnelPrimaryLocation">Primary Location <span class="req">*</span></label>
+          <input id="funnelPrimaryLocation" name="primary_location" type="text" placeholder="United States" required>
+        </div>
+        <div class="form-group">
+          <label for="funnelSecondaryLocation">Secondary Locations <span class="req">*</span></label>
+          <input id="funnelSecondaryLocation" name="secondary_location" type="text" placeholder="Canada, Mexico, UK" required>
+        </div>
       </div>
 
       <div class="funnel-panel" data-step="3">
-        <h3>Tell us about your target audience</h3>
-        <p>This helps us build the right targeting and budget strategy.</p>
+        <h3>Positioning And Proof</h3>
+        <p>Step 3 of 4. Add your niche and credibility points.</p>
         <div class="form-group">
-          <label for="funnelLocation">Target Location(s) <span class="req">*</span></label>
-          <input id="funnelLocation" name="target_locations" type="text" placeholder="City, state, or service area" required>
+          <label for="funnelIndustryFocus">Industry Focus <span class="req">*</span></label>
+          <input id="funnelIndustryFocus" name="industry_focus" type="text" placeholder="Service Companies" required>
         </div>
         <div class="form-group">
-          <label for="funnelBudget">Monthly Ad Budget <span class="req">*</span></label>
-          <select id="funnelBudget" name="monthly_budget" required>
-            <option value="">Select budget range</option>
-            <option value="$1,000-$2,499">$1,000 - $2,499</option>
-            <option value="$2,500-$4,999">$2,500 - $4,999</option>
-            <option value="$5,000-$9,999">$5,000 - $9,999</option>
-            <option value="$10,000+">$10,000+</option>
-          </select>
+          <label for="funnelCredentialPrimary">Primary Credential <span class="req">*</span></label>
+          <input id="funnelCredentialPrimary" name="credential_primary" type="text" placeholder="Google Premier Partner" required>
         </div>
         <div class="form-group">
-          <label for="funnelGoal">Primary Goal <span class="req">*</span></label>
-          <select id="funnelGoal" name="primary_goal" required>
-            <option value="">Select primary goal</option>
-            <option value="More calls/leads">More calls/leads</option>
-            <option value="Booked appointments">Booked appointments</option>
-            <option value="Ecommerce sales">Ecommerce sales</option>
-            <option value="Improve ROAS">Improve ROAS</option>
-          </select>
+          <label for="funnelCredentialSecondary">Secondary Credential <span class="req">*</span></label>
+          <input id="funnelCredentialSecondary" name="credential_secondary" type="text" placeholder="Premier Partner" required>
+        </div>
+        <div class="form-group">
+          <label for="funnelAdditionalNotes">Additional Notes <span class="req">*</span></label>
+          <textarea id="funnelAdditionalNotes" name="additional_notes" placeholder="none" required></textarea>
         </div>
       </div>
 
       <div class="funnel-panel" data-step="4">
-        <h3>Final strategy details</h3>
-        <p>One last step and we will prepare your custom campaign roadmap.</p>
+        <h3>Final Google Form Field</h3>
+        <p>Step 4 of 4. Complete the last required answer.</p>
         <div class="form-group">
-          <label for="funnelChallenge">Biggest Growth Challenge <span class="req">*</span></label>
-          <textarea id="funnelChallenge" name="biggest_challenge" placeholder="What's your biggest challenge with lead generation right now?" required></textarea>
-        </div>
-        <div class="form-group">
-          <label for="funnelTimeline">Preferred Start Timeline <span class="req">*</span></label>
-          <select id="funnelTimeline" name="start_timeline" required>
-            <option value="">Select timeline</option>
-            <option value="ASAP">ASAP</option>
-            <option value="Within 30 days">Within 30 days</option>
-            <option value="Within 60 days">Within 60 days</option>
-            <option value="Not sure yet">Not sure yet</option>
+          <label for="funnelMetaAds">Do You Offer Meta Ads? <span class="req">*</span></label>
+          <select id="funnelMetaAds" name="meta_ads" required>
+            <option value="">Select one</option>
+            <option value="yes">yes</option>
+            <option value="no">no</option>
           </select>
         </div>
       </div>
@@ -2425,18 +2422,6 @@
         }
       });
 
-      if (currentStep === 2) {
-        const serviceCheckboxes = Array.from(panel.querySelectorAll('input[name="services"]'));
-        const selectedAny = serviceCheckboxes.some((field) => field.checked);
-        if (!selectedAny) {
-          isValid = false;
-          message = 'Pick at least one service to continue.';
-          serviceCheckboxes.forEach((field) => {
-            field.closest('.funnel-option')?.classList.add('invalid');
-          });
-        }
-      }
-
       if (!isValid) {
         errorEl.textContent = message;
       }
@@ -2465,41 +2450,36 @@
       if (!validateCurrentStep()) return;
 
       const formData = new FormData(strategyForm);
-      const selectedServices = formData.getAll('services').filter(Boolean);
       const values = {
-        email: String(formData.get('email') || '').trim(),
         businessName: String(formData.get('business_name') || '').trim(),
         website: String(formData.get('website') || '').trim(),
-        targetLocations: String(formData.get('target_locations') || '').trim(),
-        monthlyBudget: String(formData.get('monthly_budget') || '').trim(),
-        primaryGoal: String(formData.get('primary_goal') || '').trim(),
-        biggestChallenge: String(formData.get('biggest_challenge') || '').trim(),
-        startTimeline: String(formData.get('start_timeline') || '').trim()
+        services: String(formData.get('services') || '').trim(),
+        strategyNotes: String(formData.get('strategy_notes') || '').trim(),
+        idealCustomer: String(formData.get('ideal_customer') || '').trim(),
+        nonIdealCustomer: String(formData.get('non_ideal_customer') || '').trim(),
+        primaryLocation: String(formData.get('primary_location') || '').trim(),
+        secondaryLocation: String(formData.get('secondary_location') || '').trim(),
+        industryFocus: String(formData.get('industry_focus') || '').trim(),
+        credentialPrimary: String(formData.get('credential_primary') || '').trim(),
+        credentialSecondary: String(formData.get('credential_secondary') || '').trim(),
+        additionalNotes: String(formData.get('additional_notes') || '').trim(),
+        metaAds: String(formData.get('meta_ads') || '').trim()
       };
-
-      const summaryLines = [
-        `Email: ${values.email || 'Not provided'}`,
-        `Primary Goal: ${values.primaryGoal || 'Not provided'}`,
-        `Monthly Budget: ${values.monthlyBudget || 'Not provided'}`,
-        `Target Locations: ${values.targetLocations || 'Not provided'}`,
-        `Timeline: ${values.startTimeline || 'Not provided'}`,
-        `Biggest Challenge: ${values.biggestChallenge || 'Not provided'}`
-      ];
 
       const payload = new URLSearchParams();
       payload.append(googleFields.businessName, values.businessName || 'Website Funnel Lead');
       payload.append(googleFields.website, values.website || 'Not provided');
-      payload.append(googleFields.services, selectedServices.join(', ') || 'Not provided');
-      payload.append(googleFields.strategyNotes, summaryLines.join('\n'));
-      payload.append(googleFields.idealCustomer, values.primaryGoal || 'Google Ads lead generation');
-      payload.append(googleFields.nonIdealCustomer, `Budget: ${values.monthlyBudget || 'Not provided'}`);
-      payload.append(googleFields.primaryLocation, values.targetLocations || 'Not provided');
-      payload.append(googleFields.secondaryLocation, values.startTimeline || 'Not provided');
-      payload.append(googleFields.industryFocus, 'Service Companies');
-      payload.append(googleFields.credentialPrimary, 'Website Funnel Submission');
-      payload.append(googleFields.credentialSecondary, 'Modern Apex Strategies');
-      payload.append(googleFields.additionalNotes, values.biggestChallenge || 'None provided');
-      payload.append(googleFields.metaAds, 'no');
+      payload.append(googleFields.services, values.services || 'Not provided');
+      payload.append(googleFields.strategyNotes, values.strategyNotes || 'Not provided');
+      payload.append(googleFields.idealCustomer, values.idealCustomer || 'Not provided');
+      payload.append(googleFields.nonIdealCustomer, values.nonIdealCustomer || 'Not provided');
+      payload.append(googleFields.primaryLocation, values.primaryLocation || 'Not provided');
+      payload.append(googleFields.secondaryLocation, values.secondaryLocation || 'Not provided');
+      payload.append(googleFields.industryFocus, values.industryFocus || 'Not provided');
+      payload.append(googleFields.credentialPrimary, values.credentialPrimary || 'Not provided');
+      payload.append(googleFields.credentialSecondary, values.credentialSecondary || 'Not provided');
+      payload.append(googleFields.additionalNotes, values.additionalNotes || 'Not provided');
+      payload.append(googleFields.metaAds, values.metaAds || 'Not provided');
 
       try {
         setSubmittingState(true);

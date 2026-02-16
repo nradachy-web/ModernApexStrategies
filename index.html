@@ -1947,13 +1947,13 @@
     <span class="nav-logo-text">Modern Apex Strategies</span>
   </a>
   <ul class="nav-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="process.html">Process</a></li>
-    <li><a href="results.html">Results</a></li>
-    <li><a href="reviews.html">Reviews</a></li>
-    <li><a href="team.html">Team</a></li>
-    <li><a href="faq.html">FAQ</a></li>
-    <li><a href="index.html#strategy" class="nav-cta" onclick="gtag('event','click',{event_category:'CTA',event_label:'Nav - Start Your Strategy'})">Start Your Strategy</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/process/">Process</a></li>
+    <li><a href="/results/">Results</a></li>
+    <li><a href="/reviews/">Reviews</a></li>
+    <li><a href="/team/">Team</a></li>
+    <li><a href="/faq/">FAQ</a></li>
+    <li><a href="/strategy/" class="nav-cta" onclick="gtag('event','click',{event_category:'CTA',event_label:'Nav - Start Your Strategy'})">Start Your Strategy</a></li>
   </ul>
   <button class="mobile-nav-toggle" id="mobileNavToggle" type="button" aria-label="Open navigation menu" aria-controls="mobileNavPanel" aria-expanded="false">
     <span></span>
@@ -1963,13 +1963,13 @@
 </nav>
 <div class="mobile-nav-backdrop" id="mobileNavBackdrop" aria-hidden="true"></div>
 <div class="mobile-nav-panel" id="mobileNavPanel" aria-hidden="true">
-  <a href="services.html">Services</a>
-  <a href="process.html">Process</a>
-  <a href="results.html">Results</a>
-  <a href="reviews.html">Reviews</a>
-  <a href="team.html">Team</a>
-  <a href="faq.html">FAQ</a>
-  <a href="index.html#strategy" class="mobile-nav-cta" onclick="gtag('event','click',{event_category:'CTA',event_label:'Mobile Nav - Start Your Strategy'})">Start Your Strategy</a>
+  <a href="/services/">Services</a>
+  <a href="/process/">Process</a>
+  <a href="/results/">Results</a>
+  <a href="/reviews/">Reviews</a>
+  <a href="/team/">Team</a>
+  <a href="/faq/">FAQ</a>
+  <a href="/strategy/" class="mobile-nav-cta" onclick="gtag('event','click',{event_category:'CTA',event_label:'Mobile Nav - Start Your Strategy'})">Start Your Strategy</a>
 </div>
 
 <!-- Hero -->
@@ -1984,8 +1984,8 @@
     <h1>Google Ads that <em>actually</em> drive revenue</h1>
     <p>We manage high-performance campaigns for growth-stage businesses. No fluff, no vanity metrics — just measurable ROI.</p>
     <div class="hero-buttons">
-      <a href="index.html#strategy" class="btn-primary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Hero - Build Your Strategy'})">Build Your Strategy <span>→</span></a>
-      <a href="results.html" class="btn-secondary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Hero - See Our Results'})">See Our Results</a>
+      <a href="/strategy/" class="btn-primary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Hero - Build Your Strategy'})">Build Your Strategy <span>→</span></a>
+      <a href="/results/" class="btn-secondary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Hero - See Our Results'})">See Our Results</a>
     </div>
   </div>
 </section>
@@ -2482,7 +2482,7 @@
 <section class="cta-banner">
   <h2>Ready to scale your growth?</h2>
   <p>Get a free strategy session and custom campaign roadmap.</p>
-  <a href="#strategy" class="btn-primary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Banner - Start Your Strategy'})">Start Your Strategy →</a>
+  <a href="/strategy/" class="btn-primary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Banner - Start Your Strategy'})">Start Your Strategy →</a>
 </section>
 
 <!-- Footer -->
@@ -2604,6 +2604,27 @@
   };
   window.addEventListener('load', () => setTimeout(alignHashTarget, 0));
   window.addEventListener('hashchange', () => setTimeout(alignHashTarget, 0));
+
+  // Clean route support: /services/, /process/, etc.
+  const sectionFromQuery = new URLSearchParams(window.location.search).get('section');
+  const routeSections = new Set(['services', 'process', 'results', 'reviews', 'team', 'faq', 'strategy']);
+  if (sectionFromQuery && routeSections.has(sectionFromQuery)) {
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const target = document.getElementById(sectionFromQuery);
+        const nav = document.querySelector('nav');
+        if (target) {
+          const offset = nav ? nav.getBoundingClientRect().height + 12 : 0;
+          const y = window.scrollY + target.getBoundingClientRect().top - offset;
+          window.scrollTo({ top: Math.max(0, y), behavior: 'auto' });
+        }
+        const cleanPath = `/${sectionFromQuery}/`;
+        if (window.location.pathname !== cleanPath || window.location.search) {
+          window.history.replaceState({}, '', cleanPath);
+        }
+      }, 0);
+    }, { once: true });
+  }
 
   // Strategy funnel
   const strategyForm = document.getElementById('strategyForm');

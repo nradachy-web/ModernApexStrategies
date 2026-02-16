@@ -47,6 +47,7 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     body {
@@ -102,15 +103,15 @@
       gap: 0.65rem;
       text-decoration: none;
       color: var(--text);
-      flex-shrink: 0;
+      min-width: 0;
     }
 
     .brand-icon {
-      width: 30px;
       height: 30px;
+      width: auto;
       display: block;
-      color: var(--text);
-      opacity: 0.95;
+      object-fit: contain;
+      flex-shrink: 0;
     }
 
     .brand-text {
@@ -118,6 +119,8 @@
       font-weight: 700;
       letter-spacing: -0.02em;
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .nav-links {
@@ -862,6 +865,14 @@
         display: none;
       }
 
+      .brand {
+        max-width: calc(100% - 56px);
+      }
+
+      .brand-text {
+        font-size: 1.02rem;
+      }
+
       .nav-links {
         display: none;
       }
@@ -927,10 +938,7 @@
   <nav class="site-nav" aria-label="Main navigation">
     <div class="site-nav-inner">
       <a href="/" class="brand" aria-label="Modern Apex Strategies home">
-        <svg class="brand-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <path d="M7 49 23 18l9 14 7-10 18 27h-9l-9-14-7 9-9-12-9 17H7Z" fill="currentColor"/>
-          <path d="M19 49 33 27l4 6-10 16h-8Z" fill="currentColor" opacity="0.75"/>
-        </svg>
+        <img src="/assets/logo-modern-apex.png" alt="" class="brand-icon" aria-hidden="true">
         <span class="brand-text">Modern Apex Strategies</span>
       </a>
 

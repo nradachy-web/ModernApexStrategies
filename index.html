@@ -1898,65 +1898,65 @@
 
     <form class="funnel-form" id="strategyForm" novalidate>
       <div class="funnel-panel active" data-step="1">
-        <h3>Business Snapshot</h3>
-        <p>Step 1 of 4. Give us the core details so we can tailor your strategy plan.</p>
+        <h3>Business Information</h3>
+        <p>Step 1 of 4.</p>
         <div class="form-group">
           <label for="funnelBusiness">Business Name <span class="req">*</span></label>
-          <input id="funnelBusiness" name="business_name" type="text" placeholder="Your business name" required>
+          <input id="funnelBusiness" name="entry.2106943644" type="text" placeholder="Your business name" required>
         </div>
         <div class="form-group">
           <label for="funnelWebsite">Website <span class="req">*</span></label>
-          <input id="funnelWebsite" name="website" type="text" placeholder="yourdomain.com" required>
+          <input id="funnelWebsite" name="entry.2121495189" type="text" placeholder="yourdomain.com" required>
         </div>
         <div class="form-group">
-          <label for="funnelServices">Core Services Offered <span class="req">*</span></label>
-          <textarea id="funnelServices" name="services" placeholder="Examples: Roofing, HVAC, Landscaping, Plumbing, Med Spa" required></textarea>
+          <label for="funnelServices">Services <span class="req">*</span></label>
+          <textarea id="funnelServices" name="entry.1433799951" placeholder="List your services" required></textarea>
         </div>
         <div class="form-group">
-          <label for="funnelStrategyNotes">Important Service Notes <span class="req">*</span></label>
-          <textarea id="funnelStrategyNotes" name="strategy_notes" placeholder="Anything we should avoid or emphasize" required></textarea>
+          <label for="funnelStrategyNotes">What You Do Not Offer <span class="req">*</span></label>
+          <textarea id="funnelStrategyNotes" name="entry.1913911702" placeholder="Example: We do not offer Meta Ads" required></textarea>
         </div>
       </div>
 
       <div class="funnel-panel" data-step="2">
         <h3>Audience Details</h3>
-        <p>Step 2 of 4. Define who you want to attract and who is not the right fit.</p>
+        <p>Step 2 of 4.</p>
         <div class="form-group">
           <label for="funnelIdealCustomer">Ideal Customers <span class="req">*</span></label>
-          <textarea id="funnelIdealCustomer" name="ideal_customer" placeholder="Your highest-value customer profile" required></textarea>
+          <textarea id="funnelIdealCustomer" name="entry.533825556" placeholder="Describe your ideal customers" required></textarea>
         </div>
         <div class="form-group">
           <label for="funnelNonIdealCustomer">Non-Ideal Customers <span class="req">*</span></label>
-          <textarea id="funnelNonIdealCustomer" name="non_ideal_customer" placeholder="Leads you do not want to target" required></textarea>
+          <textarea id="funnelNonIdealCustomer" name="entry.559745165" placeholder="Describe customers you do not want" required></textarea>
         </div>
         <div class="form-group">
           <label for="funnelPrimaryLocation">Primary Market <span class="req">*</span></label>
-          <input id="funnelPrimaryLocation" name="primary_location" type="text" placeholder="Main country or region" required>
+          <input id="funnelPrimaryLocation" name="entry.1529976769" type="text" placeholder="Main country or region" required>
         </div>
         <div class="form-group">
           <label for="funnelSecondaryLocation">Secondary Markets <span class="req">*</span></label>
-          <input id="funnelSecondaryLocation" name="secondary_location" type="text" placeholder="Additional countries or regions" required>
+          <input id="funnelSecondaryLocation" name="entry.786584099" type="text" placeholder="Additional countries or regions" required>
         </div>
       </div>
 
       <div class="funnel-panel" data-step="3">
         <h3>Positioning And Proof</h3>
-        <p>Step 3 of 4. Share your niche and what builds trust with buyers.</p>
+        <p>Step 3 of 4.</p>
         <div class="form-group">
-          <label for="funnelIndustryFocus">Primary Industry Focus <span class="req">*</span></label>
-          <input id="funnelIndustryFocus" name="industry_focus" type="text" placeholder="Industries you serve best" required>
+          <label for="funnelIndustryFocus">Industry Focus <span class="req">*</span></label>
+          <input id="funnelIndustryFocus" name="entry.1552136455" type="text" placeholder="Industries you serve best" required>
         </div>
         <div class="form-group">
-          <label for="funnelCredentialPrimary">Primary Credibility Point <span class="req">*</span></label>
-          <input id="funnelCredentialPrimary" name="credential_primary" type="text" placeholder="Main trust signal (award, certification, etc.)" required>
+          <label for="funnelCredentialPrimary">Primary Credential <span class="req">*</span></label>
+          <input id="funnelCredentialPrimary" name="entry.1439045767" type="text" placeholder="Main credential or trust signal" required>
         </div>
         <div class="form-group">
-          <label for="funnelCredentialSecondary">Secondary Credibility Point <span class="req">*</span></label>
-          <input id="funnelCredentialSecondary" name="credential_secondary" type="text" placeholder="Additional trust signal" required>
+          <label for="funnelCredentialSecondary">Secondary Credential <span class="req">*</span></label>
+          <input id="funnelCredentialSecondary" name="entry.1654001695" type="text" placeholder="Additional credential" required>
         </div>
         <div class="form-group">
           <label for="funnelAdditionalNotes">Additional Context <span class="req">*</span></label>
-          <textarea id="funnelAdditionalNotes" name="additional_notes" placeholder="Anything else we should know" required></textarea>
+          <textarea id="funnelAdditionalNotes" name="entry.804264223" placeholder="Anything else we should know" required></textarea>
         </div>
       </div>
 
@@ -1965,7 +1965,7 @@
         <p>Step 4 of 4. One last answer before submission.</p>
         <div class="form-group">
           <label for="funnelMetaAds">Do You Currently Offer Meta Ads? <span class="req">*</span></label>
-          <select id="funnelMetaAds" name="meta_ads" required>
+          <select id="funnelMetaAds" name="entry.908662757" required>
             <option value="">Select one</option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
@@ -2462,26 +2462,10 @@
       postForm.target = frameId;
       postForm.style.display = 'none';
 
-      const entryMap = [
-        ['businessName', values.businessName],
-        ['website', values.website],
-        ['services', values.services],
-        ['strategyNotes', values.strategyNotes],
-        ['idealCustomer', values.idealCustomer],
-        ['nonIdealCustomer', values.nonIdealCustomer],
-        ['primaryLocation', values.primaryLocation],
-        ['secondaryLocation', values.secondaryLocation],
-        ['industryFocus', values.industryFocus],
-        ['credentialPrimary', values.credentialPrimary],
-        ['credentialSecondary', values.credentialSecondary],
-        ['additionalNotes', values.additionalNotes],
-        ['metaAds', values.metaAds]
-      ];
-
-      entryMap.forEach(([fieldKey, value]) => {
+      Object.entries(values).forEach(([entryName, value]) => {
         const input = document.createElement('input');
         input.type = 'hidden';
-        input.name = googleFields[fieldKey];
+        input.name = entryName;
         input.value = value;
         postForm.appendChild(input);
       });
@@ -2497,21 +2481,10 @@
       if (!validateCurrentStep()) return;
 
       const formData = new FormData(strategyForm);
-      const values = {
-        businessName: String(formData.get('business_name') || '').trim(),
-        website: String(formData.get('website') || '').trim(),
-        services: String(formData.get('services') || '').trim(),
-        strategyNotes: String(formData.get('strategy_notes') || '').trim(),
-        idealCustomer: String(formData.get('ideal_customer') || '').trim(),
-        nonIdealCustomer: String(formData.get('non_ideal_customer') || '').trim(),
-        primaryLocation: String(formData.get('primary_location') || '').trim(),
-        secondaryLocation: String(formData.get('secondary_location') || '').trim(),
-        industryFocus: String(formData.get('industry_focus') || '').trim(),
-        credentialPrimary: String(formData.get('credential_primary') || '').trim(),
-        credentialSecondary: String(formData.get('credential_secondary') || '').trim(),
-        additionalNotes: String(formData.get('additional_notes') || '').trim(),
-        metaAds: String(formData.get('meta_ads') || '').trim()
-      };
+      const values = {};
+      Object.values(googleFields).forEach((entryName) => {
+        values[entryName] = String(formData.get(entryName) || '').trim();
+      });
 
       if (Object.values(values).some((value) => !value)) {
         errorEl.textContent = 'Please complete every field before submitting.';

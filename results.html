@@ -6,7 +6,7 @@
   <title>Results | Modern Apex Strategies</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="pages.css">
 </head>
 <body data-page="results">
@@ -26,9 +26,9 @@
 
   <main class="page">
     <section class="hero-block" data-reveal="1">
-      <div class="eyebrow">Results Lab</div>
-      <h1 class="hero-title">See how Google Ads can <em>scale</em> your business</h1>
-      <p class="hero-copy">This widget estimates how budget, conversion quality, and close rate combine into revenue. Use it as a planning tool before your strategy call.</p>
+      <div class="eyebrow">Results</div>
+      <h1 class="hero-title">Simple proof of how Google Ads can <em>scale</em> revenue</h1>
+      <p class="hero-copy">No complicated tools here. Just real numbers, real outcomes, and a clear view of what performance can look like when campaigns are managed correctly.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="index.html#strategy">Build My Campaign</a>
         <a class="btn btn-secondary" href="reviews.html">Read Reviews</a>
@@ -36,90 +36,45 @@
     </section>
 
     <section class="section" data-reveal="2">
-      <h2>Google Ads Growth Simulator</h2>
-      <p>Adjust the campaign assumptions and watch the forecast update in real time.</p>
+      <h2>Performance Snapshot</h2>
+      <p>A clean look at outcomes from real campaign management.</p>
 
-      <div class="simulator">
-        <div class="panel">
-          <h3>Inputs</h3>
-          <form id="adsSimulator" class="control-list" onsubmit="return false;">
-            <div class="control">
-              <label for="budget">Monthly ad budget <output id="budgetValue" for="budget"></output></label>
-              <input id="budget" name="budget" type="range" min="2000" max="50000" step="500" value="8000">
-            </div>
-            <div class="control">
-              <label for="cpc">Average cost per click <output id="cpcValue" for="cpc"></output></label>
-              <input id="cpc" name="cpc" type="range" min="2" max="25" step="1" value="6">
-            </div>
-            <div class="control">
-              <label for="conversionRate">Landing page conversion rate <output id="conversionRateValue" for="conversionRate"></output></label>
-              <input id="conversionRate" name="conversionRate" type="range" min="3" max="35" step="1" value="14">
-            </div>
-            <div class="control">
-              <label for="closeRate">Sales close rate <output id="closeRateValue" for="closeRate"></output></label>
-              <input id="closeRate" name="closeRate" type="range" min="5" max="60" step="1" value="24">
-            </div>
-            <div class="control">
-              <label for="averageSale">Average deal value <output id="averageSaleValue" for="averageSale"></output></label>
-              <input id="averageSale" name="averageSale" type="range" min="500" max="15000" step="100" value="2500">
-            </div>
-            <div class="control">
-              <label for="monthGrowth">Monthly budget growth <output id="monthGrowthValue" for="monthGrowth"></output></label>
-              <input id="monthGrowth" name="monthGrowth" type="range" min="0" max="25" step="1" value="8">
-            </div>
-          </form>
-        </div>
-
-        <div class="panel">
-          <h3>Projected Monthly Performance</h3>
-          <div class="metric-grid">
-            <div class="metric">
-              <div class="label">Clicks</div>
-              <div class="value" id="clicksValue">0</div>
-            </div>
-            <div class="metric">
-              <div class="label">Leads</div>
-              <div class="value" id="leadsValue">0</div>
-            </div>
-            <div class="metric">
-              <div class="label">Customers</div>
-              <div class="value" id="customersValue">0</div>
-            </div>
-            <div class="metric">
-              <div class="label">Revenue</div>
-              <div class="value" id="revenueValue">$0</div>
-            </div>
-            <div class="metric">
-              <div class="label">ROAS</div>
-              <div class="value" id="roasValue">0x</div>
-            </div>
-            <div class="metric">
-              <div class="label">CAC</div>
-              <div class="value" id="cacValue">$0</div>
-            </div>
-          </div>
-
-          <div class="growth-wrap">
-            <p class="growth-title">12-Month Revenue Trend</p>
-            <div class="growth-bars" id="growthBars" aria-label="Projected revenue chart"></div>
-            <p class="growth-summary" id="growthSummary"></p>
-          </div>
-        </div>
+      <div class="stats-grid">
+        <article class="stat-card">
+          <div class="stat-value">4.2x</div>
+          <div class="stat-label">Average ROI</div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-value">$1.2M+</div>
+          <div class="stat-label">Ad Spend Managed</div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-value">5.0</div>
+          <div class="stat-label">Google Rating</div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-value">&lt;24h</div>
+          <div class="stat-label">Response Time</div>
+        </article>
       </div>
+    </section>
 
-      <div class="kpi-band">
-        <div class="kpi">
-          <div class="value">$83,656</div>
-          <div class="text">Peak monthly revenue in one local service case study.</div>
-        </div>
-        <div class="kpi">
-          <div class="value">10x</div>
-          <div class="text">Revenue growth over two years with compounding optimization.</div>
-        </div>
-        <div class="kpi">
-          <div class="value">&lt; 24h</div>
-          <div class="text">Average response speed when leads are routed correctly.</div>
-        </div>
+    <section class="section" data-reveal="3">
+      <h2>How Scaling Happens</h2>
+      <p>Three simple levers create growth: better traffic, better conversion, and better follow-up.</p>
+      <div class="result-flow">
+        <article class="flow-card">
+          <h3>1. Higher Intent Traffic</h3>
+          <p>Campaign structure and keyword control reduce wasted clicks and bring in buyers, not browsers.</p>
+        </article>
+        <article class="flow-card">
+          <h3>2. Better Lead Conversion</h3>
+          <p>Landing pages and offers are aligned to intent so more visitors become calls and form submissions.</p>
+        </article>
+        <article class="flow-card">
+          <h3>3. Faster Follow-Up</h3>
+          <p>When response speed improves, close rate improves. This is where lead volume turns into actual revenue.</p>
+        </article>
       </div>
     </section>
   </main>

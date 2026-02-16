@@ -440,6 +440,46 @@
     animation: fadeInUp 0.8s ease 0.4s both;
   }
 
+  .hero-trust-row {
+    margin-top: 1.15rem;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeInUp 0.8s ease 0.52s both;
+  }
+
+  .hero-trust-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.52rem 0.85rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.16);
+    background: rgba(255,255,255,0.03);
+    color: var(--light-gray);
+    text-decoration: none;
+    font-size: 0.73rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+  }
+
+  .hero-trust-pill:hover {
+    border-color: rgba(93,211,158,0.45);
+    background: rgba(93,211,158,0.14);
+    transform: translateY(-1px);
+  }
+
+  .hero-trust-pill .signal {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 14px rgba(93,211,158,0.45);
+  }
+
   .btn-primary {
     background: var(--red);
     color: var(--white);
@@ -535,24 +575,84 @@
 
   .ticker-track {
     display: flex;
-    animation: scroll 40s linear infinite;
+    align-items: center;
+    animation: scroll 48s linear infinite;
     width: max-content;
   }
 
-  .ticker-track span {
+  .ticker-brand {
     flex-shrink: 0;
-    padding: 0 1.8rem;
-    font-size: 1.3rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0 1.45rem;
+    font-size: 1.02rem;
     font-weight: 700;
-    color: rgba(255,255,255,0.75);
+    color: rgba(255,255,255,0.78);
     letter-spacing: 0.02em;
     white-space: nowrap;
   }
 
+  .ticker-track > span:not(.dot),
+  .ticker-track-reverse > span:not(.dot) {
+    flex-shrink: 0;
+    padding: 0 1.45rem;
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.78);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  .ticker-brand-logo-wrap {
+    min-width: 28px;
+    height: 28px;
+    padding: 0 0.42rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.16);
+    background: rgba(255,255,255,0.04);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .ticker-brand-logo-wrap.has-logo {
+    border-color: rgba(255,255,255,0.22);
+    background: rgba(255,255,255,0.08);
+    min-width: 94px;
+    padding: 0.2rem 0.58rem;
+  }
+
+  .ticker-brand-logo {
+    width: auto;
+    max-width: 122px;
+    height: 100%;
+    object-fit: contain;
+    display: none;
+  }
+
+  .ticker-brand-logo-wrap.has-logo .ticker-brand-logo {
+    display: block;
+  }
+
+  .ticker-brand-initials {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.85);
+    text-transform: uppercase;
+  }
+
+  .ticker-brand-logo-wrap.has-logo .ticker-brand-initials {
+    display: none;
+  }
+
   .ticker-track span.dot {
     color: var(--red);
-    font-size: 1.5rem;
-    padding: 0 1rem;
+    font-size: 1.2rem;
+    padding: 0 0.75rem;
   }
 
   .ticker-wrap {
@@ -562,24 +662,15 @@
 
   .ticker-track-reverse {
     display: flex;
-    animation: scroll-reverse 30s linear infinite;
+    align-items: center;
+    animation: scroll-reverse 36s linear infinite;
     width: max-content;
-  }
-
-  .ticker-track-reverse span {
-    flex-shrink: 0;
-    padding: 0 1.8rem;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: rgba(255,255,255,0.75);
-    letter-spacing: 0.02em;
-    white-space: nowrap;
   }
 
   .ticker-track-reverse span.dot {
     color: var(--red);
-    font-size: 1.5rem;
-    padding: 0 1rem;
+    font-size: 1.2rem;
+    padding: 0 0.75rem;
   }
 
   @keyframes scroll {
@@ -1903,7 +1994,7 @@
       overflow: hidden;
     }
     body {
-      padding-bottom: calc(var(--safe-bottom) + 88px);
+      padding-bottom: var(--safe-bottom);
     }
     body::before {
       content: '';
@@ -1948,13 +2039,39 @@
       grid-template-columns: 1fr;
       gap: 1.2rem;
     }
+    .funnel-section {
+      padding: 4.6rem 0.8rem;
+    }
+    .funnel-inner {
+      max-width: 100%;
+    }
     .funnel-form-card,
     .booking-card {
-      padding: 1.2rem 1rem;
+      padding: 1.15rem 0.95rem;
       border-radius: 12px;
     }
     .booking-card {
       position: static;
+    }
+    .ticker-brand {
+      font-size: 0.9rem;
+      padding: 0 1rem;
+      gap: 0.5rem;
+    }
+    .ticker-brand-logo-wrap {
+      min-width: 23px;
+      height: 23px;
+      padding: 0 0.35rem;
+      border-radius: 7px;
+    }
+    .ticker-brand-logo-wrap.has-logo {
+      min-width: 68px;
+      padding: 0.16rem 0.4rem;
+    }
+    .ticker-track span.dot,
+    .ticker-track-reverse span.dot {
+      font-size: 1.05rem;
+      padding: 0 0.55rem;
     }
     .funnel-steps {
       justify-content: flex-start;
@@ -1976,10 +2093,21 @@
       width: 100%;
     }
     .calendly-inline-widget {
-      height: 620px !important;
+      height: min(66vh, 560px) !important;
     }
     .mobile-book-bar {
-      display: flex;
+      display: none;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .calendly-embed {
+      display: none;
+    }
+    .booking-note {
+      margin-top: 0.95rem;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.82rem;
     }
   }
 
@@ -2097,6 +2225,65 @@
     margin: 0 auto;
   }
 
+  .trust-badge-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+
+  .trust-badge-card {
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.02);
+    padding: 0.7rem 0.6rem 0.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: var(--light-gray);
+    min-height: 130px;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  }
+
+  .trust-badge-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(93,211,158,0.45);
+    background: rgba(93,211,158,0.08);
+  }
+
+  .trust-badge-card img {
+    width: 100%;
+    max-width: 130px;
+    max-height: 66px;
+    object-fit: contain;
+    margin: 0 auto 0.45rem;
+  }
+
+  .trust-badge-card.google-badge img {
+    max-height: 74px;
+  }
+
+  .trust-badge-card span {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--gray);
+    line-height: 1.4;
+  }
+
+  .partner-proof-note {
+    margin-top: 1rem;
+    padding: 0.7rem 0.8rem;
+    border: 1px solid rgba(93,211,158,0.25);
+    border-radius: 10px;
+    background: rgba(93,211,158,0.08);
+    color: #ceffe5;
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
   .partner-content h3 {
     font-family: var(--serif);
     font-size: 1.5rem;
@@ -2133,6 +2320,15 @@
 
   @media (max-width: 900px) {
     .partner-inner { flex-direction: column; text-align: center; }
+    .partner-badge { width: 100%; max-width: 520px; }
+    .trust-badge-grid { width: 100%; }
+    .hero-trust-row { width: 100%; gap: 0.55rem; }
+    .hero-trust-pill {
+      justify-content: center;
+      width: 100%;
+      font-size: 0.69rem;
+      letter-spacing: 0.07em;
+    }
   }
 
 </style>
@@ -2201,72 +2397,64 @@
   <div class="ticker-label">Trusted by ambitious brands</div>
   <div class="ticker-wrap">
   <div class="ticker-track">
-    <span>Dynagen Lending</span><span class="dot">✦</span>
-    <span>Premier Paving</span><span class="dot">✦</span>
-    <span>Ole Man RB's Tree Service</span><span class="dot">✦</span>
-    <span>HancZark Chiropractic</span><span class="dot">✦</span>
-    <span>Ricky Wraps</span><span class="dot">✦</span>
-    <span>Wicked Metallics</span><span class="dot">✦</span>
-    <span>RPM Auto Lab</span><span class="dot">✦</span>
-    <span>Maximum Lending Co</span><span class="dot">✦</span>
-    <span>Chili Pepper's Tanning & Wellness</span><span class="dot">✦</span>
-    <span>Blue Heron Electrical</span><span class="dot">✦</span>
-    <span>Supersun Electrical Services</span><span class="dot">✦</span>
-    <span>Origin Electric</span><span class="dot">✦</span>
-    <span>Nelligans Lawn & Landscape</span><span class="dot">✦</span>
     <span>Ace Outdoor Services</span><span class="dot">✦</span>
-    <span>A&L Landscaping</span><span class="dot">✦</span>
-    <span>Dynagen Lending</span><span class="dot">✦</span>
-    <span>Premier Paving</span><span class="dot">✦</span>
-    <span>Ole Man RB's Tree Service</span><span class="dot">✦</span>
-    <span>HancZark Chiropractic</span><span class="dot">✦</span>
-    <span>Ricky Wraps</span><span class="dot">✦</span>
-    <span>Wicked Metallics</span><span class="dot">✦</span>
-    <span>RPM Auto Lab</span><span class="dot">✦</span>
-    <span>Maximum Lending Co</span><span class="dot">✦</span>
+    <span>Camp Landscape Management</span><span class="dot">✦</span>
     <span>Chili Pepper's Tanning & Wellness</span><span class="dot">✦</span>
-    <span>Blue Heron Electrical</span><span class="dot">✦</span>
-    <span>Supersun Electrical Services</span><span class="dot">✦</span>
-    <span>Origin Electric</span><span class="dot">✦</span>
-    <span>Nelligans Lawn & Landscape</span><span class="dot">✦</span>
+    <span>DC Lawn & Snow</span><span class="dot">✦</span>
+    <span>Dynagen Lending</span><span class="dot">✦</span>
+    <span>The Epoxy Guys</span><span class="dot">✦</span>
+    <span>Green Mile Lawn Care</span><span class="dot">✦</span>
+    <span>Hanczark Chiropractic</span><span class="dot">✦</span>
+    <span>HD Landscape</span><span class="dot">✦</span>
+    <span>Matrix Epoxy Flooring</span><span class="dot">✦</span>
+    <span>MatrixLed Lighting</span><span class="dot">✦</span>
+    <span>Maximum Lending</span><span class="dot">✦</span>
+    <span>Miller's Landscape & Supply</span><span class="dot">✦</span>
+    <span>Miller's Property Service</span><span class="dot">✦</span>
     <span>Ace Outdoor Services</span><span class="dot">✦</span>
-    <span>A&L Landscaping</span><span class="dot">✦</span>
+    <span>Camp Landscape Management</span><span class="dot">✦</span>
+    <span>Chili Pepper's Tanning & Wellness</span><span class="dot">✦</span>
+    <span>DC Lawn & Snow</span><span class="dot">✦</span>
+    <span>Dynagen Lending</span><span class="dot">✦</span>
+    <span>The Epoxy Guys</span><span class="dot">✦</span>
+    <span>Green Mile Lawn Care</span><span class="dot">✦</span>
+    <span>Hanczark Chiropractic</span><span class="dot">✦</span>
+    <span>HD Landscape</span><span class="dot">✦</span>
+    <span>Matrix Epoxy Flooring</span><span class="dot">✦</span>
+    <span>MatrixLed Lighting</span><span class="dot">✦</span>
+    <span>Maximum Lending</span><span class="dot">✦</span>
+    <span>Miller's Landscape & Supply</span><span class="dot">✦</span>
+    <span>Miller's Property Service</span><span class="dot">✦</span>
   </div>
   </div>
   <div class="ticker-wrap">
   <div class="ticker-track-reverse">
-    <span>Hd Landscape</span><span class="dot">✦</span>
-    <span>Millers Property Services</span><span class="dot">✦</span>
-    <span>Blade Runners Landscaping</span><span class="dot">✦</span>
-    <span>Priority Landscaping</span><span class="dot">✦</span>
+    <span>Nelligan's Lawnscapes</span><span class="dot">✦</span>
+    <span>Ole Man RB's Tree Service</span><span class="dot">✦</span>
+    <span>Origin Electric</span><span class="dot">✦</span>
+    <span>Petty Shine</span><span class="dot">✦</span>
+    <span>Premier Paving</span><span class="dot">✦</span>
+    <span>One Stop Customs Auto Spa</span><span class="dot">✦</span>
+    <span>RPM Auto Lab</span><span class="dot">✦</span>
+    <span>The Shine Brothers</span><span class="dot">✦</span>
+    <span>Supersun Electrical Services</span><span class="dot">✦</span>
     <span>Top Choice Detailing</span><span class="dot">✦</span>
-    <span>Petty Shine LLC</span><span class="dot">✦</span>
-    <span>Shine Brothers LLC</span><span class="dot">✦</span>
-    <span>Camp Landscape Management</span><span class="dot">✦</span>
-    <span>The Epoxy Guys</span><span class="dot">✦</span>
-    <span>DC Lawn & Snow</span><span class="dot">✦</span>
     <span>Treasured Earth</span><span class="dot">✦</span>
-    <span>Triple D Landscaping</span><span class="dot">✦</span>
-    <span>Green Mile Lawn Care</span><span class="dot">✦</span>
-    <span>Brightworks Facility Services</span><span class="dot">✦</span>
-    <span>Millers Landscape Supply</span><span class="dot">✦</span>
-    <span>Matrix Led Lighting</span><span class="dot">✦</span>
-    <span>Hd Landscape</span><span class="dot">✦</span>
-    <span>Millers Property Services</span><span class="dot">✦</span>
-    <span>Blade Runners Landscaping</span><span class="dot">✦</span>
-    <span>Priority Landscaping</span><span class="dot">✦</span>
+    <span>Wicked Metallics</span><span class="dot">✦</span>
+    <span>Blue Heron Electrical</span><span class="dot">✦</span>
+    <span>Nelligan's Lawnscapes</span><span class="dot">✦</span>
+    <span>Ole Man RB's Tree Service</span><span class="dot">✦</span>
+    <span>Origin Electric</span><span class="dot">✦</span>
+    <span>Petty Shine</span><span class="dot">✦</span>
+    <span>Premier Paving</span><span class="dot">✦</span>
+    <span>One Stop Customs Auto Spa</span><span class="dot">✦</span>
+    <span>RPM Auto Lab</span><span class="dot">✦</span>
+    <span>The Shine Brothers</span><span class="dot">✦</span>
+    <span>Supersun Electrical Services</span><span class="dot">✦</span>
     <span>Top Choice Detailing</span><span class="dot">✦</span>
-    <span>Petty Shine LLC</span><span class="dot">✦</span>
-    <span>Shine Brothers LLC</span><span class="dot">✦</span>
-    <span>Camp Landscape Management</span><span class="dot">✦</span>
-    <span>The Epoxy Guys</span><span class="dot">✦</span>
-    <span>DC Lawn & Snow</span><span class="dot">✦</span>
     <span>Treasured Earth</span><span class="dot">✦</span>
-    <span>Triple D Landscaping</span><span class="dot">✦</span>
-    <span>Green Mile Lawn Care</span><span class="dot">✦</span>
-    <span>Brightworks Facility Services</span><span class="dot">✦</span>
-    <span>Millers Landscape Supply</span><span class="dot">✦</span>
-    <span>Matrix Led Lighting</span><span class="dot">✦</span>
+    <span>Wicked Metallics</span><span class="dot">✦</span>
+    <span>Blue Heron Electrical</span><span class="dot">✦</span>
   </div>
   </div>
 </div>
@@ -2409,7 +2597,7 @@
           <div class="calendly-inline-widget" data-url="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" style="min-width:320px;height:700px;"></div>
           <!-- Calendly inline widget end -->
         </div>
-        <p class="booking-note">Prefer forms? You can still submit your campaign details on the left.</p>
+        <p class="booking-note">On mobile, use the full-screen calendar button above for the smoothest booking flow. Prefer forms? You can still submit your campaign details on the left.</p>
       </aside>
     </div>
   </div>
@@ -2848,6 +3036,155 @@
       }, 0);
     }, { once: true });
   }
+
+  // Ticker logos with local asset + web fallback
+  const decorateTickerWithLogos = () => {
+    const brandLogoFiles = {
+      'Ace Outdoor Services': 'ace-outdoor-services',
+      'Camp Landscape Management': 'camp-landscape-management',
+      "Chili Pepper's Tanning & Wellness": 'chili-peppers-tanning-and-wellness',
+      'DC Lawn & Snow': 'dc-lawn-and-snow',
+      'Dynagen Lending': 'dynagen-lending',
+      'The Epoxy Guys': 'the-epoxy-guys',
+      'Green Mile Lawn Care': 'green-mile-lawn-care',
+      'Hanczark Chiropractic': 'hanczark-chiropractic',
+      'HD Landscape': 'hd-landscape',
+      'Matrix Epoxy Flooring': 'matrix-epoxy-flooring',
+      'MatrixLed Lighting': 'matrixled-lighting',
+      'Maximum Lending': 'maximum-lending',
+      "Miller's Landscape & Supply": 'millers-landscape-and-supply',
+      "Miller's Property Service": 'millers-property-service',
+      "Nelligan's Lawnscapes": 'nelligans-lawnscapes',
+      "Ole Man RB's Tree Service": 'ole-man-rbs-tree-service',
+      'Origin Electric': 'origin-electric',
+      'Petty Shine': 'petty-shine',
+      'Premier Paving': 'premier-paving',
+      'One Stop Customs Auto Spa': 'one-stop-customs-auto-spa',
+      'RPM Auto Lab': 'rpm-auto-lab',
+      'The Shine Brothers': 'the-shine-brothers',
+      'Supersun Electrical Services': 'supersun-electrical-services',
+      'Top Choice Detailing': 'top-choice-detailing',
+      'Treasured Earth': 'treasured-earth',
+      'Wicked Metallics': 'wicked-metallics',
+      'Blue Heron Electrical': 'blue-heron-electrical'
+    };
+
+    const brandDomains = {
+      'Ace Outdoor Services': 'aceoutdoorservices.com',
+      'Camp Landscape Management': 'camplandscapemanagement.com',
+      "Chili Pepper's Tanning & Wellness": 'chilipepperstanningandwellness.com',
+      'DC Lawn & Snow': 'dclawnandsnow.com',
+      'Dynagen Lending': 'dynagenlending.com',
+      'The Epoxy Guys': 'theepoxyguy.com',
+      'Green Mile Lawn Care': 'greenmilelawncare.com',
+      'Hanczark Chiropractic': 'hanczarkchiropractic.com',
+      'HD Landscape': 'hdlandscape.com',
+      'Matrix Epoxy Flooring': 'matrixepoxyflooring.com',
+      'MatrixLed Lighting': 'matrixledlighting.com',
+      'Maximum Lending': 'maximumlendingco.com',
+      "Miller's Landscape & Supply": 'millerslandscapeandsupply.com',
+      "Miller's Property Service": 'millerspropertyservice.com',
+      "Nelligan's Lawnscapes": 'nelliganslawncare.com',
+      "Ole Man RB's Tree Service": 'olemanrbstreeservice.com',
+      'Origin Electric': 'originelectric.com',
+      'Petty Shine': 'pettyshine.com',
+      'Premier Paving': 'premierpaving.com',
+      'One Stop Customs Auto Spa': 'onestopcustomsautospa.com',
+      'RPM Auto Lab': 'rpmautolab.com',
+      'The Shine Brothers': 'theshinebrothers.com',
+      'Supersun Electrical Services': 'supersunelectricalservices.com',
+      'Top Choice Detailing': 'topchoicedetailing.com',
+      'Treasured Earth': 'treasuredearthlandscape.com',
+      'Wicked Metallics': 'wickedmetallics.com',
+      'Blue Heron Electrical': 'blueheronelectrical.com',
+      'Ricky Wraps': 'rickywraps.com'
+    };
+
+    const localLogoExtensions = ['png', 'webp', 'jpg', 'jpeg', 'svg'];
+
+    const getInitials = (name) => {
+      const words = name.replace(/&/g, ' ').replace(/[^a-zA-Z0-9 ]/g, ' ').split(/\s+/).filter(Boolean);
+      if (!words.length) return 'BR';
+      const initials = words.slice(0, 2).map((word) => word[0].toUpperCase()).join('');
+      return initials || 'BR';
+    };
+
+    const getLogoSources = (brandName) => {
+      const sources = [];
+
+      const localFile = brandLogoFiles[brandName];
+      if (localFile) {
+        localLogoExtensions.forEach((extension) => {
+          sources.push(`assets/brands/${localFile}.${extension}`);
+        });
+      }
+
+      const domain = brandDomains[brandName];
+      if (domain) {
+        sources.push(`https://logo.clearbit.com/${domain}`);
+        sources.push(`https://icons.duckduckgo.com/ip3/${domain}.ico`);
+        sources.push(`https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=128`);
+      }
+
+      return sources;
+    };
+
+    const tickerNames = document.querySelectorAll('.ticker-track > span:not(.dot):not(.ticker-brand), .ticker-track-reverse > span:not(.dot):not(.ticker-brand)');
+    tickerNames.forEach((node) => {
+      const brandName = node.textContent.trim();
+      if (!brandName) return;
+
+      const chip = document.createElement('span');
+      chip.className = 'ticker-brand';
+
+      const logoWrap = document.createElement('span');
+      logoWrap.className = 'ticker-brand-logo-wrap';
+
+      const initials = document.createElement('span');
+      initials.className = 'ticker-brand-initials';
+      initials.textContent = getInitials(brandName);
+      logoWrap.appendChild(initials);
+
+      const logoSources = getLogoSources(brandName);
+      if (logoSources.length) {
+        const logo = document.createElement('img');
+        logo.className = 'ticker-brand-logo';
+        logo.alt = `${brandName} logo`;
+        logo.loading = 'lazy';
+        logo.decoding = 'async';
+        logo.referrerPolicy = 'no-referrer';
+
+        let sourceIndex = 0;
+
+        const tryNextSource = () => {
+          sourceIndex += 1;
+          if (sourceIndex < logoSources.length) {
+            logo.src = logoSources[sourceIndex];
+          }
+        };
+
+        logo.addEventListener('load', () => {
+          if (logo.naturalWidth < 18 || logo.naturalHeight < 18) {
+            tryNextSource();
+            return;
+          }
+          logoWrap.classList.add('has-logo');
+        });
+
+        logo.addEventListener('error', tryNextSource);
+        logo.src = logoSources[sourceIndex];
+        logoWrap.appendChild(logo);
+      }
+
+      const text = document.createElement('span');
+      text.textContent = brandName;
+
+      chip.append(logoWrap, text);
+      node.replaceWith(chip);
+    });
+  };
+
+  decorateTickerWithLogos();
 
   // Strategy funnel
   const strategyForm = document.getElementById('strategyForm');

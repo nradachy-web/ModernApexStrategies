@@ -1901,6 +1901,10 @@
         <h3>Business Information</h3>
         <p>Step 1 of 4.</p>
         <div class="form-group">
+          <label for="funnelLeadEmail">Contact Email <span class="req">*</span></label>
+          <input id="funnelLeadEmail" name="lead_email" type="email" placeholder="you@company.com" required>
+        </div>
+        <div class="form-group">
           <label for="funnelBusiness">Business Name <span class="req">*</span></label>
           <input id="funnelBusiness" name="entry.2106943644" type="text" placeholder="Your business name" required>
         </div>
@@ -2485,11 +2489,15 @@
       Object.values(googleFields).forEach((entryName) => {
         values[entryName] = String(formData.get(entryName) || '').trim();
       });
+      const leadEmail = String(formData.get('lead_email') || '').trim();
 
-      if (Object.values(values).some((value) => !value)) {
+      if (!leadEmail || Object.values(values).some((value) => !value)) {
         errorEl.textContent = 'Please complete every field before submitting.';
         return;
       }
+
+      const additionalNotesEntry = googleFields.additionalNotes;
+      values[additionalNotesEntry] = `Contact Email: ${leadEmail}\n${values[additionalNotesEntry]}`;
 
       try {
         setSubmittingState(true);

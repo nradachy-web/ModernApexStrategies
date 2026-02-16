@@ -3106,6 +3106,7 @@
     };
 
     const localLogoExtensions = ['png', 'webp', 'jpg', 'jpeg', 'svg'];
+    const logoAssetVersion = '20260216';
 
     const getInitials = (name) => {
       const words = name.replace(/&/g, ' ').replace(/[^a-zA-Z0-9 ]/g, ' ').split(/\s+/).filter(Boolean);
@@ -3170,7 +3171,7 @@
       localPaths.forEach((basePath) => {
         localLogoSources.forEach((stem) => {
           localLogoExtensions.forEach((extension) => {
-            sources.push(`${basePath}/${stem}.${extension}`);
+            sources.push(`${basePath}/${stem}.${extension}?v=${logoAssetVersion}`);
           });
         });
       });

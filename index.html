@@ -30,6 +30,8 @@
     --dark-card-hover: #1c1c1c;
     --red: #e63946;
     --red-glow: rgba(230, 57, 70, 0.3);
+    --green: #5dd39e;
+    --green-glow: rgba(93, 211, 158, 0.28);
     --white: #ffffff;
     --gray: #888888;
     --light-gray: #cccccc;
@@ -262,6 +264,59 @@
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
+  }
+
+  .mobile-book-bar {
+    display: none;
+    position: fixed;
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: calc(var(--safe-bottom) + 0.75rem);
+    z-index: 1097;
+    gap: 0.65rem;
+    padding: 0.55rem;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(9,10,13,0.92);
+    box-shadow: 0 14px 34px rgba(0,0,0,0.42);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .mobile-book-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.72rem 0.8rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: transform 0.25s ease, opacity 0.25s ease, background 0.25s ease;
+  }
+
+  .mobile-book-btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .mobile-book-btn-plan {
+    color: #b8ffd9;
+    background: rgba(93,211,158,0.16);
+    border: 1px solid rgba(93,211,158,0.35);
+  }
+
+  .mobile-book-btn-book {
+    color: var(--white);
+    background: var(--red);
+    box-shadow: 0 8px 20px rgba(230,57,70,0.32);
+  }
+
+  body.mobile-nav-open .mobile-book-bar {
+    opacity: 0;
+    pointer-events: none;
   }
 
   /* ============ HERO ============ */
@@ -556,7 +611,7 @@
   }
 
   .funnel-inner {
-    max-width: 750px;
+    max-width: 1160px;
     margin: 0 auto;
     text-align: center;
     position: relative;
@@ -597,8 +652,28 @@
   .funnel-inner > p {
     color: var(--gray);
     font-size: 1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2.4rem;
     line-height: 1.6;
+  }
+
+  .funnel-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 430px);
+    gap: 1.8rem;
+    align-items: start;
+  }
+
+  .funnel-form-card,
+  .booking-card {
+    background: linear-gradient(150deg, rgba(22,22,22,0.94), rgba(9,11,17,0.96));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.35);
+  }
+
+  .funnel-form-card {
+    text-align: left;
   }
 
   /* Steps */
@@ -668,8 +743,8 @@
   /* Form */
   .funnel-form {
     text-align: left;
-    max-width: 580px;
-    margin: 0 auto;
+    max-width: none;
+    margin: 0;
   }
 
   .funnel-form h3 {
@@ -795,6 +870,103 @@
 
   .funnel-actions .btn-primary {
     padding: 1rem 2.5rem;
+  }
+
+  .booking-card {
+    text-align: left;
+    position: sticky;
+    top: calc(var(--anchor-offset) + 0.8rem);
+    border-color: rgba(93,211,158,0.25);
+  }
+
+  .booking-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--green);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.9rem;
+  }
+
+  .booking-kicker::before {
+    content: '';
+    width: 18px;
+    height: 2px;
+    background: var(--green);
+    box-shadow: 0 0 14px var(--green-glow);
+  }
+
+  .booking-card h3 {
+    font-family: var(--serif);
+    font-size: 1.75rem;
+    line-height: 1.15;
+    margin-bottom: 0.8rem;
+  }
+
+  .booking-card p {
+    color: var(--gray);
+    font-size: 0.94rem;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+
+  .booking-benefits {
+    list-style: none;
+    display: grid;
+    gap: 0.6rem;
+    margin: 0.6rem 0 1.2rem;
+  }
+
+  .booking-benefits li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    color: var(--light-gray);
+    font-size: 0.87rem;
+    line-height: 1.45;
+  }
+
+  .booking-benefits li .check {
+    color: var(--green);
+    font-weight: 700;
+  }
+
+  .booking-open-link {
+    width: 100%;
+    justify-content: center;
+    border-color: rgba(93,211,158,0.4);
+    background: rgba(93,211,158,0.12);
+    color: #ceffe5;
+    font-weight: 600;
+  }
+
+  .booking-open-link:hover {
+    background: rgba(93,211,158,0.2);
+    border-color: rgba(93,211,158,0.6);
+  }
+
+  .calendly-embed {
+    margin-top: 1rem;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: #0d1016;
+  }
+
+  .calendly-inline-widget {
+    width: 100%;
+    min-width: 100% !important;
+    height: 700px;
+  }
+
+  .booking-note {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.58);
   }
 
   .funnel-error,
@@ -1730,6 +1902,9 @@
     body.mobile-nav-open {
       overflow: hidden;
     }
+    body {
+      padding-bottom: calc(var(--safe-bottom) + 88px);
+    }
     body::before {
       content: '';
       position: fixed;
@@ -1769,6 +1944,27 @@
     .nav-logo-text { font-size: 1.05rem; }
     .process-step { flex-direction: column; text-align: center; align-items: center; }
     .process-num::after { display: none; }
+    .funnel-layout {
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+    }
+    .funnel-form-card,
+    .booking-card {
+      padding: 1.2rem 1rem;
+      border-radius: 12px;
+    }
+    .booking-card {
+      position: static;
+    }
+    .funnel-steps {
+      justify-content: flex-start;
+      overflow-x: auto;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1.8rem;
+    }
+    .funnel-step-line {
+      min-width: 40px;
+    }
     .funnel-options { grid-template-columns: 1fr; }
     .funnel-actions {
       flex-direction: column;
@@ -1778,6 +1974,12 @@
     .funnel-actions .btn-secondary {
       justify-content: center;
       width: 100%;
+    }
+    .calendly-inline-widget {
+      height: 620px !important;
+    }
+    .mobile-book-bar {
+      display: flex;
     }
   }
 
@@ -1971,6 +2173,10 @@
   <a href="/faq/">FAQ</a>
   <a href="/strategy/" class="mobile-nav-cta" onclick="gtag('event','click',{event_category:'CTA',event_label:'Mobile Nav - Start Your Strategy'})">Start Your Strategy</a>
 </div>
+<div class="mobile-book-bar" aria-label="Quick booking actions">
+  <a href="#strategy" class="mobile-book-btn mobile-book-btn-plan" onclick="gtag('event','click',{event_category:'CTA',event_label:'Mobile Sticky - Build Plan'})">Build Plan</a>
+  <a href="#calendlyWidget" class="mobile-book-btn mobile-book-btn-book" onclick="gtag('event','click',{event_category:'CTA',event_label:'Mobile Sticky - Book Call'})">Book Call</a>
+</div>
 
 <!-- Hero -->
 <section class="hero">
@@ -2070,120 +2276,142 @@
   <div class="funnel-inner reveal">
     <div class="section-label"><span class="line"></span> Build Your Campaign</div>
     <h2>Your Google Ads <em>Strategy</em> starts here</h2>
-    <p>Answer a few questions so we can build a custom campaign roadmap for your business. Takes about 3 minutes.</p>
+    <p>Answer a few questions so we can build a custom campaign roadmap for your business, or skip ahead and book your strategy call right now.</p>
 
-    <div class="funnel-steps">
-      <div class="funnel-step active">
-        <div class="funnel-step-num">1</div>
-        <div class="funnel-step-label">Basics</div>
+    <div class="funnel-layout">
+      <div class="funnel-form-card">
+        <div class="funnel-steps">
+          <div class="funnel-step active">
+            <div class="funnel-step-num">1</div>
+            <div class="funnel-step-label">Basics</div>
+          </div>
+          <div class="funnel-step-line"></div>
+          <div class="funnel-step">
+            <div class="funnel-step-num">2</div>
+            <div class="funnel-step-label">Services</div>
+          </div>
+          <div class="funnel-step-line"></div>
+          <div class="funnel-step">
+            <div class="funnel-step-num">3</div>
+            <div class="funnel-step-label">Audience</div>
+          </div>
+          <div class="funnel-step-line"></div>
+          <div class="funnel-step">
+            <div class="funnel-step-num">4</div>
+            <div class="funnel-step-label">Strategy</div>
+          </div>
+        </div>
+
+        <form class="funnel-form" id="strategyForm" novalidate>
+          <div class="funnel-panel active" data-step="1">
+            <h3>Business Information</h3>
+            <p>Step 1 of 4.</p>
+            <div class="form-group">
+              <label for="funnelLeadEmail">Contact Email <span class="req">*</span></label>
+              <input id="funnelLeadEmail" name="lead_email" type="email" placeholder="you@company.com" required>
+            </div>
+            <div class="form-group">
+              <label for="funnelBusiness">Business Name <span class="req">*</span></label>
+              <input id="funnelBusiness" name="entry.2106943644" type="text" placeholder="Your business name" required>
+            </div>
+            <div class="form-group">
+              <label for="funnelWebsite">Website <span class="req">*</span></label>
+              <input id="funnelWebsite" name="entry.2121495189" type="text" placeholder="yourdomain.com" required>
+            </div>
+            <div class="form-group">
+              <label for="funnelServices">Services <span class="req">*</span></label>
+              <textarea id="funnelServices" name="entry.1433799951" placeholder="List your services" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="funnelStrategyNotes">What You Do Not Offer <span class="req">*</span></label>
+              <textarea id="funnelStrategyNotes" name="entry.1913911702" placeholder="Example: We do not offer Meta Ads" required></textarea>
+            </div>
+          </div>
+
+          <div class="funnel-panel" data-step="2">
+            <h3>Audience Details</h3>
+            <p>Step 2 of 4.</p>
+            <div class="form-group">
+              <label for="funnelIdealCustomer">Ideal Customers <span class="req">*</span></label>
+              <textarea id="funnelIdealCustomer" name="entry.533825556" placeholder="Describe your ideal customers" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="funnelNonIdealCustomer">Non-Ideal Customers <span class="req">*</span></label>
+              <textarea id="funnelNonIdealCustomer" name="entry.559745165" placeholder="Describe customers you do not want" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="funnelPrimaryLocation">Primary Market <span class="req">*</span></label>
+              <input id="funnelPrimaryLocation" name="entry.1529976769" type="text" placeholder="Main country or region" required>
+            </div>
+            <div class="form-group">
+              <label for="funnelSecondaryLocation">Secondary Markets <span class="req">*</span></label>
+              <input id="funnelSecondaryLocation" name="entry.786584099" type="text" placeholder="Additional countries or regions" required>
+            </div>
+          </div>
+
+          <div class="funnel-panel" data-step="3">
+            <h3>Positioning And Proof</h3>
+            <p>Step 3 of 4.</p>
+            <div class="form-group">
+              <label for="funnelIndustryFocus">Industry Focus <span class="req">*</span></label>
+              <input id="funnelIndustryFocus" name="entry.1552136455" type="text" placeholder="Industries you serve best" required>
+            </div>
+            <div class="form-group">
+              <label for="funnelCredentialPrimary">Primary Credential <span class="req">*</span></label>
+              <input id="funnelCredentialPrimary" name="entry.1439045767" type="text" placeholder="Main credential or trust signal" required>
+            </div>
+            <div class="form-group">
+              <label for="funnelCredentialSecondary">Secondary Credential <span class="req">*</span></label>
+              <input id="funnelCredentialSecondary" name="entry.1654001695" type="text" placeholder="Additional credential" required>
+            </div>
+            <div class="form-group">
+              <label for="funnelAdditionalNotes">Additional Context <span class="req">*</span></label>
+              <textarea id="funnelAdditionalNotes" name="entry.804264223" placeholder="Anything else we should know" required></textarea>
+            </div>
+          </div>
+
+          <div class="funnel-panel" data-step="4">
+            <h3>Final Detail</h3>
+            <p>Step 4 of 4. One last answer before submission.</p>
+            <div class="form-group">
+              <label for="funnelMetaAds">Do You Currently Offer Meta Ads? <span class="req">*</span></label>
+              <select id="funnelMetaAds" name="entry.908662757" required>
+                <option value="">Select one</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+          </div>
+
+          <p class="funnel-error" id="funnelError" aria-live="polite"></p>
+          <p class="funnel-success" id="funnelSuccess" aria-live="polite"></p>
+
+          <div class="funnel-actions">
+            <button type="button" class="btn-secondary" id="funnelBack" hidden>Back</button>
+            <button type="button" class="btn-primary" id="funnelNext">Next Step <span>→</span></button>
+            <button type="submit" class="btn-primary" id="funnelSubmit" hidden>Get Strategy Plan <span>→</span></button>
+          </div>
+        </form>
       </div>
-      <div class="funnel-step-line"></div>
-      <div class="funnel-step">
-        <div class="funnel-step-num">2</div>
-        <div class="funnel-step-label">Services</div>
-      </div>
-      <div class="funnel-step-line"></div>
-      <div class="funnel-step">
-        <div class="funnel-step-num">3</div>
-        <div class="funnel-step-label">Audience</div>
-      </div>
-      <div class="funnel-step-line"></div>
-      <div class="funnel-step">
-        <div class="funnel-step-num">4</div>
-        <div class="funnel-step-label">Strategy</div>
-      </div>
+
+      <aside class="booking-card">
+        <div class="booking-kicker">Book Instantly</div>
+        <h3>Skip the form and lock in a strategy call now.</h3>
+        <p>If you are ready to talk growth, pick a time directly on our calendar and we will meet 1:1.</p>
+        <ul class="booking-benefits">
+          <li><span class="check">✓</span>15-minute fit and growth call</li>
+          <li><span class="check">✓</span>No pressure, no long sales pitch</li>
+          <li><span class="check">✓</span>Clear next-step plan after the call</li>
+        </ul>
+        <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="btn-secondary booking-open-link" onclick="gtag('event','click',{event_category:'CTA',event_label:'Strategy - Open Calendly Fullscreen'})">Open Full-Screen Calendar</a>
+        <div class="calendly-embed" id="calendlyWidget">
+          <!-- Calendly inline widget begin -->
+          <div class="calendly-inline-widget" data-url="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" style="min-width:320px;height:700px;"></div>
+          <!-- Calendly inline widget end -->
+        </div>
+        <p class="booking-note">Prefer forms? You can still submit your campaign details on the left.</p>
+      </aside>
     </div>
-
-    <form class="funnel-form" id="strategyForm" novalidate>
-      <div class="funnel-panel active" data-step="1">
-        <h3>Business Information</h3>
-        <p>Step 1 of 4.</p>
-        <div class="form-group">
-          <label for="funnelLeadEmail">Contact Email <span class="req">*</span></label>
-          <input id="funnelLeadEmail" name="lead_email" type="email" placeholder="you@company.com" required>
-        </div>
-        <div class="form-group">
-          <label for="funnelBusiness">Business Name <span class="req">*</span></label>
-          <input id="funnelBusiness" name="entry.2106943644" type="text" placeholder="Your business name" required>
-        </div>
-        <div class="form-group">
-          <label for="funnelWebsite">Website <span class="req">*</span></label>
-          <input id="funnelWebsite" name="entry.2121495189" type="text" placeholder="yourdomain.com" required>
-        </div>
-        <div class="form-group">
-          <label for="funnelServices">Services <span class="req">*</span></label>
-          <textarea id="funnelServices" name="entry.1433799951" placeholder="List your services" required></textarea>
-        </div>
-        <div class="form-group">
-          <label for="funnelStrategyNotes">What You Do Not Offer <span class="req">*</span></label>
-          <textarea id="funnelStrategyNotes" name="entry.1913911702" placeholder="Example: We do not offer Meta Ads" required></textarea>
-        </div>
-      </div>
-
-      <div class="funnel-panel" data-step="2">
-        <h3>Audience Details</h3>
-        <p>Step 2 of 4.</p>
-        <div class="form-group">
-          <label for="funnelIdealCustomer">Ideal Customers <span class="req">*</span></label>
-          <textarea id="funnelIdealCustomer" name="entry.533825556" placeholder="Describe your ideal customers" required></textarea>
-        </div>
-        <div class="form-group">
-          <label for="funnelNonIdealCustomer">Non-Ideal Customers <span class="req">*</span></label>
-          <textarea id="funnelNonIdealCustomer" name="entry.559745165" placeholder="Describe customers you do not want" required></textarea>
-        </div>
-        <div class="form-group">
-          <label for="funnelPrimaryLocation">Primary Market <span class="req">*</span></label>
-          <input id="funnelPrimaryLocation" name="entry.1529976769" type="text" placeholder="Main country or region" required>
-        </div>
-        <div class="form-group">
-          <label for="funnelSecondaryLocation">Secondary Markets <span class="req">*</span></label>
-          <input id="funnelSecondaryLocation" name="entry.786584099" type="text" placeholder="Additional countries or regions" required>
-        </div>
-      </div>
-
-      <div class="funnel-panel" data-step="3">
-        <h3>Positioning And Proof</h3>
-        <p>Step 3 of 4.</p>
-        <div class="form-group">
-          <label for="funnelIndustryFocus">Industry Focus <span class="req">*</span></label>
-          <input id="funnelIndustryFocus" name="entry.1552136455" type="text" placeholder="Industries you serve best" required>
-        </div>
-        <div class="form-group">
-          <label for="funnelCredentialPrimary">Primary Credential <span class="req">*</span></label>
-          <input id="funnelCredentialPrimary" name="entry.1439045767" type="text" placeholder="Main credential or trust signal" required>
-        </div>
-        <div class="form-group">
-          <label for="funnelCredentialSecondary">Secondary Credential <span class="req">*</span></label>
-          <input id="funnelCredentialSecondary" name="entry.1654001695" type="text" placeholder="Additional credential" required>
-        </div>
-        <div class="form-group">
-          <label for="funnelAdditionalNotes">Additional Context <span class="req">*</span></label>
-          <textarea id="funnelAdditionalNotes" name="entry.804264223" placeholder="Anything else we should know" required></textarea>
-        </div>
-      </div>
-
-      <div class="funnel-panel" data-step="4">
-        <h3>Final Detail</h3>
-        <p>Step 4 of 4. One last answer before submission.</p>
-        <div class="form-group">
-          <label for="funnelMetaAds">Do You Currently Offer Meta Ads? <span class="req">*</span></label>
-          <select id="funnelMetaAds" name="entry.908662757" required>
-            <option value="">Select one</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-      </div>
-
-      <p class="funnel-error" id="funnelError" aria-live="polite"></p>
-      <p class="funnel-success" id="funnelSuccess" aria-live="polite"></p>
-
-      <div class="funnel-actions">
-        <button type="button" class="btn-secondary" id="funnelBack" hidden>Back</button>
-        <button type="button" class="btn-primary" id="funnelNext">Next Step <span>→</span></button>
-        <button type="submit" class="btn-primary" id="funnelSubmit" hidden>Get Strategy Plan <span>→</span></button>
-      </div>
-    </form>
   </div>
 </section>
 
@@ -2484,6 +2712,7 @@
   <p>© 2026 ModernApex Strategies. All rights reserved.</p>
 </footer>
 
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script>
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');

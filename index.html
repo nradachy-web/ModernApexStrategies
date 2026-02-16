@@ -3179,6 +3179,22 @@
       return sources;
     };
 
+    const optimizeSparseTrack = (track) => {
+      if (!track) return;
+      const brandCount = track.querySelectorAll('.ticker-brand').length;
+      if (brandCount > 4) return;
+
+      track.style.animation = 'none';
+      track.style.transform = 'translateX(0)';
+      track.style.width = '100%';
+      track.style.justifyContent = 'center';
+
+      // With only a handful of brands, separator dots add clutter.
+      if (brandCount <= 2) {
+        track.querySelectorAll('span.dot').forEach((dot) => dot.remove());
+      }
+    };
+
     const cleanupTrack = (track) => {
       if (!track) return;
 
@@ -3196,7 +3212,10 @@
       const wrap = track.closest('.ticker-wrap');
       if (wrap && !track.querySelector('.ticker-brand')) {
         wrap.remove();
+        return;
       }
+
+      optimizeSparseTrack(track);
     };
 
     const tickerNames = document.querySelectorAll('.ticker-track > span:not(.dot):not(.ticker-brand), .ticker-track-reverse > span:not(.dot):not(.ticker-brand)');

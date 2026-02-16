@@ -3073,7 +3073,7 @@
     }, { once: true });
   }
 
-  // Ticker logos with local asset + web fallback
+  // Ticker logos from local assets only
   const decorateTickerWithLogos = () => {
     const brandLogoFiles = {
       'Ace Outdoor Services': ['ace-outdoor-services', 'aceoutdoorservices', 'aceoutdoorservices'],
@@ -3103,37 +3103,6 @@
       'Treasured Earth': ['treasured-earth', 'treasuredearth'],
       'Wicked Metallics': ['wicked-metallics', 'wickedmetallics'],
       'Blue Heron Electrical': ['blue-heron-electrical', 'blueheronelectrical', 'blueheron']
-    };
-
-    const brandDomains = {
-      'Ace Outdoor Services': 'aceoutdoorservices.com',
-      'Camp Landscape Management': 'camplandscapemanagement.com',
-      "Chili Pepper's Tanning & Wellness": 'chilipepperstanningandwellness.com',
-      'DC Lawn & Snow': 'dclawnandsnow.com',
-      'Dynagen Lending': 'dynagenlending.com',
-      'The Epoxy Guys': 'theepoxyguy.com',
-      'Green Mile Lawn Care': 'greenmilelawncare.com',
-      'Hanczark Chiropractic': 'hanczarkchiropractic.com',
-      'HD Landscape': 'hdlandscape.com',
-      'Matrix Epoxy Flooring': 'matrixepoxyflooring.com',
-      'MatrixLed Lighting': 'matrixledlighting.com',
-      'Maximum Lending': 'maximumlendingco.com',
-      "Miller's Landscape & Supply": 'millerslandscapeandsupply.com',
-      "Miller's Property Service": 'millerspropertyservice.com',
-      "Nelligan's Lawnscapes": 'nelliganslawncare.com',
-      "Ole Man RB's Tree Service": 'olemanrbstreeservice.com',
-      'Origin Electric': 'originelectric.com',
-      'Petty Shine': 'pettyshine.com',
-      'Premier Paving': 'premierpaving.com',
-      'One Stop Customs Auto Spa': 'onestopcustomsautospa.com',
-      'RPM Auto Lab': 'rpmautolab.com',
-      'The Shine Brothers': 'theshinebrothers.com',
-      'Supersun Electrical Services': 'supersunelectricalservices.com',
-      'Top Choice Detailing': 'topchoicedetailing.com',
-      'Treasured Earth': 'treasuredearthlandscape.com',
-      'Wicked Metallics': 'wickedmetallics.com',
-      'Blue Heron Electrical': 'blueheronelectrical.com',
-      'Ricky Wraps': 'rickywraps.com'
     };
 
     const localLogoExtensions = ['png', 'webp', 'jpg', 'jpeg', 'svg'];
@@ -3206,20 +3175,34 @@
         });
       });
 
-      const domain = brandDomains[brandName];
-      if (domain) {
-        sources.push(`https://logo.clearbit.com/${domain}`);
-        sources.push(`https://icons.duckduckgo.com/ip3/${domain}.ico`);
-        sources.push(`https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=128`);
-      }
-
       return sources;
+    };
+
+    const cleanupTrack = (track) => {
+      if (!track) return;
+
+      const dots = Array.from(track.querySelectorAll('span.dot'));
+      dots.forEach((dot) => {
+        const prev = dot.previousElementSibling;
+        const next = dot.nextElementSibling;
+        const prevIsBrand = Boolean(prev && prev.classList.contains('ticker-brand'));
+        const nextIsBrand = Boolean(next && next.classList.contains('ticker-brand'));
+        if (!(prevIsBrand && nextIsBrand)) {
+          dot.remove();
+        }
+      });
+
+      const wrap = track.closest('.ticker-wrap');
+      if (wrap && !track.querySelector('.ticker-brand')) {
+        wrap.remove();
+      }
     };
 
     const tickerNames = document.querySelectorAll('.ticker-track > span:not(.dot):not(.ticker-brand), .ticker-track-reverse > span:not(.dot):not(.ticker-brand)');
     tickerNames.forEach((node) => {
       const brandName = node.textContent.trim();
       if (!brandName) return;
+      const track = node.parentElement;
 
       const chip = document.createElement('span');
       chip.className = 'ticker-brand';
@@ -3233,35 +3216,42 @@
       logoWrap.appendChild(initials);
 
       const logoSources = getLogoSources(brandName);
-      if (logoSources.length) {
-        const logo = document.createElement('img');
-        logo.className = 'ticker-brand-logo';
-        logo.alt = `${brandName} logo`;
-        logo.loading = 'lazy';
-        logo.decoding = 'async';
-        logo.referrerPolicy = 'no-referrer';
-
-        let sourceIndex = 0;
-
-        const tryNextSource = () => {
-          sourceIndex += 1;
-          if (sourceIndex < logoSources.length) {
-            logo.src = logoSources[sourceIndex];
-          }
-        };
-
-        logo.addEventListener('load', () => {
-          if (logo.naturalWidth < 18 || logo.naturalHeight < 18) {
-            tryNextSource();
-            return;
-          }
-          logoWrap.classList.add('has-logo');
-        });
-
-        logo.addEventListener('error', tryNextSource);
-        logo.src = logoSources[sourceIndex];
-        logoWrap.appendChild(logo);
+      if (!logoSources.length) {
+        node.remove();
+        cleanupTrack(track);
+        return;
       }
+
+      const logo = document.createElement('img');
+      logo.className = 'ticker-brand-logo';
+      logo.alt = `${brandName} logo`;
+      logo.loading = 'lazy';
+      logo.decoding = 'async';
+      logo.referrerPolicy = 'no-referrer';
+
+      let sourceIndex = 0;
+
+      const tryNextSource = () => {
+        sourceIndex += 1;
+        if (sourceIndex < logoSources.length) {
+          logo.src = logoSources[sourceIndex];
+          return;
+        }
+        chip.remove();
+        cleanupTrack(track);
+      };
+
+      logo.addEventListener('load', () => {
+        if (logo.naturalWidth < 18 || logo.naturalHeight < 18) {
+          tryNextSource();
+          return;
+        }
+        logoWrap.classList.add('has-logo');
+      });
+
+      logo.addEventListener('error', tryNextSource);
+      logo.src = logoSources[sourceIndex];
+      logoWrap.appendChild(logo);
 
       const text = document.createElement('span');
       text.textContent = brandName;
@@ -3269,6 +3259,10 @@
       chip.append(logoWrap, text);
       node.replaceWith(chip);
     });
+
+    window.setTimeout(() => {
+      document.querySelectorAll('.ticker-track, .ticker-track-reverse').forEach(cleanupTrack);
+    }, 2400);
   };
 
   decorateTickerWithLogos();

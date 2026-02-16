@@ -3111,13 +3111,54 @@
 
     const getLogoSources = (brandName) => {
       const sources = [];
+      const localLogoSources = new Set();
+
+      const addLocalStem = (value) => {
+        if (typeof value !== 'string') return;
+        const stem = value.trim().toLowerCase();
+        if (!stem) return;
+        localLogoSources.add(stem);
+      };
 
       const localFile = brandLogoFiles[brandName];
       if (localFile) {
-        localLogoExtensions.forEach((extension) => {
-          sources.push(`assets/brands/${localFile}.${extension}`);
-        });
+        addLocalStem(localFile);
+        addLocalStem(localFile.replace(/-/g, ''));
       }
+
+      const words = brandName
+        .toLowerCase()
+        .replace(/&/g, ' and ')
+        .replace(/[^a-z0-9 ]+/g, ' ')
+        .split(/\s+/)
+        .filter(Boolean);
+
+      const trimmedWords = words.filter((word) => !['the', 'and', 'llc', 'inc', 'co', 'company', 'services', 'service'].includes(word));
+      if (words.length) {
+        addLocalStem(words.join('-'));
+        addLocalStem(words.join(''));
+        if (words.length > 1) {
+          addLocalStem(words.slice(0, 2).join('-'));
+          addLocalStem(words.slice(0, 2).join(''));
+        }
+      }
+      if (trimmedWords.length) {
+        addLocalStem(trimmedWords.join('-'));
+        addLocalStem(trimmedWords.join(''));
+        if (trimmedWords.length > 1) {
+          addLocalStem(trimmedWords.slice(0, 2).join('-'));
+          addLocalStem(trimmedWords.slice(0, 2).join(''));
+        }
+      }
+
+      const localPaths = ['assets/badges', 'assets/brands'];
+      localPaths.forEach((basePath) => {
+        localLogoSources.forEach((stem) => {
+          localLogoExtensions.forEach((extension) => {
+            sources.push(`${basePath}/${stem}.${extension}`);
+          });
+        });
+      });
 
       const domain = brandDomains[brandName];
       if (domain) {

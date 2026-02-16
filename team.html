@@ -4,12 +4,229 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Team | Modern Apex Strategies</title>
-  <meta http-equiv="refresh" content="0; url=index.html#team">
-  <script>
-    window.location.replace('index.html#team');
-  </script>
+  <meta name="description" content="Meet the Modern Apex Strategies team.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --dark-card: #161616;
+      --red: #e63946;
+      --white: #ffffff;
+      --gray: #9b9b9b;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--sans);
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 3.5rem 1.25rem 4rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .back-link:hover {
+      color: var(--white);
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      line-height: 1.1;
+      margin-bottom: 0.65rem;
+    }
+
+    .subtitle {
+      color: var(--gray);
+      margin-bottom: 2rem;
+      max-width: 680px;
+      line-height: 1.6;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .team-card {
+      background: linear-gradient(180deg, #181818 0%, #111111 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 1.1rem;
+    }
+
+    .photo-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #121212;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 0.95rem;
+    }
+
+    .photo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 28%;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
+      pointer-events: none;
+    }
+
+    .photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      line-height: 1.2;
+      margin-bottom: 0.35rem;
+    }
+
+    .role {
+      color: var(--red);
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+    }
+
+    .bio {
+      color: #c4c4c4;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .fallback {
+      margin-top: 1.5rem;
+      color: var(--gray);
+      font-size: 0.92rem;
+    }
+
+    .fallback a {
+      color: var(--white);
+    }
+
+    @media (max-width: 920px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-  Redirecting to <a href="index.html#team">Team</a>...
+  <main class="page">
+    <a class="back-link" href="index.html#team">Back To Main Site</a>
+    <h1>Meet The Team</h1>
+    <p class="subtitle">This page pulls the exact same Nick, Emilia, and Griffin photos from the main section to keep both pages fully in sync.</p>
+
+    <section class="team-grid" aria-label="Modern Apex team">
+      <article class="team-card">
+        <div class="photo-wrap">
+          <img id="team-nick" alt="Nicholas Radachy" loading="lazy">
+        </div>
+        <h2>Nick Radachy</h2>
+        <p class="role">Founder</p>
+        <p class="bio">Direct strategy, client leadership, and growth planning.</p>
+      </article>
+
+      <article class="team-card">
+        <div class="photo-wrap">
+          <img id="team-emilia" alt="Emilia Morse" loading="lazy">
+        </div>
+        <h2>Emilia Morse</h2>
+        <p class="role">Marketing Strategist</p>
+        <p class="bio">Campaign research, optimization, and execution support.</p>
+      </article>
+
+      <article class="team-card">
+        <div class="photo-wrap">
+          <img id="team-griffin" alt="Griffin Sibo" loading="lazy">
+        </div>
+        <h2>Griffin Sibo</h2>
+        <p class="role">Sales Leadership</p>
+        <p class="bio">Client communication, positioning, and growth alignment.</p>
+      </article>
+    </section>
+
+    <p class="fallback" id="team-fallback" hidden>
+      If photos do not load, view the <a href="index.html#team">main team section</a>.
+    </p>
+
+    <noscript>
+      <p class="fallback">JavaScript is required for synced photos. Use the <a href="index.html#team">main team section</a>.</p>
+    </noscript>
+  </main>
+
+  <script>
+    const teamImageMap = [
+      { targetId: 'team-nick', sourceAlt: 'Nicholas Radachy' },
+      { targetId: 'team-emilia', sourceAlt: 'Emilia Morse' },
+      { targetId: 'team-griffin', sourceAlt: 'Griffin Sibo' }
+    ];
+
+    async function syncTeamImagesFromIndex() {
+      try {
+        const response = await fetch('index.html', { cache: 'no-store' });
+        if (!response.ok) {
+          throw new Error('Unable to load index.html');
+        }
+
+        const html = await response.text();
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        const teamSection = doc.querySelector('#team');
+        if (!teamSection) {
+          throw new Error('Missing #team section');
+        }
+
+        for (const image of teamImageMap) {
+          const source = teamSection.querySelector(`img[alt="${image.sourceAlt}"]`);
+          const target = document.getElementById(image.targetId);
+
+          if (!source || !source.getAttribute('src') || !target) {
+            throw new Error(`Missing synced image: ${image.sourceAlt}`);
+          }
+
+          target.setAttribute('src', source.getAttribute('src'));
+        }
+      } catch (error) {
+        const fallback = document.getElementById('team-fallback');
+        if (fallback) {
+          fallback.hidden = false;
+        }
+      }
+    }
+
+    syncTeamImagesFromIndex();
+  </script>
 </body>
 </html>

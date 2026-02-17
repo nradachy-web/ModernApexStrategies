@@ -786,69 +786,46 @@
     text-align: left;
   }
 
-  /* Steps */
-  .funnel-steps {
+  /* Progress bar — replaces multi-dot step indicator */
+  .funnel-progress {
+    margin-bottom: 2rem;
+  }
+
+  .funnel-progress-meta {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 0;
-    margin-bottom: 3rem;
-    max-width: 100%;
+    margin-bottom: 0.55rem;
   }
 
-  .funnel-step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.6rem;
-  }
-
-  .funnel-step-num {
-    width: 44px;
-    height: 44px;
-    border: 2px solid rgba(255,255,255,0.15);
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.9rem;
-    transition: all 0.3s;
-  }
-
-  .funnel-step.active .funnel-step-num {
-    border-color: var(--red);
-    color: var(--red);
-    box-shadow: 0 0 20px var(--red-glow);
-  }
-
-  .funnel-step.complete .funnel-step-num {
-    border-color: rgba(230,57,70,0.45);
-    color: rgba(230,57,70,0.9);
-  }
-
-  .funnel-step-label {
+  .funnel-progress-label {
     font-size: 0.7rem;
+    font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    font-weight: 600;
-    color: var(--gray);
-  }
-
-  .funnel-step.active .funnel-step-label {
     color: var(--red);
   }
 
-  .funnel-step.complete .funnel-step-label {
-    color: rgba(255,255,255,0.65);
+  .funnel-progress-count {
+    font-size: 0.7rem;
+    color: var(--gray);
+    font-weight: 600;
   }
 
-  .funnel-step-line {
-    width: 60px;
-    height: 2px;
-    background: rgba(255,255,255,0.1);
-    margin: 0 0.5rem;
-    margin-bottom: 1.5rem;
+  .funnel-progress-track {
+    height: 3px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .funnel-progress-fill {
+    height: 100%;
+    background: var(--red);
+    border-radius: 4px;
+    width: 0%;
+    transition: width 0.4s ease;
+    box-shadow: 0 0 10px rgba(230,57,70,0.5);
   }
 
   /* Form */
@@ -929,11 +906,25 @@
 
   .funnel-panel {
     display: none;
-    animation: fadeInUp 0.25s ease;
   }
 
   .funnel-panel.active {
     display: block;
+    animation: slideInFromRight 0.35s ease forwards;
+  }
+
+  [data-nav-dir="back"] .funnel-panel.active {
+    animation: slideInFromLeft 0.35s ease forwards;
+  }
+
+  @keyframes slideInFromRight {
+    from { opacity: 0; transform: translateX(36px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes slideInFromLeft {
+    from { opacity: 0; transform: translateX(-36px); }
+    to   { opacity: 1; transform: translateX(0); }
   }
 
   .funnel-options {
@@ -2513,19 +2504,11 @@
       font-size: 1.05rem;
       padding: 0 0.55rem;
     }
-    .funnel-steps {
-      justify-content: flex-start;
-      overflow-x: auto;
-      padding-bottom: 0.3rem;
-      margin-bottom: 1.8rem;
-      max-width: 100%;
-      overscroll-behavior-x: contain;
+    .funnel-progress {
+      margin-bottom: 1.5rem;
     }
-    .funnel-step {
-      flex: 0 0 auto;
-    }
-    .funnel-step-line {
-      min-width: 40px;
+    .funnel-progress-label {
+      font-size: 0.65rem;
     }
     .funnel-options { grid-template-columns: 1fr; }
     .funnel-actions {
@@ -2912,112 +2895,137 @@
     <div class="funnel-form-wrap">
       <div class="funnel-form-card">
         <div id="funnelFormContent">
-        <div class="funnel-steps">
-          <div class="funnel-step active">
-            <div class="funnel-step-num">1</div>
-            <div class="funnel-step-label">Basics</div>
+        <div class="funnel-progress">
+          <div class="funnel-progress-meta">
+            <span class="funnel-progress-label" id="funnelProgressLabel">Business Basics</span>
+            <span class="funnel-progress-count" id="funnelProgressCount">1 of 14</span>
           </div>
-          <div class="funnel-step-line"></div>
-          <div class="funnel-step">
-            <div class="funnel-step-num">2</div>
-            <div class="funnel-step-label">Audience</div>
-          </div>
-          <div class="funnel-step-line"></div>
-          <div class="funnel-step">
-            <div class="funnel-step-num">3</div>
-            <div class="funnel-step-label">Campaign</div>
-          </div>
-          <div class="funnel-step-line"></div>
-          <div class="funnel-step">
-            <div class="funnel-step-num">4</div>
-            <div class="funnel-step-label">Details</div>
+          <div class="funnel-progress-track">
+            <div class="funnel-progress-fill" id="funnelProgressFill"></div>
           </div>
         </div>
 
         <form class="funnel-form" id="strategyForm" novalidate>
-          <div class="funnel-panel active" data-step="1">
-            <h3>Business Basics</h3>
-            <p>Step 1 of 4 — Tell us about your business.</p>
+          <!-- Step 1: Email -->
+          <div class="funnel-panel active" data-step="1" data-group="Business Basics">
             <div class="form-group">
-              <label for="funnelLeadEmail">Email <span class="req">*</span></label>
+              <label for="funnelLeadEmail">Work email <span class="req">*</span></label>
+              <small class="form-hint">We'll send your custom campaign roadmap here.</small>
               <input id="funnelLeadEmail" name="emailAddress" type="email" placeholder="you@company.com" required>
             </div>
+          </div>
+
+          <!-- Step 2: Business Name -->
+          <div class="funnel-panel" data-step="2" data-group="Business Basics">
             <div class="form-group">
-              <label for="funnelBusiness">Business Name <span class="req">*</span></label>
+              <label for="funnelBusiness">Business name <span class="req">*</span></label>
               <input id="funnelBusiness" name="entry.2106943644" type="text" placeholder="Your business name" required>
             </div>
+          </div>
+
+          <!-- Step 3: Website -->
+          <div class="funnel-panel" data-step="3" data-group="Business Basics">
             <div class="form-group">
-              <label for="funnelWebsite">Website <span class="req">*</span></label>
+              <label for="funnelWebsite">Website URL <span class="req">*</span></label>
               <input id="funnelWebsite" name="entry.2121495189" type="text" placeholder="yourdomain.com" required>
             </div>
+          </div>
+
+          <!-- Step 4: Core Services -->
+          <div class="funnel-panel" data-step="4" data-group="Business Basics">
             <div class="form-group">
-              <label for="funnelCoreServices">Core Services <span class="req">*</span></label>
-              <small class="form-hint">What services or products are the focus of this campaign? List the main services you want to promote.</small>
+              <label for="funnelCoreServices">Core services to promote <span class="req">*</span></label>
+              <small class="form-hint">What services should this campaign focus on?</small>
               <textarea id="funnelCoreServices" name="entry.1433799951" placeholder="e.g. Roofing, gutters, siding replacement" required></textarea>
             </div>
+          </div>
+
+          <!-- Step 5: Excluded Services -->
+          <div class="funnel-panel" data-step="5" data-group="Business Basics">
             <div class="form-group">
-              <label for="funnelExcludedServices">Excluded Services <span class="req">*</span></label>
-              <small class="form-hint">What services or products should be excluded from our campaign?</small>
+              <label for="funnelExcludedServices">Services to exclude <span class="req">*</span></label>
+              <small class="form-hint">What services should we keep out of the campaign?</small>
               <textarea id="funnelExcludedServices" name="entry.1913911702" placeholder="e.g. Commercial work, emergency repairs" required></textarea>
             </div>
           </div>
 
-          <div class="funnel-panel" data-step="2">
-            <h3>Your Audience</h3>
-            <p>Step 2 of 4 — Define who you want to reach.</p>
+          <!-- Step 6: Ideal Customer -->
+          <div class="funnel-panel" data-step="6" data-group="Your Audience">
             <div class="form-group">
-              <label for="funnelIdealCustomer">Ideal Customer <span class="req">*</span></label>
-              <small class="form-hint">Describe demographic, homeowner vs. business, age, income, etc.</small>
+              <label for="funnelIdealCustomer">Ideal customer <span class="req">*</span></label>
+              <small class="form-hint">Demographic, homeowner vs. business, age range, income level, etc.</small>
               <textarea id="funnelIdealCustomer" name="entry.533825556" placeholder="e.g. Homeowners 35-65, suburban, household income $80k+" required></textarea>
             </div>
+          </div>
+
+          <!-- Step 7: Customers to Avoid -->
+          <div class="funnel-panel" data-step="7" data-group="Your Audience">
             <div class="form-group">
-              <label for="funnelAvoidCustomer">Customer Types to Avoid <span class="req">*</span></label>
+              <label for="funnelAvoidCustomer">Customer types to avoid <span class="req">*</span></label>
               <small class="form-hint">Low-budget jobs, out-of-area calls, commercial vs. residential, etc.</small>
               <textarea id="funnelAvoidCustomer" name="entry.559745165" placeholder="e.g. Apartment complexes, jobs under $500" required></textarea>
             </div>
+          </div>
+
+          <!-- Step 8: Geographic Areas -->
+          <div class="funnel-panel" data-step="8" data-group="Your Audience">
             <div class="form-group">
-              <label for="funnelGeoAreas">Geographic Areas <span class="req">*</span></label>
-              <small class="form-hint">What geographic areas should we target? List cities, counties, ZIP codes, or service radius.</small>
+              <label for="funnelGeoAreas">Target geographic areas <span class="req">*</span></label>
+              <small class="form-hint">Cities, counties, ZIP codes, or service radius.</small>
               <textarea id="funnelGeoAreas" name="entry.1529976769" placeholder="e.g. Austin TX, Travis County, ZIP 78701-78799" required></textarea>
             </div>
+          </div>
+
+          <!-- Step 9: Excluded Locations -->
+          <div class="funnel-panel" data-step="9" data-group="Your Audience">
             <div class="form-group">
-              <label for="funnelExcludedLocations">Excluded Locations <span class="req">*</span></label>
-              <small class="form-hint">What locations should be excluded? City, county, ZIP codes.</small>
+              <label for="funnelExcludedLocations">Locations to exclude <span class="req">*</span></label>
+              <small class="form-hint">Specific cities, counties, or ZIP codes to block.</small>
               <textarea id="funnelExcludedLocations" name="entry.786584099" placeholder="e.g. Round Rock, Cedar Park, ZIP 78613" required></textarea>
             </div>
           </div>
 
-          <div class="funnel-panel" data-step="3">
-            <h3>Campaign Strategy</h3>
-            <p>Step 3 of 4 — Help us build the right messaging.</p>
+          <!-- Step 10: Niches (Optional) -->
+          <div class="funnel-panel" data-step="10" data-group="Campaign Strategy">
             <div class="form-group">
-              <label for="funnelNiches">Customer Groups / Niches</label>
-              <small class="form-hint">Any specific customer groups or niches you want to target? (Optional)</small>
+              <label for="funnelNiches">Customer niches <span style="color:var(--gray);font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+              <small class="form-hint">Specific groups you want to reach — real estate investors, property managers, etc.</small>
               <textarea id="funnelNiches" name="entry.1552136455" placeholder="e.g. Real estate investors, property managers"></textarea>
             </div>
+          </div>
+
+          <!-- Step 11: Offers -->
+          <div class="funnel-panel" data-step="11" data-group="Campaign Strategy">
             <div class="form-group">
-              <label for="funnelOffers">Offers &amp; Differentiators <span class="req">*</span></label>
-              <small class="form-hint">Your most compelling offers, promotions, or differentiators — free estimates, discounts, unique services, warranties, etc.</small>
+              <label for="funnelOffers">Offers &amp; differentiators <span class="req">*</span></label>
+              <small class="form-hint">Free estimates, warranties, years in business — what makes you better?</small>
               <textarea id="funnelOffers" name="entry.1439045767" placeholder="e.g. Free estimate, lifetime warranty, 5-star rated, family owned since 1998" required></textarea>
             </div>
+          </div>
+
+          <!-- Step 12: Keywords -->
+          <div class="funnel-panel" data-step="12" data-group="Campaign Strategy">
             <div class="form-group">
-              <label for="funnelKeywords">Keywords &amp; Phrases <span class="req">*</span></label>
-              <small class="form-hint">Specific keywords, services, or phrases you want highlighted in the ads.</small>
+              <label for="funnelKeywords">Key search terms <span class="req">*</span></label>
+              <small class="form-hint">Keywords and phrases to highlight in your ads.</small>
               <textarea id="funnelKeywords" name="entry.1654001695" placeholder="e.g. roof replacement, storm damage roof, emergency roofing" required></textarea>
             </div>
+          </div>
+
+          <!-- Step 13: Competitors -->
+          <div class="funnel-panel" data-step="13" data-group="Campaign Strategy">
             <div class="form-group">
-              <label for="funnelCompetitors">Main Competitors <span class="req">*</span></label>
-              <small class="form-hint">Who are your main competitors (local or online)? List a few names if known.</small>
+              <label for="funnelCompetitors">Main competitors <span class="req">*</span></label>
+              <small class="form-hint">Who are your top local or online competitors?</small>
               <textarea id="funnelCompetitors" name="entry.804264223" placeholder="e.g. ABC Roofing, XYZ Contractors" required></textarea>
             </div>
           </div>
 
-          <div class="funnel-panel" data-step="4">
-            <h3>Anything Else?</h3>
-            <p>Step 4 of 4 — Final details before we build your roadmap.</p>
+          <!-- Step 14: Additional Info -->
+          <div class="funnel-panel" data-step="14" data-group="Final Details">
             <div class="form-group">
-              <label for="funnelAdditional">Additional Information</label>
-              <small class="form-hint">Is there anything else we should know to build the best campaign for you? (Optional)</small>
+              <label for="funnelAdditional">Anything else? <span style="color:var(--gray);font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+              <small class="form-hint">Past ad experience, budget notes, goals, or extra context.</small>
               <textarea id="funnelAdditional" name="entry.908662757" placeholder="Any extra context, goals, past ad experience, budget notes, etc."></textarea>
             </div>
           </div>
@@ -3027,7 +3035,7 @@
 
           <div class="funnel-actions">
             <button type="button" class="btn-secondary" id="funnelBack" hidden>Back</button>
-            <button type="button" class="btn-primary" id="funnelNext">Next Step <span>→</span></button>
+            <button type="button" class="btn-primary" id="funnelNext">Next <span>→</span></button>
           </div>
         </form>
         </div><!-- /funnelFormContent -->
@@ -3755,13 +3763,16 @@
   const strategyForm = document.getElementById('strategyForm');
   if (strategyForm) {
     const funnelPanels = Array.from(strategyForm.querySelectorAll('.funnel-panel'));
-    const funnelSteps = Array.from(document.querySelectorAll('.funnel-steps .funnel-step'));
     const nextBtn = document.getElementById('funnelNext');
     const backBtn = document.getElementById('funnelBack');
     const errorEl = document.getElementById('funnelError');
     const successEl = document.getElementById('funnelSuccess');
     const formContent = document.getElementById('funnelFormContent');
     const successPanel = document.getElementById('funnelSuccessPanel');
+    const progressFill = document.getElementById('funnelProgressFill');
+    const progressLabel = document.getElementById('funnelProgressLabel');
+    const progressCount = document.getElementById('funnelProgressCount');
+    const totalSteps = funnelPanels.length;
     const googleFormAction = 'https://docs.google.com/forms/d/e/1FAIpQLSeWeBTuQsYttS1AkJQSey9cdyXugaSccU4p3QS4icArwG-32Q/formResponse';
     // Required entry fields
     const googleFields = {
@@ -3791,24 +3802,25 @@
       }
     };
 
-    const updateFunnelView = () => {
+    const updateFunnelView = (direction) => {
+      if (direction) strategyForm.dataset.navDir = direction;
       funnelPanels.forEach((panel, index) => {
         panel.classList.toggle('active', index === currentStep - 1);
       });
+      // Update progress bar
+      const pct = Math.round((currentStep / totalSteps) * 100);
+      if (progressFill) progressFill.style.width = pct + '%';
+      if (progressLabel) progressLabel.textContent = funnelPanels[currentStep - 1]?.dataset?.group || '';
+      if (progressCount) progressCount.textContent = currentStep + ' of ' + totalSteps;
 
-      funnelSteps.forEach((step, index) => {
-        step.classList.toggle('active', index === currentStep - 1);
-        step.classList.toggle('complete', index < currentStep - 1);
-      });
-
-      const isLastStep = currentStep === funnelPanels.length;
+      const isLastStep = currentStep === totalSteps;
       backBtn.hidden = currentStep === 1;
       nextBtn.hidden = false;
       if (isLastStep) {
-        nextBtn.innerHTML = 'Submit <span>→</span>';
+        nextBtn.innerHTML = 'Submit brief <span>→</span>';
         nextBtn.classList.add('btn-submit-ready');
       } else {
-        nextBtn.innerHTML = 'Next Step <span>→</span>';
+        nextBtn.innerHTML = 'Next <span>→</span>';
         nextBtn.classList.remove('btn-submit-ready');
       }
     };
@@ -3861,20 +3873,20 @@
     backBtn.addEventListener('click', () => {
       trackClick('Funnel - Back Step');
       currentStep = Math.max(1, currentStep - 1);
-      updateFunnelView();
+      updateFunnelView('back');
       clearValidationState();
     });
 
     nextBtn.addEventListener('click', () => {
-      if (currentStep === funnelPanels.length) {
+      if (currentStep === totalSteps) {
         trackClick('Funnel - Submit');
         strategyForm.dispatchEvent(new SubmitEvent('submit', { bubbles: true, cancelable: true }));
         return;
       }
       trackClick('Funnel - Next Step');
       if (!validateCurrentStep()) return;
-      currentStep = Math.min(funnelPanels.length, currentStep + 1);
-      updateFunnelView();
+      currentStep = Math.min(totalSteps, currentStep + 1);
+      updateFunnelView('forward');
     });
 
     const submitToGoogleForm = (values) => {

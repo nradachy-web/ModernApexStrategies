@@ -1224,29 +1224,31 @@
 
   .service-card {
     background: var(--dark-card);
-    border: 1px solid rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.06);
     border-radius: 12px;
-    padding: 2.5rem 2rem;
+    padding: 2.5rem 2rem 2rem;
     transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
   }
 
   .service-card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--red), transparent);
-    opacity: 0;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--card-accent, var(--red));
+    opacity: 0.7;
     transition: opacity 0.4s;
   }
 
   .service-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(230,57,70,0.2);
+    border-color: rgba(255,255,255,0.1);
     box-shadow: 0 20px 60px rgba(0,0,0,0.4);
   }
 
@@ -1255,7 +1257,8 @@
   .service-icon {
     width: 52px;
     height: 52px;
-    background: rgba(230,57,70,0.1);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.07);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -1266,16 +1269,59 @@
 
   .service-card h3 {
     font-family: var(--serif);
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-weight: 700;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.75rem;
+    color: var(--white);
   }
 
-  .service-card p {
+  .service-card > p {
     color: var(--gray);
     font-size: 0.9rem;
     line-height: 1.65;
+    flex: 1;
   }
+
+  .service-card-features {
+    list-style: none;
+    margin: 1.25rem 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .service-card-features li {
+    font-size: 0.82rem;
+    color: var(--light-gray);
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .service-card-features li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--card-accent, var(--red));
+  }
+
+  .service-card-link {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--card-accent, var(--red));
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    transition: gap 0.2s;
+  }
+
+  .service-card:hover .service-card-link { gap: 0.65rem; }
 
   /* ============ PROCESS ============ */
   .process-section {
@@ -2600,7 +2646,7 @@
 
   .service-card:hover::before {
     opacity: 1;
-    background: linear-gradient(90deg, transparent, var(--red), rgba(255,255,255,0.4), var(--red), transparent);
+    background: linear-gradient(90deg, transparent, var(--card-accent, var(--red)), rgba(255,255,255,0.4), var(--card-accent, var(--red)), transparent);
     background-size: 200% 100%;
     animation: shimmer 2s linear infinite;
   }
@@ -3126,40 +3172,43 @@
 <section class="services-section" id="services">
   <div class="services-header reveal">
     <div class="section-label"><span class="line"></span> Services</div>
-    <h2>Everything you need to dominate paid search</h2>
-    <p>Full-stack Google Ads management designed to scale revenue, not just clicks.</p>
+    <h2>Three services. <em>One compounding system.</em></h2>
+    <p>We run Google Ads to generate leads now, build SEO to earn traffic long-term, and design websites that turn visitors into customers. Each service makes the others more powerful.</p>
   </div>
   <div class="services-grid">
-    <div class="service-card reveal">
+    <a class="service-card reveal" href="/services/#google-ads" style="--card-accent:var(--red)" onclick="gtag('event','click',{event_category:'Services',event_label:'Homepage Card - Google Ads'})">
       <div class="service-icon">🎯</div>
-      <h3>Search Campaigns</h3>
-      <p>High-intent keyword targeting that captures demand at the exact moment buyers are searching for your solution.</p>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-icon">📊</div>
-      <h3>Performance Max</h3>
-      <p>AI-powered campaigns across Google's entire inventory — Search, Display, YouTube, Gmail, and Discovery in one.</p>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-icon">🔄</div>
-      <h3>Remarketing</h3>
-      <p>Re-engage warm audiences with precision-targeted messaging that brings them back to convert.</p>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-icon">📈</div>
-      <h3>Conversion Tracking</h3>
-      <p>Full-funnel attribution setup so every dollar spent is traceable to real business outcomes.</p>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-icon">🧪</div>
-      <h3>Landing Page Optimization</h3>
-      <p>A/B tested landing pages built to convert traffic into leads, demos, and customers.</p>
-    </div>
-    <div class="service-card reveal">
-      <div class="service-icon">🔍</div>
-      <h3>SEO + Ads Strategy</h3>
-      <p>Stack organic gains with paid campaigns for compounding returns and full SERP domination.</p>
-    </div>
+      <h3>Google Ads Management</h3>
+      <p>Immediate, trackable leads from high-intent search. We build, manage, and optimize campaigns that grow revenue — not just clicks.</p>
+      <ul class="service-card-features">
+        <li>Search &amp; Performance Max campaigns</li>
+        <li>Full conversion tracking setup</li>
+        <li>Monthly reporting with real attribution</li>
+      </ul>
+      <span class="service-card-link">Learn More →</span>
+    </a>
+    <a class="service-card reveal" href="/services/#seo" style="--card-accent:var(--green)" onclick="gtag('event','click',{event_category:'Services',event_label:'Homepage Card - SEO'})">
+      <div class="service-icon">🌱</div>
+      <h3>Search Engine Optimization</h3>
+      <p>Organic rankings that compound month over month. We use your paid data to find the keywords worth targeting — not just the popular ones.</p>
+      <ul class="service-card-features">
+        <li>Technical audit &amp; on-page optimization</li>
+        <li>Content strategy powered by Ads data</li>
+        <li>Local SEO &amp; authority link building</li>
+      </ul>
+      <span class="service-card-link" style="color:var(--green)">Learn More →</span>
+    </a>
+    <a class="service-card reveal" href="/services/#web-design" style="--card-accent:var(--blue)" onclick="gtag('event','click',{event_category:'Services',event_label:'Homepage Card - Web Design'})">
+      <div class="service-icon">⚡</div>
+      <h3>Web Design</h3>
+      <p>High-converting websites built for service businesses. Every page is engineered to turn ad traffic and organic visitors into booked appointments.</p>
+      <ul class="service-card-features">
+        <li>Conversion-first UX &amp; copywriting</li>
+        <li>Mobile-optimized &amp; lightning fast</li>
+        <li>Built-in analytics &amp; call tracking</li>
+      </ul>
+      <span class="service-card-link" style="color:var(--blue)">Learn More →</span>
+    </a>
   </div>
 </section>
 

@@ -892,6 +892,14 @@
 
   .form-group label .req { color: var(--red); }
 
+  .form-hint {
+    display: block;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+  }
+
   .form-group input:not([type="checkbox"]),
   .form-group select,
   .form-group textarea {
@@ -2534,27 +2542,27 @@
           <div class="funnel-step-line"></div>
           <div class="funnel-step">
             <div class="funnel-step-num">2</div>
-            <div class="funnel-step-label">Services</div>
-          </div>
-          <div class="funnel-step-line"></div>
-          <div class="funnel-step">
-            <div class="funnel-step-num">3</div>
             <div class="funnel-step-label">Audience</div>
           </div>
           <div class="funnel-step-line"></div>
           <div class="funnel-step">
+            <div class="funnel-step-num">3</div>
+            <div class="funnel-step-label">Campaign</div>
+          </div>
+          <div class="funnel-step-line"></div>
+          <div class="funnel-step">
             <div class="funnel-step-num">4</div>
-            <div class="funnel-step-label">Strategy</div>
+            <div class="funnel-step-label">Details</div>
           </div>
         </div>
 
         <form class="funnel-form" id="strategyForm" novalidate>
           <div class="funnel-panel active" data-step="1">
-            <h3>Business Information</h3>
-            <p>Step 1 of 4.</p>
+            <h3>Business Basics</h3>
+            <p>Step 1 of 4 — Tell us about your business.</p>
             <div class="form-group">
-              <label for="funnelLeadEmail">Contact Email <span class="req">*</span></label>
-              <input id="funnelLeadEmail" name="lead_email" type="email" placeholder="you@company.com" required>
+              <label for="funnelLeadEmail">Email <span class="req">*</span></label>
+              <input id="funnelLeadEmail" name="emailAddress" type="email" placeholder="you@company.com" required>
             </div>
             <div class="form-group">
               <label for="funnelBusiness">Business Name <span class="req">*</span></label>
@@ -2565,67 +2573,74 @@
               <input id="funnelWebsite" name="entry.2121495189" type="text" placeholder="yourdomain.com" required>
             </div>
             <div class="form-group">
-              <label for="funnelServices">Services <span class="req">*</span></label>
-              <textarea id="funnelServices" name="entry.1433799951" placeholder="List your services" required></textarea>
+              <label for="funnelCoreServices">Core Services <span class="req">*</span></label>
+              <small class="form-hint">What services or products are the focus of this campaign? List the main services you want to promote.</small>
+              <textarea id="funnelCoreServices" name="entry.1433799951" placeholder="e.g. Roofing, gutters, siding replacement" required></textarea>
             </div>
             <div class="form-group">
-              <label for="funnelStrategyNotes">What You Do Not Offer <span class="req">*</span></label>
-              <textarea id="funnelStrategyNotes" name="entry.1913911702" placeholder="Example: We do not offer Meta Ads" required></textarea>
+              <label for="funnelExcludedServices">Excluded Services <span class="req">*</span></label>
+              <small class="form-hint">What services or products should be excluded from our campaign?</small>
+              <textarea id="funnelExcludedServices" name="entry.1913911702" placeholder="e.g. Commercial work, emergency repairs" required></textarea>
             </div>
           </div>
 
           <div class="funnel-panel" data-step="2">
-            <h3>Audience Details</h3>
-            <p>Step 2 of 4.</p>
+            <h3>Your Audience</h3>
+            <p>Step 2 of 4 — Define who you want to reach.</p>
             <div class="form-group">
-              <label for="funnelIdealCustomer">Ideal Customers <span class="req">*</span></label>
-              <textarea id="funnelIdealCustomer" name="entry.533825556" placeholder="Describe your ideal customers" required></textarea>
+              <label for="funnelIdealCustomer">Ideal Customer <span class="req">*</span></label>
+              <small class="form-hint">Describe demographic, homeowner vs. business, age, income, etc.</small>
+              <textarea id="funnelIdealCustomer" name="entry.533825556" placeholder="e.g. Homeowners 35-65, suburban, household income $80k+" required></textarea>
             </div>
             <div class="form-group">
-              <label for="funnelNonIdealCustomer">Non-Ideal Customers <span class="req">*</span></label>
-              <textarea id="funnelNonIdealCustomer" name="entry.559745165" placeholder="Describe customers you do not want" required></textarea>
+              <label for="funnelAvoidCustomer">Customer Types to Avoid <span class="req">*</span></label>
+              <small class="form-hint">Low-budget jobs, out-of-area calls, commercial vs. residential, etc.</small>
+              <textarea id="funnelAvoidCustomer" name="entry.559745165" placeholder="e.g. Apartment complexes, jobs under $500" required></textarea>
             </div>
             <div class="form-group">
-              <label for="funnelPrimaryLocation">Primary Market <span class="req">*</span></label>
-              <input id="funnelPrimaryLocation" name="entry.1529976769" type="text" placeholder="Main country or region" required>
+              <label for="funnelGeoAreas">Geographic Areas <span class="req">*</span></label>
+              <small class="form-hint">What geographic areas should we target? List cities, counties, ZIP codes, or service radius.</small>
+              <textarea id="funnelGeoAreas" name="entry.1529976769" placeholder="e.g. Austin TX, Travis County, ZIP 78701-78799" required></textarea>
             </div>
             <div class="form-group">
-              <label for="funnelSecondaryLocation">Secondary Markets <span class="req">*</span></label>
-              <input id="funnelSecondaryLocation" name="entry.786584099" type="text" placeholder="Additional countries or regions" required>
+              <label for="funnelExcludedLocations">Excluded Locations <span class="req">*</span></label>
+              <small class="form-hint">What locations should be excluded? City, county, ZIP codes.</small>
+              <textarea id="funnelExcludedLocations" name="entry.786584099" placeholder="e.g. Round Rock, Cedar Park, ZIP 78613" required></textarea>
             </div>
           </div>
 
           <div class="funnel-panel" data-step="3">
-            <h3>Positioning And Proof</h3>
-            <p>Step 3 of 4.</p>
+            <h3>Campaign Strategy</h3>
+            <p>Step 3 of 4 — Help us build the right messaging.</p>
             <div class="form-group">
-              <label for="funnelIndustryFocus">Industry Focus <span class="req">*</span></label>
-              <input id="funnelIndustryFocus" name="entry.1552136455" type="text" placeholder="Industries you serve best" required>
+              <label for="funnelNiches">Customer Groups / Niches</label>
+              <small class="form-hint">Any specific customer groups or niches you want to target? (Optional)</small>
+              <textarea id="funnelNiches" name="entry.1552136455" placeholder="e.g. Real estate investors, property managers"></textarea>
             </div>
             <div class="form-group">
-              <label for="funnelCredentialPrimary">Primary Credential <span class="req">*</span></label>
-              <input id="funnelCredentialPrimary" name="entry.1439045767" type="text" placeholder="Main credential or trust signal" required>
+              <label for="funnelOffers">Offers &amp; Differentiators <span class="req">*</span></label>
+              <small class="form-hint">Your most compelling offers, promotions, or differentiators — free estimates, discounts, unique services, warranties, etc.</small>
+              <textarea id="funnelOffers" name="entry.1439045767" placeholder="e.g. Free estimate, lifetime warranty, 5-star rated, family owned since 1998" required></textarea>
             </div>
             <div class="form-group">
-              <label for="funnelCredentialSecondary">Secondary Credential <span class="req">*</span></label>
-              <input id="funnelCredentialSecondary" name="entry.1654001695" type="text" placeholder="Additional credential" required>
+              <label for="funnelKeywords">Keywords &amp; Phrases <span class="req">*</span></label>
+              <small class="form-hint">Specific keywords, services, or phrases you want highlighted in the ads.</small>
+              <textarea id="funnelKeywords" name="entry.1654001695" placeholder="e.g. roof replacement, storm damage roof, emergency roofing" required></textarea>
             </div>
             <div class="form-group">
-              <label for="funnelAdditionalNotes">Additional Context <span class="req">*</span></label>
-              <textarea id="funnelAdditionalNotes" name="entry.804264223" placeholder="Anything else we should know" required></textarea>
+              <label for="funnelCompetitors">Main Competitors <span class="req">*</span></label>
+              <small class="form-hint">Who are your main competitors (local or online)? List a few names if known.</small>
+              <textarea id="funnelCompetitors" name="entry.804264223" placeholder="e.g. ABC Roofing, XYZ Contractors" required></textarea>
             </div>
           </div>
 
           <div class="funnel-panel" data-step="4">
-            <h3>Final Detail</h3>
-            <p>Step 4 of 4. One last answer before submission.</p>
+            <h3>Anything Else?</h3>
+            <p>Step 4 of 4 — Final details before we build your roadmap.</p>
             <div class="form-group">
-              <label for="funnelMetaAds">Do You Currently Offer Meta Ads? <span class="req">*</span></label>
-              <select id="funnelMetaAds" name="entry.908662757" required>
-                <option value="">Select one</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </select>
+              <label for="funnelAdditional">Additional Information</label>
+              <small class="form-hint">Is there anything else we should know to build the best campaign for you? (Optional)</small>
+              <textarea id="funnelAdditional" name="entry.908662757" placeholder="Any extra context, goals, past ad experience, budget notes, etc."></textarea>
             </div>
           </div>
 
@@ -3297,20 +3312,25 @@
     const errorEl = document.getElementById('funnelError');
     const successEl = document.getElementById('funnelSuccess');
     const googleFormAction = 'https://docs.google.com/forms/d/e/1FAIpQLSeWeBTuQsYttS1AkJQSey9cdyXugaSccU4p3QS4icArwG-32Q/formResponse';
+    // Required entry fields
     const googleFields = {
+      email: 'emailAddress',
       businessName: 'entry.2106943644',
       website: 'entry.2121495189',
-      services: 'entry.1433799951',
-      strategyNotes: 'entry.1913911702',
+      coreServices: 'entry.1433799951',
+      excludedServices: 'entry.1913911702',
       idealCustomer: 'entry.533825556',
-      nonIdealCustomer: 'entry.559745165',
-      primaryLocation: 'entry.1529976769',
-      secondaryLocation: 'entry.786584099',
-      industryFocus: 'entry.1552136455',
-      credentialPrimary: 'entry.1439045767',
-      credentialSecondary: 'entry.1654001695',
-      additionalNotes: 'entry.804264223',
-      metaAds: 'entry.908662757'
+      avoidCustomer: 'entry.559745165',
+      geoAreas: 'entry.1529976769',
+      excludedLocations: 'entry.786584099',
+      offers: 'entry.1439045767',
+      keywords: 'entry.1654001695',
+      competitors: 'entry.804264223'
+    };
+    // Optional entry fields (not required for submission)
+    const googleOptionalFields = {
+      niches: 'entry.1552136455',
+      additionalInfo: 'entry.908662757'
     };
     let currentStep = 1;
 
@@ -3434,19 +3454,24 @@
       if (!validateCurrentStep()) return;
 
       const formData = new FormData(strategyForm);
+
+      // Collect required fields
       const values = {};
       Object.values(googleFields).forEach((entryName) => {
         values[entryName] = String(formData.get(entryName) || '').trim();
       });
-      const leadEmail = String(formData.get('lead_email') || '').trim();
 
-      if (!leadEmail || Object.values(values).some((value) => !value)) {
-        errorEl.textContent = 'Please complete every field before submitting.';
+      // Validate all required fields are filled
+      const missingRequired = Object.values(googleFields).some((entryName) => !values[entryName]);
+      if (missingRequired) {
+        errorEl.textContent = 'Please complete every required field before submitting.';
         return;
       }
 
-      const additionalNotesEntry = googleFields.additionalNotes;
-      values[additionalNotesEntry] = `Contact Email: ${leadEmail}\n${values[additionalNotesEntry]}`;
+      // Collect optional fields (include even if empty)
+      Object.values(googleOptionalFields).forEach((entryName) => {
+        values[entryName] = String(formData.get(entryName) || '').trim();
+      });
 
       try {
         setSubmittingState(true);

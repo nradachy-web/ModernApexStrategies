@@ -467,6 +467,7 @@
     .step-meta {
       position: sticky;
       top: calc(100px + var(--safe-top));
+      min-width: 0;
     }
 
     .step-num-wrap {
@@ -521,7 +522,7 @@
       color: var(--green);
     }
 
-    .step-detail { display: flex; flex-direction: column; gap: 1.25rem; }
+    .step-detail { display: flex; flex-direction: column; gap: 1.25rem; min-width: 0; }
 
     .detail-card {
       background: var(--dark-card);
@@ -954,13 +955,21 @@
       .stats-belt-inner { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
 
       .process-step-block {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 2rem;
         padding: 3rem 0;
       }
 
+      .process-step-block.reverse { grid-template-columns: unset; }
+
       .process-step-block.reverse .step-meta,
       .process-step-block.reverse .step-detail { order: unset; }
+
+      .step-meta,
+      .step-detail { width: 100%; min-width: 0; box-sizing: border-box; }
+
+      .detail-card { min-width: 0; overflow: hidden; }
 
       .step-meta { position: static; }
       .step-num-big { font-size: 3.5rem; }

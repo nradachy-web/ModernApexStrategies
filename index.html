@@ -2600,51 +2600,51 @@
   }
 
   .trust-badge-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.7rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.75rem;
+    animation: fadeInUp 0.8s ease 0.65s both;
   }
 
   .trust-badge-card {
-    border: 1px solid rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.1);
     border-radius: 12px;
-    background: rgba(255,255,255,0.02);
-    padding: 0.7rem 0.6rem 0.6rem;
+    background: rgba(255,255,255,0.03);
+    padding: 0.75rem 1.1rem 0.65rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 0.45rem;
     text-align: center;
-    text-decoration: none;
-    color: var(--light-gray);
-    min-height: 130px;
-    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    transition: border-color 0.25s, background 0.25s, transform 0.25s;
   }
 
   .trust-badge-card:hover {
+    border-color: rgba(255,255,255,0.22);
+    background: rgba(255,255,255,0.06);
     transform: translateY(-2px);
-    border-color: rgba(93,211,158,0.45);
-    background: rgba(93,211,158,0.08);
   }
 
   .trust-badge-card img {
-    width: 100%;
-    max-width: 130px;
-    max-height: 66px;
+    height: 48px;
+    width: auto;
+    max-width: 120px;
     object-fit: contain;
-    margin: 0 auto 0.45rem;
+    display: block;
   }
 
   .trust-badge-card.google-badge img {
-    max-height: 74px;
+    height: 54px;
   }
 
   .trust-badge-card span {
-    font-size: 0.62rem;
+    font-size: 0.6rem;
     font-weight: 700;
-    letter-spacing: 0.09em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--gray);
-    line-height: 1.4;
+    color: rgba(255,255,255,0.35);
+    line-height: 1;
   }
 
   .partner-proof-note {
@@ -2763,6 +2763,16 @@
       <a href="/strategy/" class="btn-primary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Hero - Build Your Strategy'})">Build Your Strategy <span>→</span></a>
       <a href="/results/" class="btn-secondary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Hero - See Our Results'})">See Our Results</a>
     </div>
+    <div class="trust-badge-grid">
+      <div class="trust-badge-card google-badge">
+        <img src="/assets/badges/googlepartner.png" alt="Google Partner">
+        <span>Google Partner</span>
+      </div>
+      <div class="trust-badge-card">
+        <img src="/assets/badges/bbbaccredited.png" alt="BBB Accredited Business">
+        <span>BBB Accredited</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2785,8 +2795,6 @@
     <span>Maximum Lending</span><span class="dot">✦</span>
     <span>Miller's Landscape & Supply</span><span class="dot">✦</span>
     <span>Miller's Property Service</span><span class="dot">✦</span>
-    <span>Google Partner</span><span class="dot">✦</span>
-    <span>BBB Accredited Business</span><span class="dot">✦</span>
     <span>Ace Outdoor Services</span><span class="dot">✦</span>
     <span>Camp Landscape Management</span><span class="dot">✦</span>
     <span>Chili Pepper's Tanning & Wellness</span><span class="dot">✦</span>
@@ -2801,8 +2809,6 @@
     <span>Maximum Lending</span><span class="dot">✦</span>
     <span>Miller's Landscape & Supply</span><span class="dot">✦</span>
     <span>Miller's Property Service</span><span class="dot">✦</span>
-    <span>Google Partner</span><span class="dot">✦</span>
-    <span>BBB Accredited Business</span><span class="dot">✦</span>
   </div>
   </div>
   <div class="ticker-wrap">
@@ -3509,8 +3515,7 @@
       'Treasured Earth': ['treasuredearth.jpg', 'treasuredearth.webp'],
       'Wicked Metallics': ['wickedmetallics.jpg'],
       'Blue Heron Electrical': ['blueheron.png'],
-      'Google Partner': ['googlepartner.png'],
-      'BBB Accredited Business': ['bbbaccredited.png']
+
     };
 
     const logoAssetVersion = '20260218';

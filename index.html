@@ -3076,22 +3076,22 @@
   // Ticker logos from local assets only
   const decorateTickerWithLogos = () => {
     const brandLogoFiles = {
-      'Ace Outdoor Services': ['ace-outdoor-services', 'aceoutdoorservices', 'aceoutdoorservices'],
+      'Ace Outdoor Services': ['ace-outdoor-services', 'aceoutdoorservices'],
       'Camp Landscape Management': ['camp-landscape-management', 'camplandscape', 'camplandscapemanagement'],
       "Chili Pepper's Tanning & Wellness": ['chili-peppers-tanning-and-wellness', 'chilipeppers', 'chilipepper', 'chillipepper'],
       'DC Lawn & Snow': ['dc-lawn-and-snow', 'dclawnandsnow', 'dclawnsnow'],
       'Dynagen Lending': ['dynagen-lending', 'dynagenlending'],
       'The Epoxy Guys': ['the-epoxy-guys', 'theepoxyguy', 'theepoxyguys', 'epoxyguys'],
       'Green Mile Lawn Care': ['green-mile-lawn-care', 'greenmilelawncare', 'greenmile'],
-      'Hanczark Chiropractic': ['hanczark-chiropractic', 'hanczarkchiropractic', 'hanczark'],
+      'Hanczark Chiropractic': ['hanczark-chiropractic', 'hanczarkchiropractic', 'hanczark', 'hcng'],
       'HD Landscape': ['hd-landscape', 'hdlandscape'],
-      'Matrix Epoxy Flooring': ['matrix-epoxy-flooring', 'matrixepoxyflooring', 'matrixepoxy'],
+      'Matrix Epoxy Flooring': ['matrix-epoxy-flooring', 'matrixepoxyflooring', 'matrixepoxy', 'matrixepoxyfloors'],
       'MatrixLed Lighting': ['matrixled-lighting', 'matrixledlighting', 'matrixled'],
       'Maximum Lending': ['maximum-lending', 'maximumlending'],
-      "Miller's Landscape & Supply": ['millers-landscape-and-supply', 'millerslandscapeandsupply', 'millerslandscape'],
+      "Miller's Landscape & Supply": ['millers-landscape-and-supply', 'millerslandscapeandsupply', 'millerslandscape', 'millerslandscapesupplies'],
       "Miller's Property Service": ['millers-property-service', 'millerspropertyservice', 'millersproperty'],
       "Nelligan's Lawnscapes": ['nelligans-lawnscapes', 'nelliganslawnscapes', 'nelligans'],
-      "Ole Man RB's Tree Service": ['ole-man-rbs-tree-service', 'olemanrbstreeservice', 'olemanrbs'],
+      "Ole Man RB's Tree Service": ['ole-man-rbs-tree-service', 'olemanrbstreeservice', 'olemanrbs', 'olemanrb'],
       'Origin Electric': ['origin-electric', 'originelectric'],
       'Petty Shine': ['petty-shine', 'pettyshine'],
       'Premier Paving': ['premier-paving', 'premierpaving'],
@@ -3099,14 +3099,14 @@
       'RPM Auto Lab': ['rpm-auto-lab', 'rpmautolab', 'rpm'],
       'The Shine Brothers': ['the-shine-brothers', 'theshinebrothers', 'shinebrothers'],
       'Supersun Electrical Services': ['supersun-electrical-services', 'supersunelectricalservices', 'supersun'],
-      'Top Choice Detailing': ['top-choice-detailing', 'topchoicedetailing', 'topchoice'],
+      'Top Choice Detailing': ['top-choice-detailing', 'top-choicedetailing', 'topchoicedetailing', 'topchoice'],
       'Treasured Earth': ['treasured-earth', 'treasuredearth'],
       'Wicked Metallics': ['wicked-metallics', 'wickedmetallics'],
       'Blue Heron Electrical': ['blue-heron-electrical', 'blueheronelectrical', 'blueheron']
     };
 
     const localLogoExtensions = ['png', 'webp', 'jpg', 'jpeg', 'svg'];
-    const logoAssetVersion = '20260216';
+    const logoAssetVersion = '20260217';
 
     const getInitials = (name) => {
       const words = name.replace(/&/g, ' ').replace(/[^a-zA-Z0-9 ]/g, ' ').split(/\s+/).filter(Boolean);

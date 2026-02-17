@@ -1,15 +1,1562 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Process | Modern Apex Strategies</title>
-  <meta http-equiv="refresh" content="0; url=/?section=process">
-  <script>
-    window.location.replace('/?section=process');
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Our Process | Modern Apex Strategies — Google Ads Management</title>
+  <meta name="description" content="See exactly how Modern Apex Strategies turns your ad budget into predictable, scalable revenue. Our proven 4-step system — no fluff, no guesswork.">
+  <meta property="og:title" content="Our Process | Modern Apex Strategies">
+  <meta property="og:description" content="A proven 4-step system honed across 40+ service businesses. Discovery, blueprint, launch, and scale — every campaign built to compound.">
+  <link rel="icon" href="/assets/logo-modern-apex.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJPTQHTT4Y"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-QJPTQHTT4Y');</script>
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --dark: #0d0d0f;
+      --dark-card: #161616;
+      --card: #161616;
+      --white: #ffffff;
+      --gray: #888888;
+      --light-gray: #cccccc;
+      --red: #e63946;
+      --red-glow: rgba(230,57,70,0.25);
+      --green: #5dd39e;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      background: var(--black);
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--sans);
+      overflow-x: hidden;
+      padding-bottom: var(--safe-bottom);
+    }
+
+    img, svg { max-width: 100%; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: calc(1.2rem + var(--safe-top)) 3rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10,10,10,0.98);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    nav::before {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      top: calc(-1 * var(--safe-top));
+      height: var(--safe-top);
+      background: rgba(10,10,10,0.98);
+      pointer-events: none;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .nav-logo-img { height: 36px; width: auto; object-fit: contain; }
+
+    .nav-logo-text {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--white);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--red);
+      color: var(--white) !important;
+      padding: 0.6rem 1.35rem;
+      border-radius: 4px;
+      font-weight: 700 !important;
+      font-size: 0.82rem !important;
+      letter-spacing: 0.05em !important;
+      text-transform: uppercase;
+      transition: all 0.3s !important;
+    }
+
+    .nav-cta:hover {
+      background: #c7303c !important;
+      transform: translateY(-1px);
+    }
+
+    .mobile-nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .mobile-nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .mobile-nav-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 1090;
+    }
+
+    .mobile-nav-panel {
+      display: none;
+      position: fixed;
+      top: 0; right: 0;
+      width: 80%;
+      max-width: 320px;
+      height: 100dvh;
+      background: #111;
+      z-index: 1100;
+      padding: calc(5rem + var(--safe-top)) 2rem 2rem;
+      flex-direction: column;
+      gap: 0;
+      transform: translateX(100%);
+      transition: transform 0.35s ease;
+      overflow-y: auto;
+    }
+
+    .mobile-nav-panel.open { transform: translateX(0); }
+    .mobile-nav-backdrop.open { display: block; }
+
+    .mobile-nav-panel a {
+      color: var(--light-gray);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: block;
+      transition: color 0.2s;
+    }
+
+    .mobile-nav-panel a:hover { color: var(--white); }
+
+    .mobile-nav-cta {
+      margin-top: 1.5rem;
+      background: var(--red) !important;
+      color: var(--white) !important;
+      text-align: center;
+      border-radius: 4px;
+      padding: 1rem !important;
+      font-weight: 700 !important;
+      border-bottom: none !important;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+      padding: 1rem 2.2rem;
+      border: none;
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 4px 25px var(--red-glow);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 35px rgba(230,57,70,0.45);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      padding: 1rem 2.2rem;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.38);
+      background: rgba(255,255,255,0.04);
+    }
+
+    /* ── SHARED ── */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-label .line {
+      width: 28px;
+      height: 2px;
+      background: var(--red);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(230,57,70,0.12);
+      border: 1px solid rgba(230,57,70,0.3);
+      border-radius: 100px;
+      padding: 0.35rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1.5rem;
+    }
+
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--red);
+      border-radius: 50%;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.75); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── HERO ── */
+    .process-hero {
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      padding: calc(7rem + var(--safe-top)) 2rem 5rem;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .process-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(230,57,70,0.09) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .process-hero-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .process-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 5.5vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .process-hero h1 em {
+      color: var(--red);
+      font-style: italic;
+    }
+
+    .process-hero > .process-hero-inner > p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-trust {
+      margin-top: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-trust-item {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .hero-trust-sep {
+      width: 1px;
+      height: 16px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* ── STATS BELT ── */
+    .stats-belt {
+      background: rgba(255,255,255,0.02);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 2.5rem 2rem;
+    }
+
+    .stats-belt-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .belt-stat-val {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 0.35rem;
+    }
+
+    .belt-stat-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gray);
+      font-weight: 600;
+    }
+
+    /* ── SECTION BASE ── */
+    .section-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+    }
+
+    .section-intro {
+      max-width: 680px;
+      margin-bottom: 4rem;
+    }
+
+    .section-intro h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .section-intro p {
+      color: var(--gray);
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+
+    /* ── PROCESS STEPS ── */
+    .process-steps { display: flex; flex-direction: column; gap: 0; }
+
+    .process-step-block {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 3.5rem;
+      padding: 5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      align-items: start;
+    }
+
+    .process-step-block:last-child { border-bottom: none; }
+
+    .process-step-block.reverse { grid-template-columns: 1fr 340px; }
+    .process-step-block.reverse .step-meta { order: 2; }
+    .process-step-block.reverse .step-detail { order: 1; }
+
+    .step-meta {
+      position: sticky;
+      top: calc(100px + var(--safe-top));
+    }
+
+    .step-num-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .step-num-big {
+      font-family: var(--serif);
+      font-size: 5rem;
+      font-weight: 900;
+      color: rgba(230,57,70,0.12);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .step-num-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+
+    .step-meta h2 {
+      font-family: var(--serif);
+      font-size: 2.1rem;
+      font-weight: 900;
+      line-height: 1.18;
+      margin-bottom: 1rem;
+    }
+
+    .step-meta > p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(93,211,158,0.08);
+      border: 1px solid rgba(93,211,158,0.22);
+      border-radius: 6px;
+      padding: 0.5rem 1rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    .step-detail { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .detail-card {
+      background: var(--dark-card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .detail-card:hover {
+      border-color: rgba(230,57,70,0.2);
+      transform: translateX(4px);
+    }
+
+    .detail-card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .detail-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+    }
+
+    .detail-card p {
+      font-size: 0.87rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+    }
+
+    .deliverable-card {
+      background: rgba(93,211,158,0.05);
+      border: 1px solid rgba(93,211,158,0.18);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+    }
+
+    .deliverable-card h4 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.85rem;
+    }
+
+    .deliverable-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .deliverable-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.45;
+    }
+
+    .deliverable-list li::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    /* ── PATTERN INTERRUPT CTA ── */
+    .interrupt-cta {
+      background: linear-gradient(135deg, rgba(230,57,70,0.12), rgba(230,57,70,0.04));
+      border: 1px solid rgba(230,57,70,0.2);
+      border-radius: 16px;
+      padding: 3.5rem;
+      text-align: center;
+      margin: 2rem 2rem;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .interrupt-cta h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 900;
+      line-height: 1.18;
+      margin-bottom: 1rem;
+    }
+
+    .interrupt-cta h2 em { color: var(--red); font-style: italic; }
+
+    .interrupt-cta p {
+      color: var(--gray);
+      font-size: 1rem;
+      line-height: 1.65;
+      max-width: 560px;
+      margin: 0 auto 2rem;
+    }
+
+    .interrupt-cta-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .interrupt-scarcity {
+      margin-top: 1.25rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline-section { background: var(--dark); padding: 0; }
+
+    .timeline-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .timeline-col {
+      background: var(--dark-card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .timeline-col::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .timeline-col.c1::before { background: rgba(230,57,70,0.7); }
+    .timeline-col.c2::before { background: rgba(230,57,70,0.5); }
+    .timeline-col.c3::before { background: rgba(93,211,158,0.7); }
+
+    .timeline-period {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 1rem;
+    }
+
+    .timeline-col h3 {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .timeline-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .timeline-items li {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      line-height: 1.45;
+    }
+
+    .timeline-items li::before {
+      content: '→';
+      color: var(--red);
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    /* ── DIFFERENTIATORS ── */
+    .diff-section { padding: 6rem 2rem; }
+
+    .diff-inner { max-width: 1100px; margin: 0 auto; }
+
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .diff-card {
+      background: var(--dark-card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .diff-card:hover {
+      border-color: rgba(230,57,70,0.2);
+      transform: translateY(-4px);
+    }
+
+    .diff-icon {
+      width: 44px; height: 44px;
+      background: rgba(230,57,70,0.1);
+      border: 1px solid rgba(230,57,70,0.2);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .diff-card h3 {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.65rem;
+    }
+
+    .diff-card p {
+      font-size: 0.87rem;
+      color: rgba(255,255,255,0.48);
+      line-height: 1.65;
+    }
+
+    /* ── COMPARISON TABLE ── */
+    .compare-section {
+      background: var(--dark);
+      padding: 6rem 2rem;
+    }
+
+    .compare-inner { max-width: 900px; margin: 0 auto; }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 3rem;
+    }
+
+    .compare-table thead th {
+      padding: 1rem 1.5rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: left;
+    }
+
+    .compare-table thead th:first-child { color: var(--gray); }
+    .compare-table thead th:nth-child(2) { color: var(--red); }
+    .compare-table thead th:nth-child(3) { color: rgba(255,255,255,0.3); }
+
+    .compare-table tbody tr {
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .compare-table tbody tr:hover { background: rgba(255,255,255,0.015); }
+
+    .compare-table td {
+      padding: 1.1rem 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .compare-table td:first-child {
+      color: rgba(255,255,255,0.6);
+      font-weight: 500;
+    }
+
+    .compare-table td:nth-child(2) { color: var(--green); font-weight: 600; }
+    .compare-table td:nth-child(3) { color: rgba(255,255,255,0.28); }
+
+    .check-y { color: var(--green); font-weight: 700; }
+    .check-n { color: rgba(255,255,255,0.2); }
+
+    /* ── PROCESS FAQ ── */
+    .pfaq-section { padding: 6rem 2rem; }
+    .pfaq-inner { max-width: 800px; margin: 0 auto; }
+
+    .pfaq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .pfaq-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      text-align: left;
+      gap: 1rem;
+    }
+
+    .pfaq-btn span:first-child {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.4;
+    }
+
+    .pfaq-icon {
+      width: 28px; height: 28px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+      color: var(--red);
+      transition: transform 0.3s;
+    }
+
+    .pfaq-item.open .pfaq-icon { transform: rotate(45deg); }
+
+    .pfaq-body {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease;
+    }
+
+    .pfaq-body p {
+      padding: 0 0 1.5rem;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      background: linear-gradient(160deg, #0d0d0f, #0a0a0a);
+      padding: 7rem 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .final-cta-inner { max-width: 720px; margin: 0 auto; }
+
+    .final-cta h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.14;
+      margin-bottom: 1.25rem;
+    }
+
+    .final-cta h2 em { color: var(--red); font-style: italic; }
+
+    .final-cta p {
+      color: var(--gray);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .final-cta-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .final-disclaimer {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── MOBILE STICKY ── */
+    .mobile-sticky {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 900;
+      background: rgba(10,10,10,0.97);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 0.85rem 1.2rem calc(0.85rem + var(--safe-bottom));
+      gap: 0.75rem;
+    }
+
+    .mobile-sticky a {
+      flex: 1;
+      text-align: center;
+      padding: 0.85rem 1rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+
+    .sticky-book {
+      background: var(--red);
+      color: var(--white);
+      box-shadow: 0 4px 18px var(--red-glow);
+    }
+
+    .sticky-results {
+      background: rgba(255,255,255,0.06);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: calc(1rem + var(--safe-top)) 1.2rem 1rem; }
+      .nav-links { display: none; }
+      .mobile-nav-toggle { display: flex; }
+      .mobile-nav-panel { display: flex; }
+
+      .stats-belt-inner { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+
+      .process-step-block {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 3rem 0;
+      }
+
+      .process-step-block.reverse .step-meta,
+      .process-step-block.reverse .step-detail { order: unset; }
+
+      .step-meta { position: static; }
+      .step-num-big { font-size: 3.5rem; }
+
+      .timeline-grid { grid-template-columns: 1fr; }
+      .diff-grid { grid-template-columns: 1fr; gap: 1rem; }
+
+      .compare-table td, .compare-table th { padding: 0.85rem 0.9rem; font-size: 0.82rem; }
+
+      .interrupt-cta { padding: 2.5rem 1.5rem; margin: 0 1.2rem; }
+
+      .section-wrap { padding: 4rem 1.2rem; }
+
+      .mobile-sticky { display: flex; }
+      .final-cta { padding-bottom: calc(7rem + var(--safe-bottom)); }
+    }
+
+    @media (max-width: 480px) {
+      .stats-belt-inner { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .belt-stat-val { font-size: 1.8rem; }
+      .process-hero { min-height: 70vh; padding-top: calc(6rem + var(--safe-top)); }
+      .hero-cta-row { flex-direction: column; align-items: center; }
+      .hero-cta-row .btn-primary,
+      .hero-cta-row .btn-secondary { width: 100%; justify-content: center; }
+      .interrupt-cta-btns,
+      .final-cta-btns { flex-direction: column; align-items: center; }
+      .interrupt-cta-btns .btn-primary,
+      .interrupt-cta-btns .btn-secondary,
+      .final-cta-btns .btn-primary,
+      .final-cta-btns .btn-secondary { width: 100%; justify-content: center; }
+    }
+  </style>
 </head>
 <body>
-  Redirecting to <a href="/?section=process">Process</a>...
+
+<!-- Nav -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/assets/logo-modern-apex.png" alt="ModernApex" class="nav-logo-img">
+    <span class="nav-logo-text">Modern Apex Strategies</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/process/">Process</a></li>
+    <li><a href="/results/">Results</a></li>
+    <li><a href="/reviews/">Reviews</a></li>
+    <li><a href="/team/">Team</a></li>
+    <li><a href="/faq/">FAQ</a></li>
+    <li><a href="/strategy/" class="nav-cta" onclick="gtag('event','click',{event_category:'CTA',event_label:'Nav - Start Your Strategy'})">Start Your Strategy</a></li>
+  </ul>
+  <button class="mobile-nav-toggle" id="mobileNavToggle" type="button" aria-label="Open navigation menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+<div class="mobile-nav-panel" id="mobileNavPanel">
+  <a href="/services/">Services</a>
+  <a href="/process/">Process</a>
+  <a href="/results/">Results</a>
+  <a href="/reviews/">Reviews</a>
+  <a href="/team/">Team</a>
+  <a href="/faq/">FAQ</a>
+  <a href="/strategy/" class="mobile-nav-cta" onclick="gtag('event','click',{event_category:'CTA',event_label:'Mobile Nav - Start Your Strategy'})">Start Your Strategy</a>
+</div>
+
+<!-- Mobile sticky bar -->
+<div class="mobile-sticky" id="mobileSticky">
+  <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="sticky-book" onclick="gtag('event','click',{event_category:'CTA',event_label:'Process - Mobile Sticky - Book Call'})">Book a Strategy Call</a>
+  <a href="/results/" class="sticky-results" onclick="gtag('event','click',{event_category:'CTA',event_label:'Process - Mobile Sticky - See Results'})">See Results</a>
+</div>
+
+<!-- Hero -->
+<section class="process-hero">
+  <div class="process-hero-inner">
+    <div class="pill reveal"><span class="pulse-dot"></span> Proven System</div>
+    <h1 class="reveal">The system behind<br>every <em>result</em> we deliver.</h1>
+    <p class="reveal">We don't run ads and hope for the best. Every campaign runs through a defined, data-driven system — built to remove guesswork and replace it with compounding, predictable revenue.</p>
+    <div class="hero-cta-row reveal">
+      <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="btn-primary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Process Hero - Book Call'})">Book a Free Strategy Call <span>→</span></a>
+      <a href="/results/" class="btn-secondary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Process Hero - See Results'})">See Real Results</a>
+    </div>
+    <div class="hero-trust reveal">
+      <span class="hero-trust-item">4-Step System</span>
+      <span class="hero-trust-sep"></span>
+      <span class="hero-trust-item">40+ Businesses Scaled</span>
+      <span class="hero-trust-sep"></span>
+      <span class="hero-trust-item">$1.2M+ Ad Spend Managed</span>
+      <span class="hero-trust-sep"></span>
+      <span class="hero-trust-item">5.0 Google Rating</span>
+    </div>
+  </div>
+</section>
+
+<!-- Stats belt -->
+<div class="stats-belt">
+  <div class="stats-belt-inner">
+    <div class="reveal">
+      <div class="belt-stat-val" style="color:#5dd39e">4.2×</div>
+      <div class="belt-stat-label">Avg. Client ROI</div>
+    </div>
+    <div class="reveal">
+      <div class="belt-stat-val">72h</div>
+      <div class="belt-stat-label">Audit-to-Blueprint Turnaround</div>
+    </div>
+    <div class="reveal">
+      <div class="belt-stat-val">+68%</div>
+      <div class="belt-stat-label">Avg. Lead Growth — Year One</div>
+    </div>
+    <div class="reveal">
+      <div class="belt-stat-val">&lt;24h</div>
+      <div class="belt-stat-label">Response Time. Guaranteed.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Steps intro -->
+<div class="section-wrap">
+  <div class="section-intro reveal">
+    <div class="section-label"><span class="line"></span> The Process</div>
+    <h2>Four steps. No shortcuts.<br>Built to compound.</h2>
+    <p>Every engagement begins with understanding your business at a level most agencies never reach. Then we build, launch, and scale — with full transparency at every stage.</p>
+  </div>
+
+  <div class="process-steps">
+
+    <!-- STEP 1 -->
+    <div class="process-step-block reveal">
+      <div class="step-meta">
+        <div class="step-num-wrap">
+          <div class="step-num-big">01</div>
+          <div class="step-num-label">Step One</div>
+        </div>
+        <h2>Deep-Dive<br>Discovery</h2>
+        <p>We spend real time understanding your business — not just your ad account. Before a single keyword is touched, we map your competitive landscape, customer psychology, and revenue gaps.</p>
+        <div class="step-badge">⏱ Delivered within 72 hours</div>
+      </div>
+      <div class="step-detail">
+        <div class="detail-card reveal">
+          <span class="detail-card-icon">🔬</span>
+          <h4>Account Forensics</h4>
+          <p>If you have prior ad history, we perform a full account autopsy — identifying wasted spend, conversion drop-offs, quality score damage, and structural issues that killed ROI.</p>
+        </div>
+        <div class="detail-card reveal">
+          <span class="detail-card-icon">🏁</span>
+          <h4>Competitive Intelligence</h4>
+          <p>We reverse-engineer the ad copy, landing pages, and bidding strategies of your top 5 competitors. You'll know exactly what you're up against and where the gaps are.</p>
+        </div>
+        <div class="detail-card reveal">
+          <span class="detail-card-icon">🎯</span>
+          <h4>Keyword Opportunity Mapping</h4>
+          <p>We analyze search volume, intent signals, and commercial value to identify high-converting keyword clusters your competitors are under-bidding or ignoring entirely.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <h4>What You Receive</h4>
+          <ul class="deliverable-list">
+            <li>Full audit report with priority growth levers</li>
+            <li>Competitive landscape breakdown</li>
+            <li>Keyword opportunity map with intent tiers</li>
+            <li>Wasted spend analysis (if prior account exists)</li>
+            <li>Clear go-forward recommendation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="process-step-block reverse reveal">
+      <div class="step-meta">
+        <div class="step-num-wrap">
+          <div class="step-num-big">02</div>
+          <div class="step-num-label">Step Two</div>
+        </div>
+        <h2>Custom Growth<br>Blueprint</h2>
+        <p>No templates. No recycled strategies. We build a campaign architecture from scratch — tailored to your margins, your market, and your growth ceiling.</p>
+        <div class="step-badge">📋 Your roadmap, before we spend a dollar</div>
+      </div>
+      <div class="step-detail">
+        <div class="detail-card reveal">
+          <span class="detail-card-icon">🏗️</span>
+          <h4>Campaign Architecture Design</h4>
+          <p>We design your full campaign structure — ad groups, match types, negative keyword strategy, audience layers, and bidding model — before anything is built. You review and approve everything.</p>
+        </div>
+        <div class="detail-card reveal">
+          <span class="detail-card-icon">💬</span>
+          <h4>Ad Copy & Messaging Framework</h4>
+          <p>Compelling headlines, descriptions, and extensions built around your unique offer, customer pain points, and local trust signals. We test 3–5 variants per campaign from day one.</p>
+        </div>
+        <div class="detail-card reveal">
+          <span class="detail-card-icon">📊</span>
+          <h4>Projected ROI & Milestone Map</h4>
+          <p>We don't just show you what we'll do — we show you what to expect. A 90-day milestone map with projected cost-per-lead and revenue benchmarks, based on your market data.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <h4>What You Receive</h4>
+          <ul class="deliverable-list">
+            <li>Full campaign architecture document</li>
+            <li>Ad copy drafts + extension copy</li>
+            <li>90-day milestone map with projected benchmarks</li>
+            <li>Budget allocation model by campaign</li>
+            <li>Landing page recommendations (or full build)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Interrupt CTA -->
+<div class="interrupt-cta reveal">
+  <div class="section-label" style="justify-content:center"><span class="line"></span> Ready to start?</div>
+  <h2>Skip the guesswork.<br><em>Book your discovery call.</em></h2>
+  <p>We'll audit your current setup, identify your biggest growth opportunities, and hand you a prioritized roadmap — no commitment required.</p>
+  <div class="interrupt-cta-btns">
+    <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="btn-primary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Process Interrupt - Book Call'})">Book Free Strategy Call <span>→</span></a>
+    <a href="/results/" class="btn-secondary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Process Interrupt - See Results'})">See Client Results</a>
+  </div>
+  <p class="interrupt-scarcity">Limited to 3 new client engagements per month.</p>
+</div>
+
+<!-- Steps 3 & 4 -->
+<div class="section-wrap">
+  <div class="process-steps">
+
+    <!-- STEP 3 -->
+    <div class="process-step-block reveal">
+      <div class="step-meta">
+        <div class="step-num-wrap">
+          <div class="step-num-big">03</div>
+          <div class="step-num-label">Step Three</div>
+        </div>
+        <h2>Launch &amp;<br>Optimize</h2>
+        <p>Campaigns go live with full conversion tracking in place. Every click is attributed. Every lead is counted. We optimize weekly on real data — not guesses.</p>
+        <div class="step-badge">📈 Weekly optimization sprints</div>
+      </div>
+      <div class="step-detail">
+        <div class="detail-card reveal">
+          <span class="detail-card-icon">⚙️</span>
+          <h4>Full Conversion Tracking Setup</h4>
+          <p>Before traffic flows, we instrument every conversion point — phone calls, form fills, live chat, purchases — across Google Ads, GA4, and your CRM. If it doesn't track, it doesn't count.</p>
+        </div>
+        <div class="detail-card reveal">
+          <span class="detail-card-icon">🔁</span>
+          <h4>Weekly Optimization Cycles</h4>
+          <p>Every week we review search term reports, bid adjustments, Quality Scores, and ad performance. Underperforming elements are cut. Winning variants get budget shifted toward them.</p>
+        </div>
+        <div class="detail-card reveal">
+          <span class="detail-card-icon">📋</span>
+          <h4>Transparent Monthly Reporting</h4>
+          <p>A plain-language report — not a dashboard dump. You'll see exactly what was spent, what was earned, what changed, and what's next. No jargon, no vanity metrics.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <h4>What You Receive</h4>
+          <ul class="deliverable-list">
+            <li>Live campaigns with full conversion tracking</li>
+            <li>Weekly performance summaries</li>
+            <li>Monthly plain-language reports</li>
+            <li>Negative keyword updates every cycle</li>
+            <li>A/B test results with winner implementation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="process-step-block reverse reveal">
+      <div class="step-meta">
+        <div class="step-num-wrap">
+          <div class="step-num-big">04</div>
+          <div class="step-num-label">Step Four</div>
+        </div>
+        <h2>Scale What<br>Works</h2>
+        <p>Once we've found what converts, we accelerate it. Budget shifts toward proven campaigns. SEO compounds on top of paid traffic. Retargeting closes what search opened.</p>
+        <div class="step-badge" style="background:rgba(93,211,158,0.08);border-color:rgba(93,211,158,0.22);color:var(--green)">♾ Compounding returns</div>
+      </div>
+      <div class="step-detail">
+        <div class="detail-card reveal">
+          <span class="detail-card-icon">🚀</span>
+          <h4>Winning Campaign Scaling</h4>
+          <p>When a campaign proves its cost-per-lead target, we systematically increase budget. Bid strategies shift to maximize conversion value. Geographic and demographic expansion follows.</p>
+        </div>
+        <div class="detail-card reveal">
+          <span class="detail-card-icon">🔗</span>
+          <h4>SEO + Paid Search Layering</h4>
+          <p>Paid search data is a goldmine for organic strategy. We feed winning keywords, ad copy, and audience signals into your SEO content plan — so organic traffic compounds on paid wins.</p>
+        </div>
+        <div class="detail-card reveal">
+          <span class="detail-card-icon">🎣</span>
+          <h4>Retargeting & Warm Audience Capture</h4>
+          <p>We build retargeting audiences from engaged visitors and past converters. Segmented messaging re-engages high-intent prospects who didn't convert on the first visit.</p>
+        </div>
+        <div class="deliverable-card reveal">
+          <h4>What You Receive</h4>
+          <ul class="deliverable-list">
+            <li>Quarterly growth reviews with strategic scaling plan</li>
+            <li>Retargeting campaigns for warm audiences</li>
+            <li>SEO keyword intelligence reports</li>
+            <li>Budget reallocation toward highest-ROI campaigns</li>
+            <li>Performance Max + YouTube expansion (when ready)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Your First 30 Days -->
+<section class="timeline-section">
+  <div class="timeline-inner">
+    <div class="section-intro reveal">
+      <div class="section-label"><span class="line"></span> Timeline</div>
+      <h2>Your first 90 days,<br>broken down.</h2>
+      <p>Here's exactly what happens after you say yes — no ambiguity, no surprises.</p>
+    </div>
+    <div class="timeline-grid">
+      <div class="timeline-col c1 reveal">
+        <div class="timeline-period">Days 1–14</div>
+        <h3>Audit &amp; Blueprint</h3>
+        <ul class="timeline-items">
+          <li>Onboarding call and account access</li>
+          <li>Full competitive + account audit</li>
+          <li>Keyword opportunity mapping</li>
+          <li>Campaign architecture draft</li>
+          <li>Ad copy creation — 3–5 variants</li>
+          <li>Blueprint review and approval</li>
+        </ul>
+      </div>
+      <div class="timeline-col c2 reveal">
+        <div class="timeline-period">Days 15–45</div>
+        <h3>Launch &amp; Early Data</h3>
+        <ul class="timeline-items">
+          <li>Conversion tracking deployed and tested</li>
+          <li>Campaigns go live</li>
+          <li>First search term report review</li>
+          <li>Negative keyword build-out begins</li>
+          <li>Initial A/B tests running</li>
+          <li>First bi-weekly check-in call</li>
+        </ul>
+      </div>
+      <div class="timeline-col c3 reveal">
+        <div class="timeline-period">Days 46–90</div>
+        <h3>Optimize &amp; Scale</h3>
+        <ul class="timeline-items">
+          <li>Data-driven bid adjustments</li>
+          <li>Winners identified and scaled</li>
+          <li>Losing variants paused or rewritten</li>
+          <li>Retargeting audiences built</li>
+          <li>Month-2 performance report delivered</li>
+          <li>90-day growth strategy review</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What Makes Us Different -->
+<section class="diff-section">
+  <div class="diff-inner">
+    <div class="section-intro reveal">
+      <div class="section-label"><span class="line"></span> Why It Works</div>
+      <h2>What separates our process<br>from every other agency.</h2>
+      <p>Most agencies run the same playbook on every client. We don't. Here's what makes this system different.</p>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card reveal">
+        <div class="diff-icon">🔍</div>
+        <h3>Business-first, not ads-first</h3>
+        <p>We understand your margin per job, your ideal customer profile, and your growth ceiling before touching a keyword. Ads built without this context burn budgets.</p>
+      </div>
+      <div class="diff-card reveal">
+        <div class="diff-icon">📡</div>
+        <h3>Full-funnel attribution</h3>
+        <p>Every lead is tracked back to the exact keyword, ad, and landing page that created it. You see real ROI — not impressions and click-through rates dressed up as results.</p>
+      </div>
+      <div class="diff-card reveal">
+        <div class="diff-icon">⚡</div>
+        <h3>Weekly iteration, not monthly drift</h3>
+        <p>Most agencies review campaigns monthly. We run optimization sprints weekly. That's 4× the data cycles and 4× the compounding improvements in the same period.</p>
+      </div>
+      <div class="diff-card reveal">
+        <div class="diff-icon">🤝</div>
+        <h3>One point of contact. Always.</h3>
+        <p>No account managers handing you off. No offshore execution teams. The strategist on your call is the same person building and optimizing your campaigns.</p>
+      </div>
+      <div class="diff-card reveal">
+        <div class="diff-icon">📊</div>
+        <h3>Reporting you actually understand</h3>
+        <p>Plain English. No dashboard dumps. No 40-page PDF that says nothing. A focused monthly summary: what we spent, what we earned, what changed, what's next.</p>
+      </div>
+      <div class="diff-card reveal">
+        <div class="diff-icon">🔒</div>
+        <h3>You own everything</h3>
+        <p>Your ad account, your campaign history, your conversion data — it's yours from day one. No vendor lock-in. If you leave, you take everything with you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Comparison Table -->
+<section class="compare-section">
+  <div class="compare-inner">
+    <div class="section-intro reveal">
+      <div class="section-label"><span class="line"></span> Side by Side</div>
+      <h2>Modern Apex vs.<br>the typical agency.</h2>
+      <p>Not every agency operates the same way. Here's how our process compares to what most businesses have experienced before finding us.</p>
+    </div>
+    <table class="compare-table reveal">
+      <thead>
+        <tr>
+          <th>What to Expect</th>
+          <th>Modern Apex Strategies</th>
+          <th>Typical Agency</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Dedicated strategist on your account</td>
+          <td class="check-y">✓ Always</td>
+          <td class="check-n">✗ Account managers rotate</td>
+        </tr>
+        <tr>
+          <td>Pre-launch campaign blueprint for review</td>
+          <td class="check-y">✓ Every engagement</td>
+          <td class="check-n">✗ Rarely standard</td>
+        </tr>
+        <tr>
+          <td>Weekly optimization cycles</td>
+          <td class="check-y">✓ Every week</td>
+          <td class="check-n">✗ Usually monthly</td>
+        </tr>
+        <tr>
+          <td>Full conversion tracking before launch</td>
+          <td class="check-y">✓ Required</td>
+          <td class="check-n">✗ Often basic or missing</td>
+        </tr>
+        <tr>
+          <td>You own the ad account and all data</td>
+          <td class="check-y">✓ Day one</td>
+          <td class="check-n">✗ Often agency-owned</td>
+        </tr>
+        <tr>
+          <td>Plain-language monthly reports</td>
+          <td class="check-y">✓ No jargon</td>
+          <td class="check-n">✗ Dashboard dumps</td>
+        </tr>
+        <tr>
+          <td>Response time under 24 hours</td>
+          <td class="check-y">✓ Guaranteed</td>
+          <td class="check-n">✗ 2–5 business days typical</td>
+        </tr>
+        <tr>
+          <td>SEO integration with paid data</td>
+          <td class="check-y">✓ Built into process</td>
+          <td class="check-n">✗ Sold separately</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Process FAQ -->
+<section class="pfaq-section">
+  <div class="pfaq-inner">
+    <div class="section-intro reveal">
+      <div class="section-label"><span class="line"></span> Questions</div>
+      <h2>Process questions,<br>answered plainly.</h2>
+    </div>
+
+    <div class="pfaq-item reveal">
+      <button class="pfaq-btn" onclick="togglePfaq(this)">
+        <span>How long before I see results?</span>
+        <span class="pfaq-icon">+</span>
+      </button>
+      <div class="pfaq-body">
+        <p>Most clients see initial lead volume within the first 2–3 weeks of launch. Meaningful optimization data typically emerges at 30–45 days, which is when we make our first major bid and targeting adjustments. Compounding returns — where each cycle builds on the last — become visible between months 2 and 3. We set realistic benchmarks in your Blueprint so you know what to expect at each stage.</p>
+      </div>
+    </div>
+
+    <div class="pfaq-item reveal">
+      <button class="pfaq-btn" onclick="togglePfaq(this)">
+        <span>Do I need to have run Google Ads before?</span>
+        <span class="pfaq-icon">+</span>
+      </button>
+      <div class="pfaq-body">
+        <p>No. We work with businesses at every stage — complete newcomers to paid search and clients who've burned through budget with previous agencies. If you have an existing account, we audit it and salvage what's working. If you're starting fresh, we build the architecture from the ground up. The Discovery process is designed to meet you wherever you are.</p>
+      </div>
+    </div>
+
+    <div class="pfaq-item reveal">
+      <button class="pfaq-btn" onclick="togglePfaq(this)">
+        <span>What's the minimum ad budget you recommend?</span>
+        <span class="pfaq-icon">+</span>
+      </button>
+      <div class="pfaq-body">
+        <p>For most service businesses, we recommend a minimum of $1,500–$2,000/month in ad spend to generate statistically meaningful data within the first 30 days. Smaller budgets can work in less competitive markets — we'll tell you honestly during the Discovery call whether your budget is viable for your market before you commit to anything.</p>
+      </div>
+    </div>
+
+    <div class="pfaq-item reveal">
+      <button class="pfaq-btn" onclick="togglePfaq(this)">
+        <span>How involved do I need to be day-to-day?</span>
+        <span class="pfaq-icon">+</span>
+      </button>
+      <div class="pfaq-body">
+        <p>Minimal. After onboarding and Blueprint approval, most clients spend less than 30 minutes per week reviewing performance summaries. We handle all execution, optimization, and reporting. You'll have a standing bi-weekly check-in call — but day-to-day, you should be running your business, not your ad account.</p>
+      </div>
+    </div>
+
+    <div class="pfaq-item reveal">
+      <button class="pfaq-btn" onclick="togglePfaq(this)">
+        <span>What happens if a campaign isn't performing?</span>
+        <span class="pfaq-icon">+</span>
+      </button>
+      <div class="pfaq-body">
+        <p>We move fast. Underperforming campaigns are flagged in weekly optimization cycles — not at month-end. We identify the root cause (budget, targeting, ad copy, landing page, or market conditions), communicate clearly what we found, and implement fixes within the same week. You'll never wait a month to find out something wasn't working.</p>
+      </div>
+    </div>
+
+    <div class="pfaq-item reveal">
+      <button class="pfaq-btn" onclick="togglePfaq(this)">
+        <span>Do you offer contracts or month-to-month?</span>
+        <span class="pfaq-icon">+</span>
+      </button>
+      <div class="pfaq-body">
+        <p>We work on a 3-month initial engagement — because meaningful results require a full optimization cycle, and short-term commitments prevent us from doing our best work. After the initial period, we move to month-to-month. We don't hold clients hostage. If you're not happy with results, you can leave with your account, your data, and no penalties.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <div class="section-label reveal" style="justify-content:center"><span class="line"></span> Get Started</div>
+    <h2 class="reveal">Ready to run ads that<br>actually <em>work?</em></h2>
+    <p class="reveal">Book a 15-minute strategy call. We'll audit your current setup, map your biggest opportunities, and tell you exactly what we'd do differently — at no cost, no obligation.</p>
+    <div class="final-cta-btns reveal">
+      <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="btn-primary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Process Final CTA - Book Call'})">Book Your Free Strategy Call <span>→</span></a>
+      <a href="/results/" class="btn-secondary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Process Final CTA - See Results'})">View Client Results</a>
+    </div>
+    <p class="final-disclaimer reveal">Limited availability — we accept 3 new clients per month.</p>
+  </div>
+</section>
+
+<script>
+  // Mobile nav
+  const navToggle = document.getElementById('mobileNavToggle');
+  const navPanel = document.getElementById('mobileNavPanel');
+  const navBackdrop = document.getElementById('mobileNavBackdrop');
+
+  function openNav() {
+    navPanel.classList.add('open');
+    navBackdrop.classList.add('open');
+    navToggle.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeNav() {
+    navPanel.classList.remove('open');
+    navBackdrop.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  navToggle.addEventListener('click', () => navPanel.classList.contains('open') ? closeNav() : openNav());
+  navBackdrop.addEventListener('click', closeNav);
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Process FAQ accordion
+  function togglePfaq(btn) {
+    const item = btn.closest('.pfaq-item');
+    const body = item.querySelector('.pfaq-body');
+    const isOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.pfaq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.pfaq-body').style.maxHeight = '0';
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+      body.style.maxHeight = body.scrollHeight + 'px';
+      gtag('event', 'faq_open', { event_category: 'Process FAQ', event_label: btn.querySelector('span:first-child').textContent });
+    }
+  }
+</script>
 </body>
 </html>

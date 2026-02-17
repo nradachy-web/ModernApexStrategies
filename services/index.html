@@ -1,15 +1,857 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Services | Modern Apex Strategies</title>
-  <meta http-equiv="refresh" content="0; url=/?section=services">
-  <script>
-    window.location.replace('/?section=services');
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Services | Modern Apex Strategies — Google Ads, SEO &amp; Web Design</title>
+  <meta name="description" content="Google Ads Management, SEO, and high-converting Web Design for service businesses. One agency, three growth levers, one compounding system.">
+  <meta property="og:title" content="Services | Modern Apex Strategies">
+  <meta property="og:description" content="Google Ads Management, SEO, and Web Design built to compound. Real strategy, full attribution, measurable ROI.">
+  <link rel="icon" href="/assets/logo-modern-apex.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJPTQHTT4Y"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-QJPTQHTT4Y');</script>
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --dark: #0d0d0f;
+      --dark-card: #161616;
+      --white: #ffffff;
+      --gray: #888888;
+      --light-gray: #cccccc;
+      --red: #e63946;
+      --red-glow: rgba(230,57,70,0.25);
+      --green: #5dd39e;
+      --blue: #4a9eff;
+      --purple: #a78bfa;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { background: var(--black); scroll-behavior: smooth; overflow-x: hidden; }
+    body { background: var(--black); color: var(--white); font-family: var(--sans); overflow-x: hidden; padding-bottom: var(--safe-bottom); }
+    img, svg { max-width: 100%; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: calc(1.2rem + var(--safe-top)) 3rem 1.2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(10,10,10,0.98); backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    nav::before {
+      content: ''; position: absolute; left: 0; right: 0;
+      top: calc(-1 * var(--safe-top)); height: var(--safe-top);
+      background: rgba(10,10,10,0.98); pointer-events: none;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo-img { height: 36px; width: auto; object-fit: contain; }
+    .nav-logo-text { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.02em; color: var(--white); }
+    .nav-links { display: flex; align-items: center; gap: 2.2rem; list-style: none; }
+    .nav-links a { color: var(--gray); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--red); color: var(--white) !important; padding: 0.6rem 1.35rem; border-radius: 4px; font-weight: 700 !important; font-size: 0.82rem !important; letter-spacing: 0.05em !important; text-transform: uppercase; transition: all 0.3s !important; }
+    .nav-cta:hover { background: #c7303c !important; transform: translateY(-1px); }
+    .mobile-nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .mobile-nav-toggle span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+    .mobile-nav-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1090; }
+    .mobile-nav-panel { display: none; position: fixed; top: 0; right: 0; width: 80%; max-width: 320px; height: 100dvh; background: #111; z-index: 1100; padding: calc(5rem + var(--safe-top)) 2rem 2rem; flex-direction: column; transform: translateX(100%); transition: transform 0.35s ease; overflow-y: auto; }
+    .mobile-nav-panel.open { transform: translateX(0); }
+    .mobile-nav-backdrop.open { display: block; }
+    .mobile-nav-panel a { color: var(--light-gray); text-decoration: none; font-size: 1.1rem; font-weight: 500; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: block; transition: color 0.2s; }
+    .mobile-nav-panel a:hover { color: var(--white); }
+    .mobile-nav-cta { margin-top: 1.5rem; background: var(--red) !important; color: var(--white) !important; text-align: center; border-radius: 4px; padding: 1rem !important; font-weight: 700 !important; border-bottom: none !important; }
+
+    /* ── BUTTONS ── */
+    .btn-primary { background: var(--red); color: var(--white); padding: 1rem 2.2rem; border: none; border-radius: 4px; font-family: var(--sans); font-size: 0.95rem; font-weight: 600; cursor: pointer; letter-spacing: 0.04em; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 25px var(--red-glow); display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 35px rgba(230,57,70,0.45); }
+    .btn-secondary { background: transparent; color: var(--white); padding: 1rem 2.2rem; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; font-family: var(--sans); font-size: 0.95rem; font-weight: 500; cursor: pointer; letter-spacing: 0.04em; text-decoration: none; transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.38); background: rgba(255,255,255,0.04); }
+
+    /* ── SHARED ── */
+    .section-label { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 1.25rem; }
+    .section-label .line { width: 28px; height: 2px; background: var(--red); }
+    .pill { display: inline-flex; align-items: center; gap: 0.45rem; background: rgba(230,57,70,0.12); border: 1px solid rgba(230,57,70,0.3); border-radius: 100px; padding: 0.35rem 1rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; }
+    .pulse-dot { width: 7px; height: 7px; background: var(--red); border-radius: 50%; animation: pulse 1.8s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.75)} }
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── HERO ── */
+    .svc-hero {
+      min-height: 72vh; display: flex; align-items: center;
+      padding: calc(8rem + var(--safe-top)) 2rem 5rem;
+      position: relative; overflow: hidden; text-align: center;
+    }
+    .svc-hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1000px; height: 700px; background: radial-gradient(ellipse, rgba(230,57,70,0.07) 0%, transparent 65%); pointer-events: none; }
+    .svc-hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 2; }
+    .svc-hero h1 { font-family: var(--serif); font-size: clamp(2.6rem, 5.5vw, 4.6rem); font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; }
+    .svc-hero h1 em { color: var(--red); font-style: italic; }
+    .svc-hero > .svc-hero-inner > p { font-size: clamp(1rem, 2vw, 1.18rem); color: var(--gray); line-height: 1.72; margin-bottom: 2.5rem; max-width: 640px; margin-left: auto; margin-right: auto; }
+    .hero-cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* Service anchor chips */
+    .svc-anchors { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-top: 3rem; }
+    .svc-anchor-chip { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; padding: 0.6rem 1.3rem; font-size: 0.82rem; font-weight: 600; color: var(--light-gray); text-decoration: none; transition: all 0.25s; letter-spacing: 0.02em; }
+    .svc-anchor-chip:hover { border-color: var(--red); color: var(--white); background: rgba(230,57,70,0.08); }
+    .svc-anchor-chip span { font-size: 1rem; }
+
+    /* ── STICKY SERVICE NAV ── */
+    .svc-nav {
+      position: sticky; top: calc(72px + var(--safe-top)); z-index: 500;
+      background: rgba(10,10,10,0.97); border-bottom: 1px solid rgba(255,255,255,0.07);
+      backdrop-filter: blur(16px);
+    }
+    .svc-nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; gap: 0; overflow-x: auto; scrollbar-width: none; }
+    .svc-nav-inner::-webkit-scrollbar { display: none; }
+    .svc-nav-tab { padding: 1.1rem 1.75rem; font-size: 0.85rem; font-weight: 600; color: var(--gray); text-decoration: none; letter-spacing: 0.04em; border-bottom: 2px solid transparent; white-space: nowrap; transition: all 0.25s; display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+    .svc-nav-tab:hover { color: var(--white); }
+    .svc-nav-tab.active-ads { color: var(--red); border-bottom-color: var(--red); }
+    .svc-nav-tab.active-seo { color: var(--green); border-bottom-color: var(--green); }
+    .svc-nav-tab.active-web { color: var(--blue); border-bottom-color: var(--blue); }
+
+    /* ── SERVICE SECTION BASE ── */
+    .svc-section { padding: 7rem 2rem; position: relative; }
+    .svc-section-inner { max-width: 1100px; margin: 0 auto; }
+    .svc-section:nth-child(even) { background: var(--dark); }
+
+    .svc-section-header { text-align: center; max-width: 760px; margin: 0 auto 5rem; }
+    .svc-service-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
+    .svc-section-header h2 { font-family: var(--serif); font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 900; line-height: 1.12; margin-bottom: 1.25rem; }
+    .svc-section-header p { color: var(--gray); font-size: 1.05rem; line-height: 1.72; margin-bottom: 2rem; }
+
+    .svc-stat-row { display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .svc-stat { text-align: center; }
+    .svc-stat-val { font-family: var(--serif); font-size: 2rem; font-weight: 900; line-height: 1; margin-bottom: 0.3rem; }
+    .svc-stat-lbl { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gray); font-weight: 600; }
+
+    /* Feature grid */
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.25rem; margin-bottom: 3.5rem; }
+    .feature-card { background: var(--dark-card); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.75rem; transition: border-color 0.3s, transform 0.3s; }
+    .feature-card:hover { transform: translateY(-3px); }
+    .feature-card-ads:hover { border-color: rgba(230,57,70,0.25); }
+    .feature-card-seo:hover { border-color: rgba(93,211,158,0.25); }
+    .feature-card-web:hover { border-color: rgba(74,158,255,0.25); }
+    .feature-icon { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1rem; }
+    .fi-ads { background: rgba(230,57,70,0.1); border: 1px solid rgba(230,57,70,0.2); }
+    .fi-seo { background: rgba(93,211,158,0.1); border: 1px solid rgba(93,211,158,0.2); }
+    .fi-web { background: rgba(74,158,255,0.1); border: 1px solid rgba(74,158,255,0.2); }
+    .feature-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.55rem; }
+    .feature-card p { font-size: 0.86rem; color: rgba(255,255,255,0.45); line-height: 1.62; }
+
+    /* Bottom 2-col: deliverables + outcomes */
+    .svc-bottom { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+
+    .deliverables-card { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 2rem; }
+    .deliverables-card h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.1rem; }
+    .deliverables-card-ads h4 { color: var(--red); }
+    .deliverables-card-seo h4 { color: var(--green); }
+    .deliverables-card-web h4 { color: var(--blue); }
+    .del-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .del-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.88rem; color: rgba(255,255,255,0.7); line-height: 1.45; }
+    .del-list li::before { content: '✓'; font-weight: 700; font-size: 0.82rem; flex-shrink: 0; margin-top: 0.05rem; }
+    .del-ads li::before { color: var(--red); }
+    .del-seo li::before { color: var(--green); }
+    .del-web li::before { color: var(--blue); }
+
+    .outcomes-card { background: var(--dark-card); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 2rem; }
+    .outcomes-card h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 1.1rem; }
+    .outcome-row { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .outcome-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .outcome-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .outcome-row strong { display: block; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .outcome-row p { font-size: 0.82rem; color: rgba(255,255,255,0.42); line-height: 1.5; }
+
+    /* CTA inside service section */
+    .svc-section-cta { margin-top: 3.5rem; text-align: center; }
+    .svc-section-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ── GROWTH STACK ── */
+    .stack-section { background: var(--dark); padding: 7rem 2rem; }
+    .stack-inner { max-width: 1100px; margin: 0 auto; }
+    .stack-header { text-align: center; max-width: 680px; margin: 0 auto 4rem; }
+    .stack-header h2 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.15; margin-bottom: 1rem; }
+    .stack-header h2 em { color: var(--red); font-style: italic; }
+    .stack-header p { color: var(--gray); font-size: 1rem; line-height: 1.7; }
+
+    .stack-diagram { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0; margin-bottom: 3rem; }
+
+    .stack-col {
+      padding: 2.5rem 2rem; text-align: center; position: relative;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .stack-col:first-child { border-radius: 12px 0 0 12px; }
+    .stack-col:last-child { border-radius: 0 12px 12px 0; }
+
+    .stack-col-ads { background: rgba(230,57,70,0.05); }
+    .stack-col-seo { background: rgba(93,211,158,0.05); border-left: none; border-right: none; }
+    .stack-col-web { background: rgba(74,158,255,0.05); }
+
+    .stack-col-arrow { position: absolute; right: -14px; top: 50%; transform: translateY(-50%); z-index: 2; width: 28px; height: 28px; background: var(--dark); border: 1px solid rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--gray); }
+
+    .stack-col-num { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .sc-ads .stack-col-num { color: var(--red); }
+    .sc-seo .stack-col-num { color: var(--green); }
+    .sc-web .stack-col-num { color: var(--blue); }
+
+    .stack-col h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; margin-bottom: 0.65rem; }
+    .stack-col > p { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.6; }
+
+    .stack-result {
+      background: linear-gradient(135deg, rgba(230,57,70,0.1), rgba(93,211,158,0.06));
+      border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;
+      padding: 2.5rem; text-align: center;
+    }
+    .stack-result h3 { font-family: var(--serif); font-size: 1.75rem; font-weight: 900; margin-bottom: 0.75rem; line-height: 1.2; }
+    .stack-result p { color: var(--gray); font-size: 0.95rem; line-height: 1.65; max-width: 560px; margin: 0 auto; }
+
+    /* ── INTERRUPT CTA ── */
+    .interrupt-cta { background: linear-gradient(135deg, rgba(230,57,70,0.12), rgba(230,57,70,0.04)); border: 1px solid rgba(230,57,70,0.2); border-radius: 16px; padding: 3.5rem; text-align: center; max-width: 1100px; margin: 0 auto; }
+    .interrupt-wrap { padding: 5rem 2rem; }
+    .interrupt-cta h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 900; line-height: 1.18; margin-bottom: 1rem; }
+    .interrupt-cta h2 em { color: var(--red); font-style: italic; }
+    .interrupt-cta p { color: var(--gray); font-size: 1rem; line-height: 1.65; max-width: 540px; margin: 0 auto 2rem; }
+    .interrupt-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .interrupt-scarcity { margin-top: 1.25rem; font-size: 0.78rem; color: rgba(255,255,255,0.25); letter-spacing: 0.05em; }
+
+    /* ── SERVICE FAQ ── */
+    .sfaq-section { padding: 6rem 2rem; }
+    .sfaq-inner { max-width: 800px; margin: 0 auto; }
+    .sfaq-item { border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .sfaq-btn { width: 100%; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; text-align: left; gap: 1rem; }
+    .sfaq-btn span:first-child { font-size: 1rem; font-weight: 600; color: var(--white); line-height: 1.4; }
+    .sfaq-icon { width: 28px; height: 28px; border: 1px solid rgba(255,255,255,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem; color: var(--red); transition: transform 0.3s; }
+    .sfaq-item.open .sfaq-icon { transform: rotate(45deg); }
+    .sfaq-body { overflow: hidden; max-height: 0; transition: max-height 0.4s ease; }
+    .sfaq-body p { padding: 0 0 1.5rem; color: rgba(255,255,255,0.55); font-size: 0.92rem; line-height: 1.72; }
+
+    /* ── FINAL CTA ── */
+    .final-cta { background: linear-gradient(160deg, #0d0d0f, #0a0a0a); padding: 7rem 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+    .final-cta-inner { max-width: 720px; margin: 0 auto; }
+    .final-cta h2 { font-family: var(--serif); font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 900; line-height: 1.14; margin-bottom: 1.25rem; }
+    .final-cta h2 em { color: var(--red); font-style: italic; }
+    .final-cta p { color: var(--gray); font-size: 1rem; line-height: 1.7; margin-bottom: 2.5rem; }
+    .final-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+    .final-disclaimer { font-size: 0.78rem; color: rgba(255,255,255,0.2); letter-spacing: 0.05em; }
+
+    /* ── MOBILE STICKY ── */
+    .mobile-sticky { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 900; background: rgba(10,10,10,0.97); border-top: 1px solid rgba(255,255,255,0.08); padding: 0.85rem 1.2rem calc(0.85rem + var(--safe-bottom)); gap: 0.75rem; }
+    .mobile-sticky a { flex: 1; text-align: center; padding: 0.85rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 700; text-decoration: none; }
+    .sticky-book { background: var(--red); color: var(--white); box-shadow: 0 4px 18px var(--red-glow); }
+    .sticky-results { background: rgba(255,255,255,0.06); color: var(--white); border: 1px solid rgba(255,255,255,0.12); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: calc(1rem + var(--safe-top)) 1.2rem 1rem; }
+      .nav-links { display: none; }
+      .mobile-nav-toggle { display: flex; }
+      .mobile-nav-panel { display: flex; }
+      .svc-hero { padding-top: calc(6rem + var(--safe-top)); }
+      .svc-section { padding: 4.5rem 1.2rem; }
+      .svc-section-header { margin-bottom: 3rem; }
+      .stack-col:first-child { border-radius: 12px 12px 0 0; }
+      .stack-col:last-child { border-radius: 0 0 12px 12px; }
+      .stack-col-arrow { display: none; }
+      .stack-col-seo { border-left: 1px solid rgba(255,255,255,0.06); border-right: 1px solid rgba(255,255,255,0.06); border-top: none; border-bottom: none; }
+      .interrupt-cta { padding: 2.5rem 1.5rem; }
+      .interrupt-wrap { padding: 3rem 1.2rem; }
+      .mobile-sticky { display: flex; }
+      .final-cta { padding-bottom: calc(7rem + var(--safe-bottom)); }
+      .svc-nav { top: calc(60px + var(--safe-top)); }
+      .svc-nav-tab { padding: 0.9rem 1.25rem; font-size: 0.8rem; }
+    }
+
+    @media (max-width: 500px) {
+      .svc-hero h1 { font-size: 2.4rem; }
+      .hero-cta-row, .svc-section-cta-btns, .interrupt-btns, .final-cta-btns { flex-direction: column; align-items: center; }
+      .hero-cta-row .btn-primary, .hero-cta-row .btn-secondary,
+      .svc-section-cta-btns .btn-primary, .svc-section-cta-btns .btn-secondary,
+      .interrupt-btns .btn-primary, .interrupt-btns .btn-secondary,
+      .final-cta-btns .btn-primary, .final-cta-btns .btn-secondary { width: 100%; justify-content: center; }
+    }
+  </style>
 </head>
 <body>
-  Redirecting to <a href="/?section=services">Services</a>...
+
+<!-- Nav -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/assets/logo-modern-apex.png" alt="ModernApex" class="nav-logo-img">
+    <span class="nav-logo-text">Modern Apex Strategies</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/process/">Process</a></li>
+    <li><a href="/results/">Results</a></li>
+    <li><a href="/reviews/">Reviews</a></li>
+    <li><a href="/team/">Team</a></li>
+    <li><a href="/faq/">FAQ</a></li>
+    <li><a href="/strategy/" class="nav-cta" onclick="gtag('event','click',{event_category:'CTA',event_label:'Nav - Start Your Strategy'})">Start Your Strategy</a></li>
+  </ul>
+  <button class="mobile-nav-toggle" id="mobileNavToggle" type="button" aria-label="Open navigation menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+<div class="mobile-nav-panel" id="mobileNavPanel">
+  <a href="/services/">Services</a>
+  <a href="/process/">Process</a>
+  <a href="/results/">Results</a>
+  <a href="/reviews/">Reviews</a>
+  <a href="/team/">Team</a>
+  <a href="/faq/">FAQ</a>
+  <a href="/strategy/" class="mobile-nav-cta" onclick="gtag('event','click',{event_category:'CTA',event_label:'Mobile Nav - Start Your Strategy'})">Start Your Strategy</a>
+</div>
+
+<!-- Mobile sticky -->
+<div class="mobile-sticky">
+  <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="sticky-book" onclick="gtag('event','click',{event_category:'CTA',event_label:'Services - Mobile Sticky - Book'})">Book a Strategy Call</a>
+  <a href="/results/" class="sticky-results" onclick="gtag('event','click',{event_category:'CTA',event_label:'Services - Mobile Sticky - Results'})">See Results</a>
+</div>
+
+<!-- Hero -->
+<section class="svc-hero">
+  <div class="svc-hero-inner">
+    <div class="pill reveal"><span class="pulse-dot"></span> Three Services. One System.</div>
+    <h1 class="reveal">Every lever you need to<br><em>dominate</em> your market.</h1>
+    <p class="reveal">Google Ads that capture demand. SEO that compounds over time. Web design that converts traffic into revenue. Each service is powerful alone — together, they're unstoppable.</p>
+    <div class="hero-cta-row reveal">
+      <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="btn-primary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Services Hero - Book Call'})">Book a Free Strategy Call <span>→</span></a>
+      <a href="/results/" class="btn-secondary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Services Hero - See Results'})">See Client Results</a>
+    </div>
+    <div class="svc-anchors reveal">
+      <a href="#google-ads" class="svc-anchor-chip"><span>🎯</span> Google Ads Management</a>
+      <a href="#seo" class="svc-anchor-chip"><span>🌱</span> SEO</a>
+      <a href="#web-design" class="svc-anchor-chip"><span>⚡</span> Web Design</a>
+    </div>
+  </div>
+</section>
+
+<!-- Sticky service nav -->
+<div class="svc-nav" id="svcNav">
+  <div class="svc-nav-inner">
+    <a href="#google-ads" class="svc-nav-tab" data-section="google-ads">🎯 Google Ads Management</a>
+    <a href="#seo" class="svc-nav-tab" data-section="seo">🌱 SEO</a>
+    <a href="#web-design" class="svc-nav-tab" data-section="web-design">⚡ Web Design</a>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────
+     SERVICE 1: GOOGLE ADS MANAGEMENT
+───────────────────────────────────────── -->
+<section class="svc-section" id="google-ads">
+  <div class="svc-section-inner">
+    <div class="svc-section-header reveal">
+      <span class="svc-service-icon">🎯</span>
+      <div class="section-label" style="justify-content:center"><span class="line"></span> Service 01</div>
+      <h2>Google Ads<br>Management</h2>
+      <p>The fastest way to put your business in front of buyers who are actively searching for what you sell — right now. We build, manage, and optimize every campaign to maximize your return on every dollar spent.</p>
+      <div class="svc-stat-row">
+        <div class="svc-stat">
+          <div class="svc-stat-val" style="color:#e63946">4.2×</div>
+          <div class="svc-stat-lbl">Avg. client ROI</div>
+        </div>
+        <div class="svc-stat">
+          <div class="svc-stat-val">+68%</div>
+          <div class="svc-stat-lbl">Avg. lead growth, yr 1</div>
+        </div>
+        <div class="svc-stat">
+          <div class="svc-stat-val">$1.2M+</div>
+          <div class="svc-stat-lbl">Ad spend managed</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card feature-card-ads reveal">
+        <div class="feature-icon fi-ads">🔍</div>
+        <h4>Search Campaign Management</h4>
+        <p>High-intent keyword targeting at every stage of the buyer journey. We build tightly themed ad groups, write compelling copy, and bid aggressively where it converts — and pull back where it doesn't.</p>
+      </div>
+      <div class="feature-card feature-card-ads reveal">
+        <div class="feature-icon fi-ads">⚡</div>
+        <h4>Performance Max Campaigns</h4>
+        <p>AI-powered campaigns across Google's full inventory — Search, Display, YouTube, Gmail, and Discovery — optimized toward your actual conversion goals, not just surface-level metrics.</p>
+      </div>
+      <div class="feature-card feature-card-ads reveal">
+        <div class="feature-icon fi-ads">🎣</div>
+        <h4>Retargeting &amp; Remarketing</h4>
+        <p>Re-engage visitors who didn't convert on the first visit. Segmented audience lists, tailored messaging, and frequency-capped ads that bring warm prospects back without annoying them.</p>
+      </div>
+      <div class="feature-card feature-card-ads reveal">
+        <div class="feature-icon fi-ads">📊</div>
+        <h4>Full Conversion Tracking</h4>
+        <p>Phone calls, form fills, live chat, purchases — every conversion point instrumented and attributed before a single ad goes live. If it doesn't track, it doesn't count toward your ROI.</p>
+      </div>
+      <div class="feature-card feature-card-ads reveal">
+        <div class="feature-icon fi-ads">🧪</div>
+        <h4>Continuous A/B Testing</h4>
+        <p>We run ongoing ad copy, headline, and landing page tests. Winners get scaled. Losers get cut. Every campaign cycle compounds the learnings from the one before.</p>
+      </div>
+      <div class="feature-card feature-card-ads reveal">
+        <div class="feature-icon fi-ads">🗂️</div>
+        <h4>Negative Keyword Management</h4>
+        <p>Wasted spend is the silent budget killer. We build and refine an aggressive negative keyword list weekly — so your budget reaches buyers, not browsers.</p>
+      </div>
+    </div>
+
+    <div class="svc-bottom">
+      <div class="deliverables-card deliverables-card-ads reveal">
+        <h4>What's Included</h4>
+        <ul class="del-list del-ads">
+          <li>Full campaign build and account structure</li>
+          <li>Ad copy creation — 3–5 variants per ad group</li>
+          <li>Conversion tracking setup across all touchpoints</li>
+          <li>Weekly optimization sprints (bids, keywords, copy)</li>
+          <li>Negative keyword list built and updated weekly</li>
+          <li>A/B testing with winner implementation</li>
+          <li>Google Analytics 4 integration and goal tracking</li>
+          <li>Monthly plain-language performance report</li>
+          <li>Bi-weekly strategy calls</li>
+          <li>24-hour response time, guaranteed</li>
+        </ul>
+      </div>
+      <div class="outcomes-card reveal">
+        <h4>What You Can Expect</h4>
+        <div class="outcome-row">
+          <div class="outcome-icon">📞</div>
+          <div>
+            <strong>More qualified inbound leads</strong>
+            <p>Higher-intent calls and form fills from buyers who are ready to buy — not just browsing.</p>
+          </div>
+        </div>
+        <div class="outcome-row">
+          <div class="outcome-icon">💰</div>
+          <div>
+            <strong>A clear cost-per-lead you can plan around</strong>
+            <p>Predictable, trackable cost per acquisition — so you can make confident hiring and capacity decisions.</p>
+          </div>
+        </div>
+        <div class="outcome-row">
+          <div class="outcome-icon">📈</div>
+          <div>
+            <strong>Compounding returns over time</strong>
+            <p>Each optimization cycle builds on the last. Month 6 outperforms month 1 — always.</p>
+          </div>
+        </div>
+        <div class="outcome-row">
+          <div class="outcome-icon">🔍</div>
+          <div>
+            <strong>Full visibility into what's working</strong>
+            <p>Every keyword, every ad, every dollar — attributed and explained in plain English.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-section-cta reveal">
+      <div class="svc-section-cta-btns">
+        <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="btn-primary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Services - Ads - Book Call'})">Get a Free Google Ads Audit <span>→</span></a>
+        <a href="/results/" class="btn-secondary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Services - Ads - See Results'})">See Campaign Results</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────
+     SERVICE 2: SEO
+───────────────────────────────────────── -->
+<section class="svc-section" id="seo">
+  <div class="svc-section-inner">
+    <div class="svc-section-header reveal">
+      <span class="svc-service-icon">🌱</span>
+      <div class="section-label" style="justify-content:center;color:var(--green)"><span class="line" style="background:var(--green)"></span> Service 02</div>
+      <h2>Search Engine<br>Optimization</h2>
+      <p>Paid search captures demand today. SEO builds the asset that delivers traffic forever. We layer organic strategy on top of your ad data — so every paid win compounds into long-term search dominance.</p>
+      <div class="svc-stat-row">
+        <div class="svc-stat">
+          <div class="svc-stat-val" style="color:#5dd39e">3–6</div>
+          <div class="svc-stat-lbl">Month avg. to first-page rankings</div>
+        </div>
+        <div class="svc-stat">
+          <div class="svc-stat-val" style="color:#5dd39e">∞</div>
+          <div class="svc-stat-lbl">Unlike ads, rankings don't stop when you pause</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card feature-card-seo reveal">
+        <div class="feature-icon fi-seo">📍</div>
+        <h4>Local SEO &amp; Google Business Profile</h4>
+        <p>Dominate the local map pack. We fully optimize your Google Business Profile, manage local citations, build geo-targeted content, and drive verified reviews to push you to the top of local results.</p>
+      </div>
+      <div class="feature-card feature-card-seo reveal">
+        <div class="feature-icon fi-seo">🔧</div>
+        <h4>Technical SEO Audit &amp; Fixes</h4>
+        <p>Site speed, crawlability, Core Web Vitals, schema markup, canonical tags, redirect chains — we identify and fix the technical blockers that prevent Google from ranking you, even when your content is strong.</p>
+      </div>
+      <div class="feature-card feature-card-seo reveal">
+        <div class="feature-icon fi-seo">✍️</div>
+        <h4>Content Strategy &amp; Creation</h4>
+        <p>Informed by your paid search data. We use the keywords and queries that already convert in your Google Ads account to build an organic content plan that targets proven commercial intent — not guesswork.</p>
+      </div>
+      <div class="feature-card feature-card-seo reveal">
+        <div class="feature-icon fi-seo">🔗</div>
+        <h4>Authority &amp; Link Building</h4>
+        <p>Domain authority is the moat that protects your rankings. We build high-quality backlinks through editorial outreach, local directories, industry associations, and digital PR — no shortcuts, no spam.</p>
+      </div>
+      <div class="feature-card feature-card-seo reveal">
+        <div class="feature-icon fi-seo">📊</div>
+        <h4>Rank Tracking &amp; Reporting</h4>
+        <p>Monthly keyword rank reports, organic traffic trends, and competitive position tracking. You'll always know exactly where you stand, what moved, and what's coming next.</p>
+      </div>
+      <div class="feature-card feature-card-seo reveal">
+        <div class="feature-icon fi-seo">🤝</div>
+        <h4>Paid + Organic Integration</h4>
+        <p>When Google Ads and SEO share the same keyword intelligence, both perform better. We bridge the two so your paid wins feed your organic strategy and vice versa — full-SERP coverage, compounding returns.</p>
+      </div>
+    </div>
+
+    <div class="svc-bottom">
+      <div class="deliverables-card deliverables-card-seo reveal">
+        <h4>What's Included</h4>
+        <ul class="del-list del-seo">
+          <li>Full technical SEO audit and remediation</li>
+          <li>Google Business Profile optimization</li>
+          <li>Local citation building and cleanup</li>
+          <li>Keyword research driven by paid search data</li>
+          <li>Monthly content calendar and article creation</li>
+          <li>On-page optimization for target pages</li>
+          <li>Link building outreach and placement</li>
+          <li>Core Web Vitals monitoring and improvement</li>
+          <li>Monthly rank tracking and organic traffic report</li>
+          <li>Integration with Google Ads keyword strategy</li>
+        </ul>
+      </div>
+      <div class="outcomes-card reveal">
+        <h4>What You Can Expect</h4>
+        <div class="outcome-row">
+          <div class="outcome-icon">📍</div>
+          <div>
+            <strong>First-page rankings for local service terms</strong>
+            <p>Show up when buyers search for your service in your city — without paying per click.</p>
+          </div>
+        </div>
+        <div class="outcome-row">
+          <div class="outcome-icon">🌱</div>
+          <div>
+            <strong>Traffic that grows month over month</strong>
+            <p>Unlike ads, organic rankings compound. Each piece of content and each link adds to a growing asset.</p>
+          </div>
+        </div>
+        <div class="outcome-row">
+          <div class="outcome-icon">🏆</div>
+          <div>
+            <strong>Competitive moat that's hard to replicate</strong>
+            <p>Strong domain authority and local signals take months to build — and years to unseat once established.</p>
+          </div>
+        </div>
+        <div class="outcome-row">
+          <div class="outcome-icon">💡</div>
+          <div>
+            <strong>A smarter paid search strategy</strong>
+            <p>Organic data makes your Google Ads better. Paid data makes your SEO better. The loop compounds.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-section-cta reveal">
+      <div class="svc-section-cta-btns">
+        <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="btn-primary" style="background:var(--green);color:#0a1a12;box-shadow:0 4px 25px rgba(93,211,158,0.3)" onclick="gtag('event','click',{event_category:'CTA',event_label:'Services - SEO - Book Call'})">Get a Free SEO Audit <span>→</span></a>
+        <a href="/results/" class="btn-secondary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Services - SEO - See Results'})">See Client Results</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────
+     SERVICE 3: WEB DESIGN
+───────────────────────────────────────── -->
+<section class="svc-section" id="web-design">
+  <div class="svc-section-inner">
+    <div class="svc-section-header reveal">
+      <span class="svc-service-icon">⚡</span>
+      <div class="section-label" style="justify-content:center;color:var(--blue)"><span class="line" style="background:var(--blue)"></span> Service 03</div>
+      <h2>High-Converting<br>Web Design</h2>
+      <p>Traffic without conversion is just expensive noise. Every site and landing page we build is engineered from the ground up to turn visitors into leads — fast-loading, mobile-first, and obsessively tested.</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card feature-card-web reveal">
+        <div class="feature-icon fi-web">📱</div>
+        <h4>Mobile-First Design</h4>
+        <p>Over 70% of service business leads come from mobile. Every page we build is designed and optimized for mobile first — with thumb-friendly CTAs, fast load times, and click-to-call integrations baked in.</p>
+      </div>
+      <div class="feature-card feature-card-web reveal">
+        <div class="feature-icon fi-web">🎯</div>
+        <h4>Dedicated Landing Pages</h4>
+        <p>Campaign-specific landing pages built to match the intent of each ad group. Tight message match between ad and page is the single biggest lever for improving conversion rate and lowering cost-per-lead.</p>
+      </div>
+      <div class="feature-card feature-card-web reveal">
+        <div class="feature-icon fi-web">🏢</div>
+        <h4>Full Website Builds</h4>
+        <p>Complete websites designed to represent your brand at an enterprise level — with clear service pages, trust signals, case studies, and conversion paths engineered into every section.</p>
+      </div>
+      <div class="feature-card feature-card-web reveal">
+        <div class="feature-icon fi-web">🚀</div>
+        <h4>Speed &amp; Core Web Vitals Optimization</h4>
+        <p>Page speed directly affects both your Google Ads Quality Score and your SEO rankings. We build light, fast pages with optimized images, clean code, and CDN-ready assets from day one.</p>
+      </div>
+      <div class="feature-card feature-card-web reveal">
+        <div class="feature-icon fi-web">🧪</div>
+        <h4>CRO &amp; A/B Testing</h4>
+        <p>We don't guess at what converts — we test it. Headline variations, CTA placement, form length, social proof positioning — every element is tested against real traffic until we find what works.</p>
+      </div>
+      <div class="feature-card feature-card-web reveal">
+        <div class="feature-icon fi-web">🔒</div>
+        <h4>Trust Architecture</h4>
+        <p>Reviews, certifications, badges, guarantees, before/after proof — every page is built with intentional trust signals at the exact moments buyers are most likely to hesitate and leave.</p>
+      </div>
+    </div>
+
+    <div class="svc-bottom">
+      <div class="deliverables-card deliverables-card-web reveal">
+        <h4>What's Included</h4>
+        <ul class="del-list del-web">
+          <li>Custom design — no templates, no page builders</li>
+          <li>Mobile-first responsive build</li>
+          <li>Campaign-matched landing pages for each ad group</li>
+          <li>Click-to-call, form, and live chat integrations</li>
+          <li>Conversion tracking wired to Google Ads and GA4</li>
+          <li>Core Web Vitals optimization (LCP, FID, CLS)</li>
+          <li>SSL, hosting setup, and DNS configuration</li>
+          <li>On-page SEO structure (headings, schema, meta)</li>
+          <li>Trust signal architecture (reviews, badges, guarantees)</li>
+          <li>30-day post-launch CRO support</li>
+        </ul>
+      </div>
+      <div class="outcomes-card reveal">
+        <h4>What You Can Expect</h4>
+        <div class="outcome-row">
+          <div class="outcome-icon">📈</div>
+          <div>
+            <strong>Higher conversion rate from existing traffic</strong>
+            <p>Better landing pages mean lower cost-per-lead from your Google Ads — without increasing budget.</p>
+          </div>
+        </div>
+        <div class="outcome-row">
+          <div class="outcome-icon">⚡</div>
+          <div>
+            <strong>Faster pages, better Quality Scores</strong>
+            <p>Google rewards fast, relevant landing pages with lower CPCs and better ad placement.</p>
+          </div>
+        </div>
+        <div class="outcome-row">
+          <div class="outcome-icon">🏆</div>
+          <div>
+            <strong>A brand that closes more deals</strong>
+            <p>Buyers judge credibility in 3 seconds. An enterprise-grade site makes that first impression count.</p>
+          </div>
+        </div>
+        <div class="outcome-row">
+          <div class="outcome-icon">🔗</div>
+          <div>
+            <strong>A foundation that SEO can build on</strong>
+            <p>Clean structure, fast load times, and proper schema give your SEO strategy the foundation it needs to rank.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-section-cta reveal">
+      <div class="svc-section-cta-btns">
+        <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="btn-primary" style="background:var(--blue);color:#fff;box-shadow:0 4px 25px rgba(74,158,255,0.3)" onclick="gtag('event','click',{event_category:'CTA',event_label:'Services - Web - Book Call'})">Get a Free Site Review <span>→</span></a>
+        <a href="/results/" class="btn-secondary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Services - Web - See Results'})">See Client Results</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────
+     THE GROWTH STACK
+───────────────────────────────────────── -->
+<section class="stack-section">
+  <div class="stack-inner">
+    <div class="stack-header reveal">
+      <div class="section-label" style="justify-content:center"><span class="line"></span> The Full Picture</div>
+      <h2>Three services.<br>One <em>compounding system.</em></h2>
+      <p>Each service delivers value on its own. Stack all three and the returns multiply — paid search feeds SEO intelligence, SEO strengthens organic reach, and a high-converting site makes every traffic source more profitable.</p>
+    </div>
+
+    <div class="stack-diagram reveal">
+      <div class="stack-col stack-col-ads sc-ads" style="border-radius:12px 12px 0 0">
+        <div class="stack-col-arrow">→</div>
+        <div class="stack-col-num">Layer 01</div>
+        <h3>🎯 Google Ads</h3>
+        <p>Capture demand today. Immediate leads, full attribution, predictable cost-per-lead from day one.</p>
+      </div>
+      <div class="stack-col stack-col-seo sc-seo" style="border-top:none">
+        <div class="stack-col-arrow">→</div>
+        <div class="stack-col-num">Layer 02</div>
+        <h3>🌱 SEO</h3>
+        <p>Build the long-term asset. Paid data informs organic strategy — rankings that compound month over month.</p>
+      </div>
+      <div class="stack-col stack-col-web sc-web" style="border-top:none;border-radius:0 0 12px 12px">
+        <div class="stack-col-num">Layer 03</div>
+        <h3>⚡ Web Design</h3>
+        <p>Convert every visitor. Faster pages, better Quality Scores, and higher conversion rates across all traffic sources.</p>
+      </div>
+    </div>
+
+    <div class="stack-result reveal">
+      <h3>The result: a growth engine that gets<br>more efficient every month.</h3>
+      <p>Ads provide the immediate revenue. SEO builds the compounding asset. Web design makes both work harder. When all three are aligned under one strategy — managed by one team — you stop losing leads at every handoff.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Interrupt CTA -->
+<div class="interrupt-wrap">
+  <div class="interrupt-cta reveal">
+    <div class="section-label" style="justify-content:center"><span class="line"></span> Start Here</div>
+    <h2>Not sure which service<br>you need? <em>Ask us.</em></h2>
+    <p>Book a 15-minute strategy call. We'll look at your current setup, identify where you're bleeding the most money or opportunity, and tell you exactly which services would move the needle fastest.</p>
+    <div class="interrupt-btns">
+      <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="btn-primary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Services Interrupt - Book Call'})">Book Free Strategy Call <span>→</span></a>
+      <a href="/process/" class="btn-secondary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Services Interrupt - See Process'})">See Our Process</a>
+    </div>
+    <p class="interrupt-scarcity">Limited to 3 new client engagements per month.</p>
+  </div>
+</div>
+
+<!-- Service FAQ -->
+<section class="sfaq-section">
+  <div class="sfaq-inner">
+    <div class="section-label reveal"><span class="line"></span> Common Questions</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(2rem,4vw,2.8rem);font-weight:900;line-height:1.15;margin-bottom:3rem" class="reveal">Service questions,<br>answered plainly.</h2>
+
+    <div class="sfaq-item reveal">
+      <button class="sfaq-btn" onclick="toggleSfaq(this)">
+        <span>Do I need all three services or can I start with one?</span>
+        <span class="sfaq-icon">+</span>
+      </button>
+      <div class="sfaq-body"><p>You can absolutely start with one. Most clients begin with Google Ads because the ROI is immediate and measurable — then add SEO and web design as they see results and want to compound them. We'll recommend a starting point based on your budget, urgency, and current setup during the strategy call.</p></div>
+    </div>
+
+    <div class="sfaq-item reveal">
+      <button class="sfaq-btn" onclick="toggleSfaq(this)">
+        <span>How is your SEO different from what other agencies offer?</span>
+        <span class="sfaq-icon">+</span>
+      </button>
+      <div class="sfaq-body"><p>Most SEO agencies work in a silo — keyword research based on search volume alone, generic content, basic link-building. We use your actual Google Ads conversion data to inform organic strategy. The keywords that convert in paid search are the same ones worth targeting in organic search. This integration is rare, and it dramatically speeds up results.</p></div>
+    </div>
+
+    <div class="sfaq-item reveal">
+      <button class="sfaq-btn" onclick="toggleSfaq(this)">
+        <span>Can you redesign a specific landing page, or is it a full website or nothing?</span>
+        <span class="sfaq-icon">+</span>
+      </button>
+      <div class="sfaq-body"><p>We work at whatever scope you need. Some clients need a single campaign-specific landing page built in 2 weeks. Others need a full site rebuild. We scope the work during the strategy call so you get exactly what's needed — nothing more, nothing less.</p></div>
+    </div>
+
+    <div class="sfaq-item reveal">
+      <button class="sfaq-btn" onclick="toggleSfaq(this)">
+        <span>What industries do you specialize in?</span>
+        <span class="sfaq-icon">+</span>
+      </button>
+      <div class="sfaq-body"><p>We focus on service businesses — home services (roofing, HVAC, plumbing, landscaping, tree service), specialty contractors, automotive, med spas, chiropractors, and other local service providers. These are businesses where Google search intent is high, ticket sizes are meaningful, and our system delivers the most consistent returns. We'll tell you honestly if your industry or market is a fit.</p></div>
+    </div>
+
+    <div class="sfaq-item reveal">
+      <button class="sfaq-btn" onclick="toggleSfaq(this)">
+        <span>What's the minimum budget for Google Ads management?</span>
+        <span class="sfaq-icon">+</span>
+      </button>
+      <div class="sfaq-body"><p>We recommend a minimum of $1,500–$2,000/month in ad spend for most service markets to generate enough data to optimize meaningfully within the first 30 days. Highly competitive markets (HVAC, roofing in major metros) may need $3,000–$5,000/month to be competitive. Management fees are separate from ad spend and scoped to your account size.</p></div>
+    </div>
+
+    <div class="sfaq-item reveal">
+      <button class="sfaq-btn" onclick="toggleSfaq(this)">
+        <span>How long does a website build take?</span>
+        <span class="sfaq-icon">+</span>
+      </button>
+      <div class="sfaq-body"><p>A dedicated landing page typically takes 1–2 weeks from brief to live. A full website build ranges from 3–6 weeks depending on scope, number of pages, and content requirements. We move fast — but we won't rush something that will live as your primary conversion asset. Timeline is confirmed during project scoping.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <div class="section-label reveal" style="justify-content:center"><span class="line"></span> Let's Build</div>
+    <h2 class="reveal">The right services.<br>The right strategy. <em>Right now.</em></h2>
+    <p class="reveal">Book a 15-minute strategy call. We'll tell you exactly which services fit your situation, what results you can realistically expect, and how fast we can get started.</p>
+    <div class="final-cta-btns reveal">
+      <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="btn-primary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Services Final CTA - Book Call'})">Book Your Free Strategy Call <span>→</span></a>
+      <a href="/results/" class="btn-secondary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Services Final CTA - See Results'})">View Client Results</a>
+    </div>
+    <p class="final-disclaimer reveal">Limited availability — we accept 3 new clients per month.</p>
+  </div>
+</section>
+
+<script>
+  // Mobile nav
+  const navToggle = document.getElementById('mobileNavToggle');
+  const navPanel  = document.getElementById('mobileNavPanel');
+  const navBackdrop = document.getElementById('mobileNavBackdrop');
+  const openNav  = () => { navPanel.classList.add('open'); navBackdrop.classList.add('open'); };
+  const closeNav = () => { navPanel.classList.remove('open'); navBackdrop.classList.remove('open'); };
+  navToggle.addEventListener('click', () => navPanel.classList.contains('open') ? closeNav() : openNav());
+  navBackdrop.addEventListener('click', closeNav);
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Sticky service nav active state
+  const sections = [
+    { id: 'google-ads', tab: '[data-section="google-ads"]' },
+    { id: 'seo',        tab: '[data-section="seo"]' },
+    { id: 'web-design', tab: '[data-section="web-design"]' },
+  ];
+  const activeClasses = { 'google-ads': 'active-ads', 'seo': 'active-seo', 'web-design': 'active-web' };
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        document.querySelectorAll('.svc-nav-tab').forEach(t => t.className = 'svc-nav-tab');
+        const activeTab = document.querySelector(`[data-section="${id}"]`);
+        if (activeTab) activeTab.classList.add(activeClasses[id]);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  sections.forEach(s => {
+    const el = document.getElementById(s.id);
+    if (el) sectionObserver.observe(el);
+  });
+
+  // FAQ accordion
+  function toggleSfaq(btn) {
+    const item = btn.closest('.sfaq-item');
+    const body = item.querySelector('.sfaq-body');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.sfaq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.sfaq-body').style.maxHeight = '0';
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      body.style.maxHeight = body.scrollHeight + 'px';
+      gtag('event', 'faq_open', { event_category: 'Services FAQ', event_label: btn.querySelector('span:first-child').textContent });
+    }
+  }
+</script>
 </body>
 </html>

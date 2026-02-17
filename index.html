@@ -590,14 +590,17 @@
   .ticker-brand {
     flex-shrink: 0;
     display: inline-flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.6rem;
-    padding: 0 1.45rem;
+    justify-content: flex-start;
+    gap: 0.45rem;
+    padding: 0 1rem;
     font-size: 1.02rem;
     font-weight: 700;
     color: rgba(255,255,255,0.78);
     letter-spacing: 0.02em;
-    white-space: nowrap;
+    white-space: normal;
+    min-width: 122px;
   }
 
   .ticker-track > span:not(.dot),
@@ -612,9 +615,9 @@
   }
 
   .ticker-brand-logo-wrap {
-    min-width: 28px;
-    height: 28px;
-    padding: 0 0.42rem;
+    width: 112px;
+    height: 46px;
+    padding: 0.2rem 0.46rem;
     border-radius: 8px;
     border: 1px solid rgba(255,255,255,0.16);
     background: rgba(255,255,255,0.04);
@@ -628,8 +631,8 @@
   .ticker-brand-logo-wrap.has-logo {
     border-color: rgba(255,255,255,0.22);
     background: rgba(255,255,255,0.08);
-    min-width: 94px;
-    padding: 0.2rem 0.58rem;
+    width: 112px;
+    padding: 0.2rem 0.46rem;
   }
 
   .ticker-brand-logo {
@@ -645,7 +648,7 @@
   }
 
   .ticker-brand-initials {
-    font-size: 0.62rem;
+    font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     color: rgba(255,255,255,0.85);
@@ -654,6 +657,15 @@
 
   .ticker-brand-logo-wrap.has-logo .ticker-brand-initials {
     display: none;
+  }
+
+  .ticker-brand-name {
+    font-size: 0.78rem;
+    line-height: 1.15;
+    text-align: center;
+    max-width: 122px;
+    font-weight: 650;
+    white-space: normal;
   }
 
   .ticker-track span.dot {
@@ -2075,19 +2087,23 @@
       position: static;
     }
     .ticker-brand {
-      font-size: 0.9rem;
-      padding: 0 1rem;
-      gap: 0.5rem;
+      min-width: 102px;
+      padding: 0 0.75rem;
+      gap: 0.38rem;
     }
     .ticker-brand-logo-wrap {
-      min-width: 23px;
-      height: 23px;
-      padding: 0 0.35rem;
+      width: 90px;
+      height: 36px;
+      padding: 0.15rem 0.33rem;
       border-radius: 7px;
     }
     .ticker-brand-logo-wrap.has-logo {
-      min-width: 68px;
-      padding: 0.16rem 0.4rem;
+      width: 90px;
+      padding: 0.15rem 0.33rem;
+    }
+    .ticker-brand-name {
+      max-width: 98px;
+      font-size: 0.7rem;
     }
     .ticker-track span.dot,
     .ticker-track-reverse span.dot {
@@ -3076,36 +3092,35 @@
   // Ticker logos from local assets only
   const decorateTickerWithLogos = () => {
     const brandLogoFiles = {
-      'Ace Outdoor Services': ['ace-outdoor-services', 'aceoutdoorservices'],
-      'Camp Landscape Management': ['camp-landscape-management', 'camplandscape', 'camplandscapemanagement'],
-      "Chili Pepper's Tanning & Wellness": ['chili-peppers-tanning-and-wellness', 'chilipeppers', 'chilipepper', 'chillipepper'],
-      'DC Lawn & Snow': ['dc-lawn-and-snow', 'dclawnandsnow', 'dclawnsnow'],
-      'Dynagen Lending': ['dynagen-lending', 'dynagenlending'],
-      'The Epoxy Guys': ['the-epoxy-guys', 'theepoxyguy', 'theepoxyguys', 'epoxyguys'],
-      'Green Mile Lawn Care': ['green-mile-lawn-care', 'greenmilelawncare', 'greenmile'],
-      'Hanczark Chiropractic': ['hanczark-chiropractic', 'hanczarkchiropractic', 'hanczark', 'hcng'],
-      'HD Landscape': ['hd-landscape', 'hdlandscape'],
-      'Matrix Epoxy Flooring': ['matrix-epoxy-flooring', 'matrixepoxyflooring', 'matrixepoxy', 'matrixepoxyfloors'],
-      'MatrixLed Lighting': ['matrixled-lighting', 'matrixledlighting', 'matrixled'],
-      'Maximum Lending': ['maximum-lending', 'maximumlending'],
-      "Miller's Landscape & Supply": ['millers-landscape-and-supply', 'millerslandscapeandsupply', 'millerslandscape', 'millerslandscapesupplies'],
-      "Miller's Property Service": ['millers-property-service', 'millerspropertyservice', 'millersproperty'],
-      "Nelligan's Lawnscapes": ['nelligans-lawnscapes', 'nelliganslawnscapes', 'nelligans'],
-      "Ole Man RB's Tree Service": ['ole-man-rbs-tree-service', 'olemanrbstreeservice', 'olemanrbs', 'olemanrb'],
-      'Origin Electric': ['origin-electric', 'originelectric'],
-      'Petty Shine': ['petty-shine', 'pettyshine'],
-      'Premier Paving': ['premier-paving', 'premierpaving'],
-      'One Stop Customs Auto Spa': ['one-stop-customs-auto-spa', 'onestopcustomsautospa', 'onestopcustoms'],
-      'RPM Auto Lab': ['rpm-auto-lab', 'rpmautolab', 'rpm'],
-      'The Shine Brothers': ['the-shine-brothers', 'theshinebrothers', 'shinebrothers'],
-      'Supersun Electrical Services': ['supersun-electrical-services', 'supersunelectricalservices', 'supersun'],
-      'Top Choice Detailing': ['top-choice-detailing', 'top-choicedetailing', 'topchoicedetailing', 'topchoice'],
-      'Treasured Earth': ['treasured-earth', 'treasuredearth'],
-      'Wicked Metallics': ['wicked-metallics', 'wickedmetallics'],
-      'Blue Heron Electrical': ['blue-heron-electrical', 'blueheronelectrical', 'blueheron']
+      'Ace Outdoor Services': ['aceoutdoorservices.jpg', 'aceoutdoorservices.webp'],
+      'Camp Landscape Management': ['camplandscape.png'],
+      "Chili Pepper's Tanning & Wellness": ['chillipepper.jpg', 'chillipepper.webp'],
+      'DC Lawn & Snow': ['dclawnandsnow.jpg'],
+      'Dynagen Lending': ['dynagenlending.jpg', 'dynagenlending.webp'],
+      'The Epoxy Guys': ['epoxyguys.jpg'],
+      'Green Mile Lawn Care': ['greenmile.jpg'],
+      'Hanczark Chiropractic': ['hcng.png'],
+      'HD Landscape': ['hdlandscape.png'],
+      'Matrix Epoxy Flooring': ['matrixepoxyfloors.jpg'],
+      'MatrixLed Lighting': ['matrixledlighting.png'],
+      'Maximum Lending': ['maximumlending.png'],
+      "Miller's Landscape & Supply": ['millerslandscapesupplies.jpg'],
+      "Miller's Property Service": ['millerspropertyservice.png'],
+      "Nelligan's Lawnscapes": ['nelligans.jpg'],
+      "Ole Man RB's Tree Service": ['olemanrb.png'],
+      'Origin Electric': ['originelectric.jpg'],
+      'Petty Shine': ['pettyshine.jpg', 'pettyshine.webp'],
+      'Premier Paving': ['premierpaving.png'],
+      'One Stop Customs Auto Spa': ['onestopcustoms.png'],
+      'RPM Auto Lab': ['rpmautolab.png'],
+      'The Shine Brothers': ['shinebrothers.png'],
+      'Supersun Electrical Services': ['supersun.jpg', 'supersun.webp'],
+      'Top Choice Detailing': ['top-choicedetailing.jpg', 'top-choicedetailing.webp'],
+      'Treasured Earth': ['treasuredearth.jpg', 'treasuredearth.webp'],
+      'Wicked Metallics': ['wickedmetallics.jpg'],
+      'Blue Heron Electrical': ['blueheron.png']
     };
 
-    const localLogoExtensions = ['png', 'webp', 'jpg', 'jpeg', 'svg'];
     const logoAssetVersion = '20260217';
 
     const getInitials = (name) => {
@@ -3116,67 +3131,16 @@
     };
 
     const getLogoSources = (brandName) => {
-      const sources = [];
-      const localLogoSources = new Set();
+      const files = brandLogoFiles[brandName];
+      if (!Array.isArray(files) || !files.length) return [];
 
-      const addLocalStem = (value) => {
-        if (typeof value !== 'string') return;
-        const stem = value
-          .trim()
-          .toLowerCase()
-          .replace(/\.[a-z0-9]+$/, '')
-          .replace(/[_ ]+/g, '-')
-          .replace(/[^a-z0-9-]+/g, '-')
-          .replace(/-+/g, '-')
-          .replace(/^-|-$/g, '');
-        if (!stem) return;
-        localLogoSources.add(stem);
-        localLogoSources.add(stem.replace(/-/g, ''));
-        localLogoSources.add(stem.replace(/-\d+$/, ''));
-      };
-
-      const localFiles = brandLogoFiles[brandName];
-      if (Array.isArray(localFiles)) {
-        localFiles.forEach(addLocalStem);
-      } else if (typeof localFiles === 'string') {
-        addLocalStem(localFiles);
-      }
-
-      const words = brandName
-        .toLowerCase()
-        .replace(/&/g, ' and ')
-        .replace(/[^a-z0-9 ]+/g, ' ')
-        .split(/\s+/)
-        .filter(Boolean);
-
-      const trimmedWords = words.filter((word) => !['the', 'and', 'llc', 'inc', 'co', 'company', 'services', 'service'].includes(word));
-      if (words.length) {
-        addLocalStem(words.join('-'));
-        addLocalStem(words.join(''));
-        if (words.length > 1) {
-          addLocalStem(words.slice(0, 2).join('-'));
-          addLocalStem(words.slice(0, 2).join(''));
-        }
-      }
-      if (trimmedWords.length) {
-        addLocalStem(trimmedWords.join('-'));
-        addLocalStem(trimmedWords.join(''));
-        if (trimmedWords.length > 1) {
-          addLocalStem(trimmedWords.slice(0, 2).join('-'));
-          addLocalStem(trimmedWords.slice(0, 2).join(''));
-        }
-      }
-
-      const localPaths = ['/assets/badges', '/assets/brands', 'assets/badges', 'assets/brands'];
-      localPaths.forEach((basePath) => {
-        localLogoSources.forEach((stem) => {
-          localLogoExtensions.forEach((extension) => {
-            sources.push(`${basePath}/${stem}.${extension}?v=${logoAssetVersion}`);
-          });
-        });
-      });
-
-      return sources;
+      return files
+        .map((file) => (typeof file === 'string' ? file.trim().replace(/^\/+/, '') : ''))
+        .filter(Boolean)
+        .flatMap((file) => [
+          `/assets/badges/${file}?v=${logoAssetVersion}`,
+          `assets/badges/${file}?v=${logoAssetVersion}`
+        ]);
     };
 
     const optimizeSparseTrack = (track) => {
@@ -3274,6 +3238,7 @@
       logoWrap.appendChild(logo);
 
       const text = document.createElement('span');
+      text.className = 'ticker-brand-name';
       text.textContent = brandName;
 
       chip.append(logoWrap, text);

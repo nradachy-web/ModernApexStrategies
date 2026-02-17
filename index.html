@@ -1041,7 +1041,7 @@
 
   .booking-calendar {
     border-radius: 12px;
-    overflow: hidden;
+    overflow: visible;
     border: 1px solid rgba(255,255,255,0.1);
     background: #0d1016;
   }
@@ -1214,7 +1214,9 @@
   .calendly-inline-widget {
     width: 100%;
     min-width: 100% !important;
-    height: 700px;
+    min-height: 700px;
+    height: auto !important;
+    display: block;
   }
 
   .booking-note {
@@ -2542,8 +2544,13 @@
     .booking-note {
       overflow-wrap: anywhere;
     }
-    .calendly-inline-widget {
-      height: min(66vh, 560px) !important;
+    .booking-calendar {
+      display: none;
+    }
+    .booking-open-link {
+      display: flex;
+      font-size: 1rem;
+      padding: 1rem 1.5rem;
     }
     .mobile-book-bar {
       display: none;
@@ -2551,9 +2558,6 @@
   }
 
   @media (max-width: 700px) {
-    .calendly-embed {
-      display: none;
-    }
     .booking-note {
       margin-top: 0.95rem;
       color: rgba(255,255,255,0.72);
@@ -3076,7 +3080,7 @@
       </div>
       <div class="booking-calendar">
         <!-- Calendly inline widget begin -->
-        <div class="calendly-inline-widget" data-url="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" style="height:700px;"></div>
+        <div class="calendly-inline-widget" data-url="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview"></div>
         <!-- Calendly inline widget end -->
       </div>
     </div>

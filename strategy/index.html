@@ -1,15 +1,877 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Strategy | Modern Apex Strategies</title>
-  <meta http-equiv="refresh" content="0; url=/?section=strategy">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Build Your Strategy | Modern Apex Strategies</title>
+  <meta name="description" content="Answer a few questions and get a custom Google Ads campaign roadmap built around your business — delivered within 24 hours.">
+  <link rel="canonical" href="https://modernapexstrategies.com/strategy/">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJPTQHTT4Y"></script>
   <script>
-    window.location.replace('/?section=strategy');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QJPTQHTT4Y');
   </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:#0a0a0a;--card:#161616;--card-hover:#1c1c1c;
+      --line:rgba(255,255,255,0.08);--line-soft:rgba(255,255,255,0.04);
+      --text:#ffffff;--light:#cccccc;--muted:#888888;
+      --red:#e63946;--red-soft:rgba(230,57,70,0.14);--red-glow:rgba(230,57,70,0.32);
+      --green:#5dd39e;--green-soft:rgba(93,211,158,0.14);
+      --serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;
+      --safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px);
+      --nav-h:72px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--black);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100dvh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
+      height: calc(var(--nav-h) + var(--safe-top));
+      padding-top: var(--safe-top);
+      background: rgba(10,10,10,0.96);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav::before {
+      content: '';
+      position: absolute;
+      top: calc(-1 * var(--safe-top));
+      left: 0; right: 0;
+      height: var(--safe-top);
+      background: #090a0d;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; }
+    .nav-logo-img { height: 32px; width: auto; display: block; }
+    .nav-logo-text { font-size: 0.9rem; font-weight: 700; color: var(--text); letter-spacing: 0.01em; white-space: nowrap; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--light); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { background: var(--red); color: var(--text) !important; padding: 0.75rem 1.6rem; border-radius: 4px; font-weight: 600 !important; letter-spacing: 0.04em !important; transition: all 0.3s !important; box-shadow: 0 4px 20px var(--red-glow); }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 30px rgba(230,57,70,0.5); }
+
+    /* Mobile nav toggle */
+    .mobile-nav-toggle { display: none; flex-direction: column; width: 44px; height: 44px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.02); align-items: center; justify-content: center; gap: 5px; padding: 0; cursor: pointer; transition: border-color 0.25s, background 0.25s; }
+    .mobile-nav-toggle span { width: 18px; height: 2px; background: #ffffff; border-radius: 2px; display: block; transition: transform 0.25s, opacity 0.25s; }
+    body.mobile-nav-open .mobile-nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    body.mobile-nav-open .mobile-nav-toggle span:nth-child(2) { opacity: 0; }
+    body.mobile-nav-open .mobile-nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-nav-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.55); opacity: 0; pointer-events: none; transition: opacity 0.25s; z-index: 1098; }
+    body.mobile-nav-open .mobile-nav-backdrop { opacity: 1; pointer-events: auto; }
+    .mobile-nav-panel { position: fixed; top: calc(var(--mobile-nav-top, 72px) + 8px); left: 1rem; right: 1rem; background: rgba(9,10,13,0.99); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 0.65rem; z-index: 1099; opacity: 0; pointer-events: none; transform: translateY(-8px); transition: opacity 0.25s, transform 0.25s; box-shadow: 0 20px 44px rgba(0,0,0,0.45); }
+    body.mobile-nav-open .mobile-nav-panel { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .mobile-nav-panel a { display: block; padding: 0.75rem 1rem; color: #cccccc; text-decoration: none; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 8px; transition: background 0.18s, color 0.18s; }
+    .mobile-nav-panel a:hover { background: rgba(255,255,255,0.05); color: #ffffff; }
+    .mobile-nav-cta { margin-top: 0.35rem !important; background: var(--red) !important; color: #ffffff !important; text-align: center !important; letter-spacing: 0.04em !important; box-shadow: 0 6px 24px rgba(230,57,70,0.35) !important; }
+
+    /* ── PAGE SHELL ── */
+    .page-wrap {
+      min-height: 100dvh;
+      padding-top: calc(var(--nav-h) + var(--safe-top));
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── SPLIT LAYOUT ── */
+    .split {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      min-height: calc(100dvh - var(--nav-h) - var(--safe-top));
+    }
+
+    /* ── LEFT SIDEBAR ── */
+    .sidebar {
+      background: #0e0f13;
+      border-right: 1px solid var(--line);
+      padding: 3.5rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      position: sticky;
+      top: calc(var(--nav-h) + var(--safe-top));
+      height: calc(100dvh - var(--nav-h) - var(--safe-top));
+      overflow-y: auto;
+    }
+    .sidebar-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+    .sidebar-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--red);
+      border-radius: 2px;
+    }
+    .sidebar h1 {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 2.1vw, 2.1rem);
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--text);
+    }
+    .sidebar h1 em { color: var(--red); font-style: italic; }
+
+    /* Checklist */
+    .sidebar-checklist { display: flex; flex-direction: column; gap: 0.85rem; }
+    .sidebar-checklist li {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      font-size: 0.88rem; color: var(--light); line-height: 1.5; list-style: none;
+    }
+    .check-icon {
+      flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
+      background: var(--green-soft); display: flex; align-items: center;
+      justify-content: center; margin-top: 1px;
+    }
+    .check-icon svg { width: 11px; height: 11px; stroke: var(--green); stroke-width: 2.5; fill: none; }
+
+    /* Metrics */
+    .sidebar-metrics {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
+    }
+    .sidebar-metric { padding: 1.1rem 1.25rem; background: rgba(255,255,255,0.02); }
+    .sidebar-metric:first-child { border-right: 1px solid var(--line); }
+    .sidebar-metric-value { font-family: var(--serif); font-size: 1.7rem; font-weight: 900; color: var(--text); line-height: 1; }
+    .sidebar-metric-label { font-size: 0.72rem; color: var(--muted); margin-top: 0.3rem; line-height: 1.4; }
+
+    /* Testimonial */
+    .sidebar-quote { border-left: 2px solid var(--red); padding: 0.5rem 0 0.5rem 1.25rem; }
+    .sidebar-quote blockquote { font-size: 0.87rem; color: var(--light); line-height: 1.65; font-style: italic; }
+    .sidebar-quote cite { display: block; margin-top: 0.65rem; font-size: 0.73rem; color: var(--muted); font-style: normal; font-weight: 600; letter-spacing: 0.04em; }
+
+    /* Trust */
+    .sidebar-trust { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+    .trust-badge { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; font-weight: 600; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; }
+    .trust-badge svg { width: 13px; height: 13px; fill: var(--muted); }
+    .trust-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.18); }
+
+    .sidebar-divider { height: 1px; background: var(--line); }
+
+    /* ── RIGHT / FORM AREA ── */
+    .form-area {
+      display: flex; align-items: flex-start; justify-content: center;
+      padding: 3.5rem 2rem 3rem;
+      background: var(--black);
+      position: relative; overflow: hidden;
+    }
+    .form-area::before {
+      content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(230,57,70,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .form-area-inner { width: 100%; max-width: 600px; position: relative; z-index: 2; }
+
+    /* Form card */
+    .funnel-form-card {
+      background: linear-gradient(150deg, rgba(22,22,22,0.98), rgba(9,11,17,0.98));
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 18px;
+      padding: 2.25rem 2.25rem 2rem;
+      box-shadow: 0 24px 56px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.03);
+    }
+
+    /* Progress */
+    .funnel-progress { margin-bottom: 2rem; }
+    .funnel-progress-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; }
+    .funnel-progress-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); }
+    .funnel-progress-count { font-size: 0.7rem; color: var(--muted); font-weight: 600; }
+    .funnel-progress-track { height: 3px; background: rgba(255,255,255,0.07); border-radius: 4px; overflow: hidden; }
+    .funnel-progress-fill { height: 100%; background: var(--red); border-radius: 4px; width: 0%; transition: width 0.4s ease; box-shadow: 0 0 10px rgba(230,57,70,0.45); }
+
+    /* Step heading */
+    .step-intro { margin-bottom: 1.5rem; }
+    .step-intro-label { font-size: 0.67rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.35rem; }
+    .step-intro h2 { font-family: var(--serif); font-size: 1.45rem; font-weight: 900; line-height: 1.2; color: var(--text); }
+    .step-intro h2 em { color: var(--red); font-style: italic; }
+
+    /* Form groups */
+    .form-group { margin-bottom: 1.4rem; }
+    .form-group label { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.55rem; color: var(--light); }
+    .form-group label .req { color: var(--red); }
+    .form-hint { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 0.65rem; line-height: 1.5; }
+    .form-group input, .form-group textarea {
+      width: 100%; padding: 0.95rem 1.1rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px; color: var(--text);
+      font-family: var(--sans); font-size: 0.95rem;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+      outline: none; -webkit-appearance: none;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.22); }
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(230,57,70,0.18);
+      background: rgba(255,255,255,0.045);
+    }
+    .form-group input.invalid, .form-group textarea.invalid {
+      border-color: var(--red) !important;
+      box-shadow: 0 0 0 3px rgba(230,57,70,0.2) !important;
+    }
+    .form-group textarea { min-height: 110px; resize: vertical; line-height: 1.6; }
+
+    /* Panels */
+    .funnel-panel { display: none; }
+    .funnel-panel.active { display: block; animation: slideInR 0.3s ease forwards; }
+    [data-nav-dir="back"] .funnel-panel.active { animation: slideInL 0.3s ease forwards; }
+    @keyframes slideInR { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes slideInL { from { opacity: 0; transform: translateX(-28px); } to { opacity: 1; transform: translateX(0); } }
+
+    /* Error */
+    .funnel-error { font-size: 0.82rem; color: #ff8f97; min-height: 1.2rem; margin-top: 0.5rem; }
+
+    /* Actions */
+    .funnel-actions { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 1.75rem; }
+    .btn-primary {
+      background: var(--red); color: #ffffff;
+      padding: 0.95rem 2rem; border: none; border-radius: 6px;
+      font-family: var(--sans); font-size: 0.95rem; font-weight: 700;
+      cursor: pointer; letter-spacing: 0.03em; text-decoration: none;
+      transition: all 0.25s; box-shadow: 0 4px 22px var(--red-glow);
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-primary:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(230,57,70,0.45); }
+    .btn-primary:disabled { opacity: 0.65; cursor: wait; }
+    .btn-back {
+      background: transparent; color: var(--muted);
+      padding: 0.95rem 1.5rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px;
+      font-family: var(--sans); font-size: 0.88rem; font-weight: 500;
+      cursor: pointer; letter-spacing: 0.02em; transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+    .btn-back:hover { border-color: rgba(255,255,255,0.2); color: var(--light); }
+
+    /* Success panel */
+    .funnel-success-panel { text-align: center; padding: 2rem 1rem 1.5rem; }
+    .funnel-success-panel[hidden] { display: none; }
+    .success-icon-wrap {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: var(--green-soft); border: 2px solid rgba(93,211,158,0.35);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    .success-icon-wrap svg { width: 28px; height: 28px; stroke: var(--green); stroke-width: 2; fill: none; }
+    .funnel-success-panel h3 { font-family: var(--serif); font-size: 1.8rem; font-weight: 900; margin-bottom: 0.75rem; color: var(--text); }
+    .funnel-success-panel p { color: var(--muted); font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.75rem; max-width: 420px; margin-left: auto; margin-right: auto; }
+    .success-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; border: 1px solid rgba(255,255,255,0.15);
+      color: var(--light); padding: 0.9rem 1.8rem; border-radius: 6px;
+      font-size: 0.9rem; font-weight: 500; text-decoration: none; transition: all 0.2s;
+    }
+    .success-cta:hover { border-color: rgba(255,255,255,0.3); color: var(--text); }
+
+    /* Calendly strip */
+    .calendly-strip {
+      margin-top: 1.5rem;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.4rem 1.75rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1.5rem; flex-wrap: wrap;
+    }
+    .calendly-strip-text { flex: 1; min-width: 180px; }
+    .calendly-strip-text strong { display: block; font-size: 0.88rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .calendly-strip-text span { font-size: 0.8rem; color: var(--muted); }
+    .calendly-strip-link {
+      white-space: nowrap; display: inline-flex; align-items: center; gap: 0.4rem;
+      background: transparent; border: 1px solid rgba(255,255,255,0.12);
+      color: var(--light); padding: 0.7rem 1.3rem; border-radius: 6px;
+      font-size: 0.82rem; font-weight: 600; text-decoration: none; transition: all 0.2s;
+    }
+    .calendly-strip-link:hover { border-color: var(--red); color: var(--text); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 1.5rem clamp(1.25rem, 4vw, 3rem) calc(1.5rem + var(--safe-bottom));
+      border-top: 1px solid var(--line-soft);
+      text-align: center; font-size: 0.8rem; color: var(--muted);
+    }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .split { grid-template-columns: 1fr; min-height: unset; }
+      .sidebar {
+        position: static; height: auto; overflow: visible;
+        padding: 2.5rem 1.5rem 2rem; border-right: none;
+        border-bottom: 1px solid var(--line); gap: 1.75rem;
+      }
+      .sidebar h1 { font-size: 1.65rem; }
+      .form-area { padding: 2.5rem 1.25rem 3rem; }
+      .funnel-form-card { padding: 1.75rem 1.25rem 1.5rem; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .mobile-nav-toggle { display: flex; }
+      nav::before { background: #090a0d; }
+      .sidebar { padding: 2rem 1.25rem 1.75rem; }
+      .sidebar h1 { font-size: 1.4rem; }
+      .funnel-form-card { border-radius: 14px; padding: 1.5rem 1.1rem; }
+      .funnel-actions { flex-direction: row; }
+      .btn-primary { flex: 1; justify-content: center; }
+      .calendly-strip { flex-direction: column; align-items: flex-start; }
+      .calendly-strip-link { width: 100%; justify-content: center; }
+    }
+  </style>
 </head>
 <body>
-  Redirecting to <a href="/?section=strategy">Strategy</a>...
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/assets/logo-modern-apex.png" alt="Modern Apex Strategies" class="nav-logo-img">
+    <span class="nav-logo-text">Modern Apex Strategies</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/process/">Process</a></li>
+    <li><a href="/results/">Results</a></li>
+    <li><a href="/reviews/">Reviews</a></li>
+    <li><a href="/team/">Team</a></li>
+    <li><a href="/faq/">FAQ</a></li>
+    <li><a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="nav-cta" onclick="gtag('event','click',{event_category:'CTA',event_label:'Nav - Book Call'})">Book a Free Call</a></li>
+  </ul>
+  <button class="mobile-nav-toggle" id="mobileNavToggle" type="button" aria-label="Open navigation menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+<div class="mobile-nav-panel" id="mobileNavPanel">
+  <a href="/services/">Services</a>
+  <a href="/process/">Process</a>
+  <a href="/results/">Results</a>
+  <a href="/reviews/">Reviews</a>
+  <a href="/team/">Team</a>
+  <a href="/faq/">FAQ</a>
+  <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="mobile-nav-cta" onclick="gtag('event','click',{event_category:'CTA',event_label:'Mobile Nav - Book Call'})">Book a Free Call →</a>
+</div>
+
+<!-- PAGE -->
+<div class="page-wrap">
+  <div class="split">
+
+    <!-- LEFT: SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-label">Build Your Strategy</div>
+
+      <h1 class="reveal">Get a custom Google Ads roadmap — <em>built around your business.</em></h1>
+
+      <ul class="sidebar-checklist reveal">
+        <li>
+          <span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+          Custom campaign architecture for your market
+        </li>
+        <li>
+          <span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+          Audience targeting and negative keyword lists
+        </li>
+        <li>
+          <span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+          Competitor positioning and bidding strategy
+        </li>
+        <li>
+          <span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+          Delivered within 24 hours of your call
+        </li>
+      </ul>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-metrics reveal">
+        <div class="sidebar-metric">
+          <div class="sidebar-metric-value">97%</div>
+          <div class="sidebar-metric-label">Client retention rate</div>
+        </div>
+        <div class="sidebar-metric">
+          <div class="sidebar-metric-value">$2M+</div>
+          <div class="sidebar-metric-label">Revenue driven for clients</div>
+        </div>
+      </div>
+
+      <div class="sidebar-quote reveal">
+        <blockquote>"Modern Apex built us a campaign roadmap in 24 hours that our previous agency never gave us in 18 months."</blockquote>
+        <cite>— Mike R., HVAC Contractor</cite>
+      </div>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-trust reveal">
+        <span class="trust-badge">
+          <svg viewBox="0 0 16 16"><path d="M8 1l1.8 3.6L14 5.5l-3 2.9.7 4.1L8 10.4l-3.7 2.1.7-4.1L2 5.5l4.2-.9z"/></svg>
+          Google Partner
+        </span>
+        <span class="trust-dot"></span>
+        <span class="trust-badge">24-hr turnaround</span>
+        <span class="trust-dot"></span>
+        <span class="trust-badge">No commitment</span>
+      </div>
+    </aside>
+
+    <!-- RIGHT: FORM -->
+    <main class="form-area">
+      <div class="form-area-inner">
+
+        <div class="funnel-form-card reveal">
+          <div id="funnelFormContent">
+
+            <div class="funnel-progress">
+              <div class="funnel-progress-meta">
+                <span class="funnel-progress-label" id="funnelProgressLabel">Business Basics</span>
+                <span class="funnel-progress-count" id="funnelProgressCount">1 of 14</span>
+              </div>
+              <div class="funnel-progress-track">
+                <div class="funnel-progress-fill" id="funnelProgressFill"></div>
+              </div>
+            </div>
+
+            <form class="funnel-form" id="strategyForm" novalidate>
+
+              <!-- Step 1: Email -->
+              <div class="funnel-panel active" data-step="1" data-group="Business Basics">
+                <div class="step-intro">
+                  <div class="step-intro-label">Step 1 of 14</div>
+                  <h2>Let's start with your <em>email.</em></h2>
+                </div>
+                <div class="form-group">
+                  <label for="funnelLeadEmail">Work email <span class="req">*</span></label>
+                  <small class="form-hint">We'll send your custom campaign roadmap here.</small>
+                  <input id="funnelLeadEmail" name="emailAddress" type="email" placeholder="you@company.com" required autocomplete="email">
+                </div>
+              </div>
+
+              <!-- Step 2: Business Name -->
+              <div class="funnel-panel" data-step="2" data-group="Business Basics">
+                <div class="step-intro">
+                  <div class="step-intro-label">Step 2 of 14</div>
+                  <h2>What's your <em>business name?</em></h2>
+                </div>
+                <div class="form-group">
+                  <label for="funnelBusiness">Business name <span class="req">*</span></label>
+                  <input id="funnelBusiness" name="entry.2106943644" type="text" placeholder="Your business name" required autocomplete="organization">
+                </div>
+              </div>
+
+              <!-- Step 3: Website -->
+              <div class="funnel-panel" data-step="3" data-group="Business Basics">
+                <div class="step-intro">
+                  <div class="step-intro-label">Step 3 of 14</div>
+                  <h2>Your <em>website URL.</em></h2>
+                </div>
+                <div class="form-group">
+                  <label for="funnelWebsite">Website URL <span class="req">*</span></label>
+                  <input id="funnelWebsite" name="entry.2121495189" type="text" placeholder="yourdomain.com" required>
+                </div>
+              </div>
+
+              <!-- Step 4: Core Services -->
+              <div class="funnel-panel" data-step="4" data-group="Business Basics">
+                <div class="step-intro">
+                  <div class="step-intro-label">Step 4 of 14</div>
+                  <h2>What services should the <em>campaign promote?</em></h2>
+                </div>
+                <div class="form-group">
+                  <label for="funnelCoreServices">Core services <span class="req">*</span></label>
+                  <small class="form-hint">What should this campaign focus on?</small>
+                  <textarea id="funnelCoreServices" name="entry.1433799951" placeholder="e.g. Roofing, gutters, siding replacement" required></textarea>
+                </div>
+              </div>
+
+              <!-- Step 5: Excluded Services -->
+              <div class="funnel-panel" data-step="5" data-group="Business Basics">
+                <div class="step-intro">
+                  <div class="step-intro-label">Step 5 of 14</div>
+                  <h2>Anything we should <em>leave out?</em></h2>
+                </div>
+                <div class="form-group">
+                  <label for="funnelExcludedServices">Services to exclude <span class="req">*</span></label>
+                  <small class="form-hint">What services should we keep out of the campaign?</small>
+                  <textarea id="funnelExcludedServices" name="entry.1913911702" placeholder="e.g. Commercial work, emergency repairs" required></textarea>
+                </div>
+              </div>
+
+              <!-- Step 6: Ideal Customer -->
+              <div class="funnel-panel" data-step="6" data-group="Your Audience">
+                <div class="step-intro">
+                  <div class="step-intro-label">Step 6 of 14</div>
+                  <h2>Describe your <em>ideal customer.</em></h2>
+                </div>
+                <div class="form-group">
+                  <label for="funnelIdealCustomer">Ideal customer <span class="req">*</span></label>
+                  <small class="form-hint">Demographic, homeowner vs. business, age range, income level, etc.</small>
+                  <textarea id="funnelIdealCustomer" name="entry.533825556" placeholder="e.g. Homeowners 35–65, suburban, household income $80k+" required></textarea>
+                </div>
+              </div>
+
+              <!-- Step 7: Customers to Avoid -->
+              <div class="funnel-panel" data-step="7" data-group="Your Audience">
+                <div class="step-intro">
+                  <div class="step-intro-label">Step 7 of 14</div>
+                  <h2>Who should we <em>filter out?</em></h2>
+                </div>
+                <div class="form-group">
+                  <label for="funnelAvoidCustomer">Customer types to avoid <span class="req">*</span></label>
+                  <small class="form-hint">Low-budget jobs, out-of-area calls, commercial vs. residential, etc.</small>
+                  <textarea id="funnelAvoidCustomer" name="entry.559745165" placeholder="e.g. Apartment complexes, jobs under $500" required></textarea>
+                </div>
+              </div>
+
+              <!-- Step 8: Geographic Areas -->
+              <div class="funnel-panel" data-step="8" data-group="Your Audience">
+                <div class="step-intro">
+                  <div class="step-intro-label">Step 8 of 14</div>
+                  <h2>Where do you <em>want to be found?</em></h2>
+                </div>
+                <div class="form-group">
+                  <label for="funnelGeoAreas">Target geographic areas <span class="req">*</span></label>
+                  <small class="form-hint">Cities, counties, ZIP codes, or service radius.</small>
+                  <textarea id="funnelGeoAreas" name="entry.1529976769" placeholder="e.g. Austin TX, Travis County, ZIP 78701–78799" required></textarea>
+                </div>
+              </div>
+
+              <!-- Step 9: Excluded Locations -->
+              <div class="funnel-panel" data-step="9" data-group="Your Audience">
+                <div class="step-intro">
+                  <div class="step-intro-label">Step 9 of 14</div>
+                  <h2>Any locations we should <em>exclude?</em></h2>
+                </div>
+                <div class="form-group">
+                  <label for="funnelExcludedLocations">Locations to exclude <span class="req">*</span></label>
+                  <small class="form-hint">Specific cities, counties, or ZIP codes to block.</small>
+                  <textarea id="funnelExcludedLocations" name="entry.786584099" placeholder="e.g. Round Rock, Cedar Park, ZIP 78613" required></textarea>
+                </div>
+              </div>
+
+              <!-- Step 10: Niches -->
+              <div class="funnel-panel" data-step="10" data-group="Campaign Strategy">
+                <div class="step-intro">
+                  <div class="step-intro-label">Step 10 of 14</div>
+                  <h2>Any specific <em>customer niches?</em></h2>
+                </div>
+                <div class="form-group">
+                  <label for="funnelNiches">Customer niches <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+                  <small class="form-hint">Specific groups you want to reach — real estate investors, property managers, etc.</small>
+                  <textarea id="funnelNiches" name="entry.1552136455" placeholder="e.g. Real estate investors, property managers"></textarea>
+                </div>
+              </div>
+
+              <!-- Step 11: Offers -->
+              <div class="funnel-panel" data-step="11" data-group="Campaign Strategy">
+                <div class="step-intro">
+                  <div class="step-intro-label">Step 11 of 14</div>
+                  <h2>What makes you <em>better than the competition?</em></h2>
+                </div>
+                <div class="form-group">
+                  <label for="funnelOffers">Offers &amp; differentiators <span class="req">*</span></label>
+                  <small class="form-hint">Free estimates, warranties, years in business — what makes you better?</small>
+                  <textarea id="funnelOffers" name="entry.1439045767" placeholder="e.g. Free estimate, lifetime warranty, 5-star rated, family owned since 1998" required></textarea>
+                </div>
+              </div>
+
+              <!-- Step 12: Keywords -->
+              <div class="funnel-panel" data-step="12" data-group="Campaign Strategy">
+                <div class="step-intro">
+                  <div class="step-intro-label">Step 12 of 14</div>
+                  <h2>What <em>search terms</em> should we target?</h2>
+                </div>
+                <div class="form-group">
+                  <label for="funnelKeywords">Key search terms <span class="req">*</span></label>
+                  <small class="form-hint">Keywords and phrases to highlight in your ads.</small>
+                  <textarea id="funnelKeywords" name="entry.1654001695" placeholder="e.g. roof replacement, storm damage roof, emergency roofing" required></textarea>
+                </div>
+              </div>
+
+              <!-- Step 13: Competitors -->
+              <div class="funnel-panel" data-step="13" data-group="Campaign Strategy">
+                <div class="step-intro">
+                  <div class="step-intro-label">Step 13 of 14</div>
+                  <h2>Who are your <em>main competitors?</em></h2>
+                </div>
+                <div class="form-group">
+                  <label for="funnelCompetitors">Main competitors <span class="req">*</span></label>
+                  <small class="form-hint">Who are your top local or online competitors?</small>
+                  <textarea id="funnelCompetitors" name="entry.804264223" placeholder="e.g. ABC Roofing, XYZ Contractors" required></textarea>
+                </div>
+              </div>
+
+              <!-- Step 14: Additional Info -->
+              <div class="funnel-panel" data-step="14" data-group="Final Details">
+                <div class="step-intro">
+                  <div class="step-intro-label">Step 14 of 14</div>
+                  <h2>Anything else we should <em>know?</em></h2>
+                </div>
+                <div class="form-group">
+                  <label for="funnelAdditional">Additional context <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+                  <small class="form-hint">Past ad experience, budget notes, goals, or extra context.</small>
+                  <textarea id="funnelAdditional" name="entry.908662757" placeholder="Any extra context, goals, past ad experience, budget notes, etc."></textarea>
+                </div>
+              </div>
+
+              <p class="funnel-error" id="funnelError" aria-live="polite"></p>
+
+              <div class="funnel-actions">
+                <button type="button" class="btn-back" id="funnelBack" hidden>← Back</button>
+                <button type="button" class="btn-primary" id="funnelNext">Next <span>→</span></button>
+              </div>
+
+            </form>
+          </div><!-- /funnelFormContent -->
+
+          <!-- Success panel -->
+          <div class="funnel-success-panel" id="funnelSuccessPanel" hidden>
+            <div class="success-icon-wrap">
+              <svg viewBox="0 0 24 24"><polyline points="4,12 9,17 20,6"/></svg>
+            </div>
+            <h3>You're all set.</h3>
+            <p>We've received your campaign brief. We'll review everything and reach out with your custom strategy roadmap — usually within 24 hours.</p>
+            <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="success-cta" onclick="gtag('event','click',{event_category:'CTA',event_label:'Strategy Success - Book Call'})">Want to talk sooner? Book a strategy call →</a>
+          </div>
+
+        </div><!-- /funnel-form-card -->
+
+        <!-- Calendly strip -->
+        <div class="calendly-strip reveal">
+          <div class="calendly-strip-text">
+            <strong>Prefer to talk first?</strong>
+            <span>Skip the form and lock in a 15-minute strategy call directly.</span>
+          </div>
+          <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="calendly-strip-link" onclick="gtag('event','click',{event_category:'CTA',event_label:'Strategy Page - Calendly Strip'})">Book a Call →</a>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <footer><p>© 2026 Modern Apex Strategies. All rights reserved.</p></footer>
+</div>
+
+<script>
+  // Mobile nav
+  (function() {
+    const t = document.getElementById('mobileNavToggle');
+    const p = document.getElementById('mobileNavPanel');
+    const b = document.getElementById('mobileNavBackdrop');
+    if (!t || !p || !b) return;
+    const open = () => {
+      document.body.classList.add('mobile-nav-open');
+      t.setAttribute('aria-expanded', 'true');
+      const h = document.querySelector('nav')?.getBoundingClientRect().height ?? 72;
+      document.documentElement.style.setProperty('--mobile-nav-top', h + 'px');
+    };
+    const close = () => {
+      document.body.classList.remove('mobile-nav-open');
+      t.setAttribute('aria-expanded', 'false');
+    };
+    t.addEventListener('click', () => document.body.classList.contains('mobile-nav-open') ? close() : open());
+    b.addEventListener('click', close);
+    p.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+  })();
+
+  // Reveal on scroll
+  (function() {
+    const els = document.querySelectorAll('.reveal');
+    if (!els.length) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    els.forEach(el => io.observe(el));
+  })();
+
+  // Strategy funnel
+  (function() {
+    const strategyForm = document.getElementById('strategyForm');
+    if (!strategyForm) return;
+
+    const funnelPanels = Array.from(strategyForm.querySelectorAll('.funnel-panel'));
+    const nextBtn = document.getElementById('funnelNext');
+    const backBtn = document.getElementById('funnelBack');
+    const errorEl = document.getElementById('funnelError');
+    const formContent = document.getElementById('funnelFormContent');
+    const successPanel = document.getElementById('funnelSuccessPanel');
+    const progressFill = document.getElementById('funnelProgressFill');
+    const progressLabel = document.getElementById('funnelProgressLabel');
+    const progressCount = document.getElementById('funnelProgressCount');
+    const totalSteps = funnelPanels.length;
+
+    const googleFormAction = 'https://docs.google.com/forms/d/e/1FAIpQLSeWeBTuQsYttS1AkJQSey9cdyXugaSccU4p3QS4icArwG-32Q/formResponse';
+    const googleFields = {
+      email: 'emailAddress',
+      businessName: 'entry.2106943644',
+      website: 'entry.2121495189',
+      coreServices: 'entry.1433799951',
+      excludedServices: 'entry.1913911702',
+      idealCustomer: 'entry.533825556',
+      avoidCustomer: 'entry.559745165',
+      geoAreas: 'entry.1529976769',
+      excludedLocations: 'entry.786584099',
+      offers: 'entry.1439045767',
+      keywords: 'entry.1654001695',
+      competitors: 'entry.804264223'
+    };
+    const googleOptionalFields = {
+      niches: 'entry.1552136455',
+      additionalInfo: 'entry.908662757'
+    };
+
+    let currentStep = 1;
+
+    const track = (label) => {
+      if (typeof window.gtag === 'function') gtag('event', 'click', { event_category: 'CTA', event_label: label });
+    };
+
+    const updateView = (direction) => {
+      if (direction) strategyForm.dataset.navDir = direction;
+      funnelPanels.forEach((panel, i) => panel.classList.toggle('active', i === currentStep - 1));
+      const pct = Math.round((currentStep / totalSteps) * 100);
+      if (progressFill) progressFill.style.width = pct + '%';
+      if (progressLabel) progressLabel.textContent = funnelPanels[currentStep - 1]?.dataset?.group || '';
+      if (progressCount) progressCount.textContent = currentStep + ' of ' + totalSteps;
+      backBtn.hidden = currentStep === 1;
+      nextBtn.innerHTML = currentStep === totalSteps ? 'Submit brief <span>→</span>' : 'Next <span>→</span>';
+    };
+
+    const clearErrors = () => {
+      strategyForm.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+      if (errorEl) errorEl.textContent = '';
+    };
+
+    const validate = () => {
+      clearErrors();
+      const panel = funnelPanels[currentStep - 1];
+      let valid = true;
+      panel.querySelectorAll('input[required], textarea[required]').forEach(field => {
+        if (!field.value.trim() || !field.checkValidity()) {
+          valid = false;
+          field.classList.add('invalid');
+        }
+      });
+      if (!valid && errorEl) errorEl.textContent = 'Please complete all required fields before continuing.';
+      return valid;
+    };
+
+    strategyForm.querySelectorAll('input, textarea').forEach(field => {
+      field.addEventListener('input', () => {
+        field.classList.remove('invalid');
+        if (errorEl) errorEl.textContent = '';
+      });
+    });
+
+    backBtn.addEventListener('click', () => {
+      track('Strategy - Back Step');
+      currentStep = Math.max(1, currentStep - 1);
+      updateView('back');
+      clearErrors();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentStep === totalSteps) {
+        track('Strategy - Submit');
+        strategyForm.dispatchEvent(new SubmitEvent('submit', { bubbles: true, cancelable: true }));
+        return;
+      }
+      track('Strategy - Next Step');
+      if (!validate()) return;
+      currentStep = Math.min(totalSteps, currentStep + 1);
+      updateView('forward');
+    });
+
+    const submitToGoogle = (values) => {
+      const frameId = 'googleFormSubmitFrame';
+      let frame = document.getElementById(frameId);
+      if (!frame) {
+        frame = document.createElement('iframe');
+        frame.id = frameId;
+        frame.name = frameId;
+        frame.style.display = 'none';
+        frame.setAttribute('title', 'Form submission');
+        document.body.appendChild(frame);
+      }
+      const postForm = document.createElement('form');
+      postForm.action = googleFormAction;
+      postForm.method = 'POST';
+      postForm.target = frameId;
+      postForm.style.display = 'none';
+      Object.entries(values).forEach(([name, value]) => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = name;
+        input.value = value;
+        postForm.appendChild(input);
+      });
+      document.body.appendChild(postForm);
+      postForm.submit();
+      document.body.removeChild(postForm);
+    };
+
+    strategyForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!validate()) return;
+      const fd = new FormData(strategyForm);
+      const values = {};
+      Object.values(googleFields).forEach(n => { values[n] = String(fd.get(n) || '').trim(); });
+      if (Object.values(googleFields).some(n => !values[n])) {
+        if (errorEl) errorEl.textContent = 'Please complete every required field before submitting.';
+        return;
+      }
+      Object.values(googleOptionalFields).forEach(n => { values[n] = String(fd.get(n) || '').trim(); });
+      nextBtn.disabled = true;
+      nextBtn.style.opacity = '0.7';
+      submitToGoogle(values);
+      formContent.hidden = true;
+      successPanel.hidden = false;
+      successPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    updateView();
+  })();
+</script>
 </body>
 </html>

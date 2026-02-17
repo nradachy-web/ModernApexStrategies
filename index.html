@@ -2467,15 +2467,7 @@
       padding-bottom: var(--safe-bottom);
     }
     body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: calc(var(--safe-top) + 100px);
-      background: #090a0d;
-      z-index: 1040;
-      pointer-events: none;
+      content: none;
     }
     .showcase-grid, .services-grid, .reviews-grid { grid-template-columns: 1fr; }
     .stats-grid {
@@ -2528,7 +2520,7 @@
     .team-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .mobile-nav-toggle {
-      display: inline-flex;
+      display: flex;
       flex-direction: column;
       z-index: 1102;
     }
@@ -2545,7 +2537,7 @@
       -webkit-backdrop-filter: none;
     }
     nav::before {
-      display: none;
+      background: #090a0d;
     }
     .nav-logo-img { height: 32px; }
     .nav-logo {

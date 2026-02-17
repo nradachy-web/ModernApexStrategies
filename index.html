@@ -768,26 +768,19 @@
     line-height: 1.6;
   }
 
-  .funnel-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(340px, 430px);
-    gap: 1.8rem;
-    align-items: start;
+  .funnel-form-wrap {
+    max-width: 740px;
+    margin: 0 auto;
   }
 
-  .funnel-form-card,
-  .booking-card {
+  .funnel-form-card {
     background: linear-gradient(150deg, rgba(22,22,22,0.94), rgba(9,11,17,0.96));
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 16px;
     padding: 2rem;
     box-shadow: 0 20px 45px rgba(0,0,0,0.35);
     width: 100%;
-    max-width: 100%;
     min-width: 0;
-  }
-
-  .funnel-form-card {
     text-align: left;
   }
 
@@ -996,10 +989,148 @@
     padding: 1rem 2.5rem;
   }
 
+  /* Booking section (below form) */
+  .booking-divider {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin: 3rem 0 2rem;
+    color: rgba(255,255,255,0.28);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .booking-divider::before,
+  .booking-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .booking-section {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 2rem;
+    align-items: start;
+    background: linear-gradient(150deg, rgba(22,22,22,0.94), rgba(9,11,17,0.96));
+    border: 1px solid rgba(93,211,158,0.2);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+
+  .booking-copy {
+    text-align: left;
+  }
+
+  .booking-copy h3 {
+    font-family: var(--serif);
+    font-size: 1.75rem;
+    line-height: 1.15;
+    margin-bottom: 0.8rem;
+  }
+
+  .booking-copy p {
+    color: var(--gray);
+    font-size: 0.94rem;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+
+  .booking-calendar {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: #0d1016;
+  }
+
+  /* Success panel */
+  .funnel-success-panel {
+    text-align: center;
+    padding: 2.5rem 1rem 1.5rem;
+    animation: fadeInUp 0.4s ease;
+  }
+
+  .funnel-success-panel[hidden] { display: none; }
+
+  .success-check-wrap {
+    margin-bottom: 1.5rem;
+  }
+
+  .success-checkmark {
+    width: 68px;
+    height: 68px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .success-circle {
+    stroke: var(--green);
+    stroke-width: 2.5;
+    fill: none;
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    animation: successStroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+  }
+
+  .success-tick {
+    stroke: var(--green);
+    stroke-width: 2.5;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    animation: successStroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.55s forwards;
+  }
+
+  @keyframes successStroke {
+    100% { stroke-dashoffset: 0; }
+  }
+
+  .funnel-success-panel h3 {
+    font-family: var(--serif);
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 0.75rem;
+  }
+
+  .funnel-success-panel p {
+    color: var(--gray);
+    line-height: 1.65;
+    margin-bottom: 1.75rem;
+  }
+
+  .success-book-link {
+    border-color: rgba(93,211,158,0.4);
+    background: rgba(93,211,158,0.1);
+    color: #ceffe5;
+    font-weight: 600;
+  }
+
+  .success-book-link:hover {
+    background: rgba(93,211,158,0.2);
+    border-color: rgba(93,211,158,0.6);
+  }
+
+  /* Green submit button on final step */
+  .btn-submit-ready {
+    background: var(--green) !important;
+    color: #0a1a12 !important;
+    box-shadow: 0 4px 24px rgba(93,211,158,0.38) !important;
+  }
+
+  .btn-submit-ready:hover {
+    background: #4ec98e !important;
+    box-shadow: 0 6px 32px rgba(93,211,158,0.5) !important;
+  }
+
+  /* Old booking-card kept for fallback */
   .booking-card {
     text-align: left;
-    position: sticky;
-    top: calc(var(--anchor-offset) + 0.8rem);
     border-color: rgba(93,211,158,0.25);
   }
 
@@ -2078,23 +2209,20 @@
     }
     .process-step { flex-direction: column; text-align: center; align-items: center; }
     .process-num::after { display: none; }
-    .funnel-layout {
-      grid-template-columns: 1fr;
-      gap: 1.2rem;
-    }
     .funnel-section {
       padding: 4.6rem 0.8rem;
     }
     .funnel-inner {
       max-width: 100%;
     }
-    .funnel-form-card,
-    .booking-card {
+    .funnel-form-card {
       padding: 1.15rem 0.95rem;
       border-radius: 12px;
     }
-    .booking-card {
-      position: static;
+    .booking-section {
+      grid-template-columns: 1fr;
+      padding: 1.15rem 0.95rem;
+      border-radius: 12px;
     }
     .ticker-brand {
       min-width: 248px;
@@ -2131,7 +2259,7 @@
     .funnel-step {
       flex: 0 0 auto;
     }
-    .funnel-layout > * {
+    .booking-section > * {
       min-width: 0;
     }
     .funnel-step-line {
@@ -2149,8 +2277,8 @@
       max-width: 100%;
       min-width: 0;
     }
-    .booking-card h3,
-    .booking-card p,
+    .booking-copy h3,
+    .booking-copy p,
     .booking-note {
       overflow-wrap: anywhere;
     }
@@ -2532,8 +2660,9 @@
     <h2>Your Google Ads <em>Strategy</em> starts here</h2>
     <p>Answer a few questions so we can build a custom campaign roadmap for your business, or skip ahead and book your strategy call right now.</p>
 
-    <div class="funnel-layout">
+    <div class="funnel-form-wrap">
       <div class="funnel-form-card">
+        <div id="funnelFormContent">
         <div class="funnel-steps">
           <div class="funnel-step active">
             <div class="funnel-step-num">1</div>
@@ -2650,12 +2779,30 @@
           <div class="funnel-actions">
             <button type="button" class="btn-secondary" id="funnelBack" hidden>Back</button>
             <button type="button" class="btn-primary" id="funnelNext">Next Step <span>→</span></button>
-            <button type="submit" class="btn-primary" id="funnelSubmit" hidden>Get Strategy Plan <span>→</span></button>
           </div>
         </form>
-      </div>
+        </div><!-- /funnelFormContent -->
 
-      <aside class="booking-card">
+        <div class="funnel-success-panel" id="funnelSuccessPanel" hidden>
+          <div class="success-check-wrap">
+            <svg class="success-checkmark" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+              <circle class="success-circle" cx="26" cy="26" r="24"/>
+              <path class="success-tick" d="M14 26l8 9 16-18"/>
+            </svg>
+          </div>
+          <h3>You're all set!</h3>
+          <p>We've received your campaign details. We'll review everything and reach out with your custom strategy roadmap.</p>
+          <a href="#bookingSection" class="btn-secondary success-book-link">Want to talk sooner? Book a strategy call <span>→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="booking-divider">
+      <span>or book a strategy call directly</span>
+    </div>
+
+    <div class="booking-section" id="bookingSection">
+      <div class="booking-copy">
         <div class="booking-kicker">Book Instantly</div>
         <h3>Skip the form and lock in a strategy call now.</h3>
         <p>If you are ready to talk growth, pick a time directly on our calendar and we will meet 1:1.</p>
@@ -2665,13 +2812,13 @@
           <li><span class="check">✓</span>Clear next-step plan after the call</li>
         </ul>
         <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="btn-secondary booking-open-link" onclick="gtag('event','click',{event_category:'CTA',event_label:'Strategy - Open Calendly Fullscreen'})">Open Full-Screen Calendar</a>
-        <div class="calendly-embed" id="calendlyWidget">
-          <!-- Calendly inline widget begin -->
-          <div class="calendly-inline-widget" data-url="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" style="height:700px;"></div>
-          <!-- Calendly inline widget end -->
-        </div>
-        <p class="booking-note">On mobile, use the full-screen calendar button above for the smoothest booking flow. Prefer forms? You can still submit your campaign details on the left.</p>
-      </aside>
+        <p class="booking-note">On mobile, tap the button above for the smoothest booking experience.</p>
+      </div>
+      <div class="booking-calendar">
+        <!-- Calendly inline widget begin -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" style="height:700px;"></div>
+        <!-- Calendly inline widget end -->
+      </div>
     </div>
   </div>
 </section>
@@ -3308,9 +3455,10 @@
     const funnelSteps = Array.from(document.querySelectorAll('.funnel-steps .funnel-step'));
     const nextBtn = document.getElementById('funnelNext');
     const backBtn = document.getElementById('funnelBack');
-    const submitBtn = document.getElementById('funnelSubmit');
     const errorEl = document.getElementById('funnelError');
     const successEl = document.getElementById('funnelSuccess');
+    const formContent = document.getElementById('funnelFormContent');
+    const successPanel = document.getElementById('funnelSuccessPanel');
     const googleFormAction = 'https://docs.google.com/forms/d/e/1FAIpQLSeWeBTuQsYttS1AkJQSey9cdyXugaSccU4p3QS4icArwG-32Q/formResponse';
     // Required entry fields
     const googleFields = {
@@ -3350,9 +3498,16 @@
         step.classList.toggle('complete', index < currentStep - 1);
       });
 
+      const isLastStep = currentStep === funnelPanels.length;
       backBtn.hidden = currentStep === 1;
-      nextBtn.hidden = currentStep === funnelPanels.length;
-      submitBtn.hidden = currentStep !== funnelPanels.length;
+      nextBtn.hidden = false;
+      if (isLastStep) {
+        nextBtn.innerHTML = 'Submit <span>→</span>';
+        nextBtn.classList.add('btn-submit-ready');
+      } else {
+        nextBtn.innerHTML = 'Next Step <span>→</span>';
+        nextBtn.classList.remove('btn-submit-ready');
+      }
     };
 
     const clearValidationState = () => {
@@ -3363,9 +3518,8 @@
     const setSubmittingState = (isSubmitting) => {
       nextBtn.disabled = isSubmitting;
       backBtn.disabled = isSubmitting;
-      submitBtn.disabled = isSubmitting;
-      submitBtn.style.opacity = isSubmitting ? '0.75' : '1';
-      submitBtn.style.cursor = isSubmitting ? 'wait' : 'pointer';
+      nextBtn.style.opacity = isSubmitting ? '0.75' : '1';
+      nextBtn.style.cursor = isSubmitting ? 'wait' : 'pointer';
     };
 
     strategyForm.querySelectorAll('input, select, textarea').forEach((field) => {
@@ -3381,7 +3535,6 @@
 
     const validateCurrentStep = () => {
       clearValidationState();
-      successEl.textContent = '';
 
       const panel = funnelPanels[currentStep - 1];
       let isValid = true;
@@ -3407,10 +3560,14 @@
       currentStep = Math.max(1, currentStep - 1);
       updateFunnelView();
       clearValidationState();
-      successEl.textContent = '';
     });
 
     nextBtn.addEventListener('click', () => {
+      if (currentStep === funnelPanels.length) {
+        trackClick('Funnel - Submit');
+        strategyForm.dispatchEvent(new SubmitEvent('submit', { bubbles: true, cancelable: true }));
+        return;
+      }
       trackClick('Funnel - Next Step');
       if (!validateCurrentStep()) return;
       currentStep = Math.min(funnelPanels.length, currentStep + 1);
@@ -3477,15 +3634,12 @@
         setSubmittingState(true);
         submitToGoogleForm(values);
 
-        strategyForm.reset();
-        currentStep = 1;
-        updateFunnelView();
-        clearValidationState();
-        successEl.textContent = 'Thanks. Your submission was sent to Google Forms successfully.';
-        errorEl.textContent = '';
+        // Show success panel
+        formContent.hidden = true;
+        successPanel.hidden = false;
+        successPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } catch (error) {
-        errorEl.textContent = 'Google Form submission failed. Please try again.';
-      } finally {
+        errorEl.textContent = 'Submission failed. Please try again.';
         setSubmittingState(false);
       }
     });

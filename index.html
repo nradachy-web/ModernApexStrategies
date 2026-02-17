@@ -640,11 +640,13 @@
     max-width: 122px;
     height: 100%;
     object-fit: contain;
-    display: none;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.2s ease;
   }
 
   .ticker-brand-logo-wrap.has-logo .ticker-brand-logo {
-    display: block;
+    opacity: 1;
   }
 
   .ticker-brand-initials {
@@ -3209,15 +3211,21 @@
       const logo = document.createElement('img');
       logo.className = 'ticker-brand-logo';
       logo.alt = `${brandName} logo`;
-      logo.loading = 'lazy';
+      logo.loading = 'eager';
       logo.decoding = 'async';
       logo.referrerPolicy = 'no-referrer';
 
       let sourceIndex = 0;
+      let settled = false;
+      let sourceTimeout = null;
 
       const tryNextSource = () => {
+        if (sourceTimeout) {
+          window.clearTimeout(sourceTimeout);
+        }
         sourceIndex += 1;
         if (sourceIndex < logoSources.length) {
+          armSourceTimeout();
           logo.src = logoSources[sourceIndex];
           return;
         }
@@ -3225,15 +3233,35 @@
         cleanupTrack(track);
       };
 
+      const armSourceTimeout = () => {
+        if (sourceTimeout) {
+          window.clearTimeout(sourceTimeout);
+        }
+        sourceTimeout = window.setTimeout(() => {
+          if (!settled) {
+            tryNextSource();
+          }
+        }, 3500);
+      };
+
       logo.addEventListener('load', () => {
+        settled = true;
+        if (sourceTimeout) {
+          window.clearTimeout(sourceTimeout);
+        }
         if (logo.naturalWidth < 18 || logo.naturalHeight < 18) {
+          settled = false;
           tryNextSource();
           return;
         }
         logoWrap.classList.add('has-logo');
       });
 
-      logo.addEventListener('error', tryNextSource);
+      logo.addEventListener('error', () => {
+        settled = false;
+        tryNextSource();
+      });
+      armSourceTimeout();
       logo.src = logoSources[sourceIndex];
       logoWrap.appendChild(logo);
 

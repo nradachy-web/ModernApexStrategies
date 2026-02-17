@@ -2,14 +2,389 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJPTQHTT4Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QJPTQHTT4Y');
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FAQ | Modern Apex Strategies</title>
-  <meta http-equiv="refresh" content="0; url=/?section=faq">
-  <script>
-    window.location.replace('/?section=faq');
-  </script>
+  <meta name="description" content="Straight answers on pricing, timelines, contracts, reporting, and what it's actually like to work with Modern Apex Strategies.">
+  <meta property="og:title" content="FAQ | Modern Apex Strategies">
+  <meta property="og:description" content="Every question we get asked before someone books a call — answered directly and honestly.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black:#0a0a0a;--card:#161616;--card-hover:#1c1c1c;
+      --line:rgba(255,255,255,0.08);--line-soft:rgba(255,255,255,0.04);
+      --text:#ffffff;--light:#cccccc;--muted:#888888;
+      --red:#e63946;--red-soft:rgba(230,57,70,0.14);--red-glow:rgba(230,57,70,0.32);
+      --green:#5dd39e;--green-soft:rgba(93,211,158,0.14);
+      --serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;
+      --safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px);
+      --nav-h:72px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;overflow-x:hidden}
+    body{font-family:var(--sans);color:var(--text);background:var(--black);min-height:100vh;overflow-x:hidden;padding-top:var(--nav-h)}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;padding:0 clamp(1.25rem,4vw,3rem);background:rgba(10,10,10,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--line-soft)}
+    .nav-inner{width:100%;max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:.65rem}
+    .nav-logo img{height:30px;width:auto}
+    .nav-logo-text{font-size:.95rem;font-weight:700;letter-spacing:-.01em}
+    .nav-links{display:flex;align-items:center;gap:1.75rem;list-style:none}
+    .nav-links a{font-size:.82rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--light);transition:color .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--text)}
+    .nav-cta{display:inline-flex;align-items:center;background:linear-gradient(135deg,var(--red),#ff5968);color:var(--text)!important;padding:.55rem 1.2rem;border-radius:7px;font-size:.82rem!important;font-weight:700!important;letter-spacing:.04em!important;white-space:nowrap;box-shadow:0 0 18px var(--red-glow);transition:box-shadow .2s,transform .15s}
+    .nav-cta:hover{box-shadow:0 0 30px var(--red-glow);transform:translateY(-1px)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none;padding:6px}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:.25s}
+    .mobile-panel{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:rgba(10,10,10,0.98);backdrop-filter:blur(20px);padding:1.5rem clamp(1.25rem,4vw,3rem) 2rem;flex-direction:column;gap:0;z-index:999;border-bottom:1px solid var(--line)}
+    .mobile-panel.open{display:flex}
+    .mobile-panel a{font-size:.9rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--light);padding:.8rem 0;border-bottom:1px solid var(--line-soft);transition:color .2s}
+    .mobile-panel a:last-child{border-bottom:none}
+    .mobile-panel a:hover{color:var(--text)}
+    .mobile-panel .nav-cta{margin-top:1rem;text-align:center;justify-content:center;padding:.85rem;border-radius:8px;font-size:.9rem!important}
+    .mobile-sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:998;padding:.75rem 1rem calc(.75rem + var(--safe-bottom));background:rgba(10,10,10,0.98);backdrop-filter:blur(20px);border-top:1px solid var(--line);gap:.75rem}
+    .sticky-plan{flex:1;display:block;text-align:center;padding:.8rem;border-radius:8px;font-size:.88rem;font-weight:700;border:1.5px solid rgba(230,57,70,0.5);color:var(--red)}
+    .sticky-book{flex:1;display:block;text-align:center;padding:.8rem;border-radius:8px;font-size:.88rem;font-weight:700;background:linear-gradient(135deg,var(--red),#ff5968);color:var(--text);box-shadow:0 4px 16px var(--red-glow)}
+
+    /* UTILITIES */
+    .container{width:100%;max-width:860px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
+    .section-label{display:inline-flex;align-items:center;gap:.6rem;font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:1.1rem}
+    .section-label::before{content:'';display:block;width:22px;height:1.5px;background:var(--red)}
+    .btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,var(--red),#ff5968);color:var(--text);padding:.9rem 1.9rem;border-radius:8px;font-size:.95rem;font-weight:700;box-shadow:0 4px 24px var(--red-glow);transition:box-shadow .2s,transform .15s;white-space:nowrap}
+    .btn-primary:hover{box-shadow:0 6px 36px rgba(230,57,70,0.55);transform:translateY(-2px)}
+    .btn-secondary{display:inline-flex;align-items:center;gap:.5rem;border:1.5px solid rgba(255,255,255,0.18);color:var(--light);padding:.9rem 1.9rem;border-radius:8px;font-size:.95rem;font-weight:600;transition:border-color .2s,color .2s,background .2s;white-space:nowrap}
+    .btn-secondary:hover{border-color:rgba(255,255,255,0.4);color:var(--text);background:rgba(255,255,255,0.04)}
+    .pulse-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;background:var(--green);animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.75)}}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* HERO */
+    .hero{position:relative;padding:clamp(4rem,9vw,7rem) 0 clamp(3rem,6vw,5rem);overflow:hidden;text-align:center}
+    .hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:550px;background:radial-gradient(ellipse,rgba(230,57,70,.1) 0%,transparent 65%);pointer-events:none}
+    .hero-inner{position:relative;z-index:1}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:.6rem;padding:.4rem 1rem .4rem .75rem;background:rgba(93,211,158,.08);border:1px solid rgba(93,211,158,.22);border-radius:100px;font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:1.75rem}
+    .hero h1{font-family:var(--serif);font-size:clamp(2.4rem,5.5vw,3.8rem);font-weight:900;line-height:1.1;letter-spacing:-.025em;margin-bottom:1.25rem}
+    .hero h1 em{font-style:italic;color:var(--red)}
+    .hero-sub{font-size:clamp(1rem,1.8vw,1.1rem);color:var(--light);line-height:1.7;max-width:560px;margin:0 auto 2.25rem}
+
+    /* FAQ */
+    .faq-wrap{padding:0 0 clamp(4rem,8vw,7rem)}
+    .faq-group{margin-bottom:3rem}
+    .faq-group-label{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);padding-bottom:.75rem;margin-bottom:.25rem;border-bottom:1px solid var(--line-soft)}
+    .faq-item{border-bottom:1px solid var(--line-soft)}
+    .faq-question{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.4rem 0;font-size:clamp(.95rem,1.5vw,1.05rem);font-weight:600;color:var(--text);background:none;border:none;cursor:pointer;text-align:left;transition:color .2s}
+    .faq-question:hover{color:rgba(255,255,255,.75)}
+    .faq-icon{width:28px;height:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1.5px solid var(--line);font-size:1.1rem;font-weight:300;color:var(--muted);transition:all .25s;line-height:1}
+    .faq-question.open .faq-icon{border-color:var(--red);background:var(--red-soft);color:var(--red);transform:rotate(45deg)}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .38s ease}
+    .faq-answer.open{max-height:700px}
+    .faq-answer-inner{padding-bottom:1.5rem;font-size:.95rem;color:var(--light);line-height:1.78}
+    .faq-answer-inner p{margin-bottom:.75rem}
+    .faq-answer-inner p:last-child{margin-bottom:0}
+    .faq-answer-inner strong{color:var(--text);font-weight:700}
+    .faq-answer-inner a{color:var(--red);text-decoration:underline;text-decoration-color:rgba(230,57,70,.4)}
+    .faq-answer-inner a:hover{text-decoration-color:var(--red)}
+    .faq-answer-inner ul{padding-left:1.25rem;margin:.5rem 0}
+    .faq-answer-inner ul li{margin-bottom:.4rem}
+    .faq-callout{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--red);border-radius:0 10px 10px 0;padding:1.1rem 1.4rem;margin:1rem 0;font-size:.88rem;color:var(--light);line-height:1.65}
+    .faq-callout strong{color:var(--text)}
+
+    /* CTA BLOCK */
+    .cta-block{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:clamp(2.5rem,5vw,4rem);text-align:center;margin-top:clamp(3rem,6vw,5rem)}
+    .cta-block h2{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;letter-spacing:-.025em;line-height:1.1;margin-bottom:1rem}
+    .cta-block h2 em{font-style:italic;color:var(--red)}
+    .cta-block p{font-size:1rem;color:var(--light);max-width:480px;margin:0 auto 2rem;line-height:1.65}
+    .cta-btns{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem}
+    .avail-note{display:inline-flex;align-items:center;gap:.6rem;font-size:.8rem;color:var(--muted);font-weight:500}
+
+    footer{padding:1.5rem clamp(1.25rem,4vw,3rem) calc(1.5rem + var(--safe-bottom));border-top:1px solid var(--line-soft);text-align:center;font-size:.82rem;color:var(--muted)}
+
+    @media(max-width:720px){.nav-links{display:none}.hamburger{display:flex}.mobile-sticky{display:flex}body{padding-bottom:calc(70px + var(--safe-bottom))}}
+    @media(max-width:480px){.cta-btns{flex-direction:column;align-items:center}.cta-btns .btn-primary,.cta-btns .btn-secondary{width:100%;justify-content:center}}
+  </style>
 </head>
 <body>
-  Redirecting to <a href="/?section=faq">FAQ</a>...
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="/assets/logo-modern-apex.png" alt="Modern Apex Strategies">
+      <span class="nav-logo-text">Modern Apex Strategies</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/services/">Services</a></li>
+      <li><a href="/process/">Process</a></li>
+      <li><a href="/results/">Results</a></li>
+      <li><a href="/reviews/">Reviews</a></li>
+      <li><a href="/team/">Team</a></li>
+      <li><a href="/faq/" class="active">FAQ</a></li>
+      <li><a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="nav-cta" onclick="gtag('event','click',{event_category:'CTA',event_label:'Nav - Book Call'})">Book a Free Call</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-panel" id="mobilePanel" aria-hidden="true">
+  <a href="/services/">Services</a>
+  <a href="/process/">Process</a>
+  <a href="/results/">Results</a>
+  <a href="/reviews/">Reviews</a>
+  <a href="/team/">Team</a>
+  <a href="/faq/">FAQ</a>
+  <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="nav-cta" onclick="gtag('event','click',{event_category:'CTA',event_label:'Mobile Nav - Book Call'})">Book a Free Call →</a>
+</div>
+
+<div class="mobile-sticky">
+  <a href="/strategy/" class="sticky-plan" onclick="gtag('event','click',{event_category:'CTA',event_label:'Mobile Sticky - Build Plan'})">Build Plan</a>
+  <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="sticky-book" onclick="gtag('event','click',{event_category:'CTA',event_label:'Mobile Sticky - Book Call'})">Book a Call →</a>
+</div>
+
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-eyebrow"><span class="pulse-dot"></span> Straight answers</div>
+      <h1>Everything you wanted to ask<br>before booking a <em>call</em></h1>
+      <p class="hero-sub">No fluff, no runaround. If your question isn't here, book a call and we'll answer it in 30 minutes.</p>
+      <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="btn-primary" onclick="gtag('event','click',{event_category:'CTA',event_label:'FAQ Hero - Book Call'})">Book a Free Strategy Call →</a>
+    </div>
+  </div>
+</section>
+
+
+<div class="faq-wrap">
+<div class="container">
+
+  <!-- PRICING -->
+  <div class="faq-group reveal">
+    <div class="faq-group-label">Pricing &amp; Engagement</div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">How much do you charge?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>Our pricing is a flat monthly management fee — no percentage of ad spend, no hidden charges. The fee is based on campaign scope and the number of platforms we're managing.</p>
+        <p>We don't publish a standard rate because the right investment depends on your goals, your market, and your current setup. <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener">Book a free strategy call</a> and we'll give you a transparent, itemized quote within 24 hours.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Do you charge a percentage of ad spend?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p><strong>No.</strong> Percentage-of-spend models create a direct conflict of interest — the agency earns more when you spend more, regardless of whether that spend is producing results. We charge a flat fee. Our incentive is your ROI, not your budget size.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">What is the minimum ad spend you work with?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>We recommend a minimum of <strong>$1,200/month in ad spend</strong> (roughly $40/day). Below that, there isn't enough data volume to optimize properly — you'd be paying for management on a campaign that can't statistically improve.</p>
+        <p>The right budget depends on your market, competition, and cost per click. We'll give you a specific recommendation on your strategy call.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Do you require long-term contracts?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>We require a <strong>6-month initial commitment</strong>. Month one is auditing, restructuring, and establishing tracking. Months two and three are where data starts to compound. Sustainable, predictable results typically emerge in months four through six.</p>
+        <p>Agencies that offer month-to-month from day one are either not doing serious work or they're churning clients before anyone notices the campaigns weren't performing. We'd rather set the right expectation upfront.</p>
+        <p>After the initial term, we continue on a rolling month-to-month basis with 30 days notice to cancel.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Is there a setup or onboarding fee?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>Yes — there's a one-time onboarding fee that covers the initial account audit, conversion tracking setup, campaign architecture, and landing page buildout if needed. It's quoted transparently before you sign anything, separate from the ongoing management fee.</p>
+        <p>A properly structured account outperforms a rushed one for the entire life of the engagement. The onboarding fee is what makes the first month worth doing right.</p>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="faq-group reveal">
+    <div class="faq-group-label">Results &amp; Timelines</div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">How long until I see results?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>Most clients see meaningful improvement within the first <strong>30–45 days</strong> — more qualified calls, lower cost per lead, or both. Full optimization typically takes 60–90 days once we have enough conversion data to make statistically reliable decisions.</p>
+        <p>The timeline depends on your starting point. Inheriting a well-structured account with solid tracking speeds things up. Rebuilding from scratch or fixing years of mismanagement requires more foundational work first.</p>
+        <div class="faq-callout"><strong>For reference:</strong> Our tree service client saw 3× monthly lead volume by month 6 and $84,000/month in tracked revenue by month 18. The trajectory was visible early — but the big numbers took time to compound.</div>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Can you guarantee results?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>No agency can ethically guarantee specific revenue numbers — your close rate, your team, seasonality, and market conditions all affect final outcomes in ways outside our control.</p>
+        <p>What we do guarantee: <strong>transparent reporting</strong>, <strong>response within 24 hours</strong>, <strong>monthly strategy reviews</strong>, and that we will never hide performance problems behind vanity metrics. If something isn't working, you'll hear it from us first.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">What types of businesses do you work with?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>We specialize in <strong>service-based businesses</strong> — home services, contractors, landscaping, roofing, med spas, specialty clinics, automotive, and similar industries where Google search intent is high and average customer value justifies paid acquisition.</p>
+        <p>We're a strong fit if:</p>
+        <ul>
+          <li>Your business generates at least $30k/month in revenue</li>
+          <li>You sell a service, not a commodity product with thin margins</li>
+          <li>You're willing to share your close rate and average customer value</li>
+          <li>You want a partner who reports on revenue — not just clicks</li>
+        </ul>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- WORKING TOGETHER -->
+  <div class="faq-group reveal">
+    <div class="faq-group-label">Working Together</div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Can you take over my existing campaigns?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>Yes — and this is often where we find the fastest wins. We'll audit your existing account: keyword structure, match types, negative keyword library, conversion tracking, landing page alignment, and bidding strategy.</p>
+        <p>Most inherited accounts have significant wasted spend we can recover quickly. You retain full ownership of your Google Ads account throughout — we never lock clients out of their own data.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Who will actually be managing my account?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>You work directly with <strong>Nicholas Radachy</strong> (Founder &amp; Lead Strategist) and <strong>Emilia Morse</strong> (Digital Advertising Strategist). Not an account manager. Not a junior specialist on rotation. The people on your strategy call are the people building and optimizing your campaigns.</p>
+        <p>We deliberately stay small. We're not trying to scale to 500 clients — we're trying to be the best agency for the clients we take on.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">How do you report on campaign performance?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>Monthly reporting maps every dollar of ad spend through the full revenue chain: <strong>Spend → Leads → Customers → Revenue</strong>. We focus on the numbers that matter to your business — not impressions, Quality Score, or CTR.</p>
+        <p>You'll receive a monthly report and a strategy call walkthrough. Between reports, you have direct access via email — responded to within 24 hours, always.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Do you build landing pages?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>Yes — and in most cases it's a prerequisite. Sending paid traffic to a homepage or a poorly structured service page is one of the most common and expensive mistakes we fix when taking over accounts.</p>
+        <p>We build dedicated, A/B tested landing pages aligned to your campaign intent. The page you send someone to matters as much as the ad that got them there.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Do you run Facebook or Instagram ads?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>Our primary focus is Google Ads — search, Performance Max, and display remarketing. Service businesses with strong local demand almost always generate better ROI from search intent (people actively looking for your service) than from social interrupt advertising.</p>
+        <p>We do incorporate Meta Ads for retargeting in certain strategies where it complements a Google-first approach. We'll recommend what makes sense for your specific business — not what's most lucrative for us to manage.</p>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- TECHNICAL -->
+  <div class="faq-group reveal">
+    <div class="faq-group-label">Tracking &amp; Ownership</div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Do you set up call tracking?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p><strong>Yes — and we treat it as non-negotiable.</strong> Without call tracking, you cannot tell which campaigns, keywords, or ads are generating actual phone calls versus just clicks. You're flying blind on the metric that matters most for service businesses.</p>
+        <p>We configure call tracking before any campaign goes live. It's included in your reporting so you see exactly which ad groups are producing calls — and which ones are wasting budget.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Will I own my Google Ads account and all the data?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p><strong>Always.</strong> Your Google Ads account, all campaign history, conversion data, and any assets we build belong to you. We request manager-level access — we never create accounts under our agency umbrella that you can't access or take with you.</p>
+        <p>If the engagement ends for any reason, you keep everything we've built. No exceptions.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">My tracking isn't set up correctly. Is that a problem?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>It's common — and we fix it before we spend a dollar on ads. Flawed tracking produces flawed data, which produces flawed optimization decisions. It compounds over time. Tracking integrity is step one of our onboarding process for every new client, without exception.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">What happens if I want to cancel?<span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>After the initial 6-month commitment, the engagement is month-to-month with 30 days written notice to cancel. No penalties, no clawbacks, no drama.</p>
+        <p>You keep your account, your data, your landing pages, and your campaign history. We'll give you a full transition briefing so whoever manages the account next has everything they need to continue without losing ground.</p>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- CTA BLOCK -->
+  <div class="cta-block reveal">
+    <div class="section-label" style="justify-content:center">Ready to talk?</div>
+    <h2>Still have a question?<br><em>Ask us directly.</em></h2>
+    <p>Book a free 30-minute strategy call. We'll answer everything, audit your current setup, and tell you honestly whether we're the right fit — no pressure, no pitch.</p>
+    <div class="cta-btns">
+      <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="btn-primary" style="font-size:1.05rem;padding:1rem 2.25rem;" onclick="gtag('event','click',{event_category:'CTA',event_label:'FAQ Bottom - Book Call'})">Book Your Free Strategy Call →</a>
+      <a href="/strategy/" class="btn-secondary" onclick="gtag('event','click',{event_category:'CTA',event_label:'FAQ Bottom - Build Plan'})">Build Your Strategy Plan First</a>
+    </div>
+    <div class="avail-note"><span class="pulse-dot"></span> Currently accepting new clients — limited spots available</div>
+  </div>
+
+</div>
+</div>
+
+
+<footer><p>© 2026 Modern Apex Strategies. All rights reserved.</p></footer>
+
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobilePanel = document.getElementById('mobilePanel');
+hamburger.addEventListener('click', () => {
+  const open = mobilePanel.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', String(open));
+  mobilePanel.setAttribute('aria-hidden', String(!open));
+});
+document.addEventListener('click', e => {
+  if (!hamburger.contains(e.target) && !mobilePanel.contains(e.target)) {
+    mobilePanel.classList.remove('open');
+    hamburger.setAttribute('aria-expanded','false');
+    mobilePanel.setAttribute('aria-hidden','true');
+  }
+});
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq-answer.open').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-question.open').forEach(b => { b.classList.remove('open'); b.setAttribute('aria-expanded','false'); });
+  if (!isOpen) {
+    answer.classList.add('open');
+    btn.classList.add('open');
+    btn.setAttribute('aria-expanded','true');
+    gtag('event','faq_open',{event_category:'FAQ',event_label:btn.textContent.trim()});
+  }
+}
+</script>
 </body>
 </html>

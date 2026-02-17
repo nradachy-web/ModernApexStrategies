@@ -1468,6 +1468,63 @@
     text-transform: uppercase;
     color: var(--gray);
     font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .stat-context {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.38);
+    line-height: 1.55;
+    margin-top: 0.1rem;
+  }
+
+  .stats-bottom {
+    max-width: 1100px;
+    margin: 2.5rem auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding: 2rem 1.5rem;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px;
+  }
+
+  .stats-highlight {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .stats-highlight-num {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: #5dd39e;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .stats-highlight-copy strong {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.2rem;
+  }
+
+  .stats-highlight-copy span {
+    font-size: 0.8rem;
+    color: var(--gray);
+  }
+
+  .stats-bottom-cta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
   }
 
   /* ============ REVIEWS ============ */
@@ -3200,17 +3257,19 @@
 <section class="stats-section" id="results">
   <div class="stats-header reveal">
     <div class="section-label"><span class="line"></span> Proof</div>
-    <h2>Numbers that speak louder than promises</h2>
-    <p>Every metric tied directly to revenue impact.</p>
+    <h2>Real numbers.<br>Active accounts. Zero spin.</h2>
+    <p>Not projections. Not industry averages. These are the results we're accountable to right now.</p>
   </div>
   <div class="stats-grid">
     <div class="stat-card reveal">
-      <div class="stat-value">4.2×</div>
-      <div class="stat-label">Average ROI</div>
+      <div class="stat-value" style="color:#5dd39e">4.2×</div>
+      <div class="stat-label">Average Client ROI</div>
+      <div class="stat-context">For every $1 in ad spend, clients average $4.20 back in tracked, attributable revenue.</div>
     </div>
     <div class="stat-card reveal">
       <div class="stat-value">$1.2M+</div>
       <div class="stat-label">Ad Spend Managed</div>
+      <div class="stat-context">Real budgets, real campaigns, and real accountability — across 40+ service businesses.</div>
     </div>
     <div class="stat-card reveal">
       <div class="stat-stars">
@@ -3222,10 +3281,25 @@
       </div>
       <div class="stat-value" style="font-size: 2rem; margin-top: 0.3rem;">5.0</div>
       <div class="stat-label">Google Rating</div>
+      <div class="stat-context">Every published review, averaged. Results are the only reputation that compounds.</div>
     </div>
     <div class="stat-card reveal">
       <div class="stat-value">&lt;24h</div>
       <div class="stat-label">Response Time</div>
+      <div class="stat-context">You will never wait more than one business day to hear from us. Guaranteed.</div>
+    </div>
+  </div>
+  <div class="stats-bottom reveal">
+    <div class="stats-highlight">
+      <div class="stats-highlight-num">+68%</div>
+      <div class="stats-highlight-copy">
+        <strong>Average lead volume growth</strong>
+        <span>Across managed accounts in year one — more qualified calls, fewer wasted dollars.</span>
+      </div>
+    </div>
+    <div class="stats-bottom-cta">
+      <a href="/results/" class="btn-secondary" style="padding:0.7rem 1.4rem;font-size:0.9rem;" onclick="gtag('event','click',{event_category:'CTA',event_label:'Proof - See Results'})">See the campaigns behind these numbers →</a>
+      <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="btn-primary" style="padding:0.7rem 1.4rem;font-size:0.9rem;" onclick="gtag('event','click',{event_category:'CTA',event_label:'Proof - Book Call'})">Book a Free Strategy Call →</a>
     </div>
   </div>
 </section>

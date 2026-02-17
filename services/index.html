@@ -50,14 +50,14 @@
       top: calc(-1 * var(--safe-top)); height: var(--safe-top);
       background: rgba(10,10,10,0.98); pointer-events: none;
     }
-    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
     .nav-logo-img { height: 36px; width: auto; object-fit: contain; }
-    .nav-logo-text { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.02em; color: var(--white); }
-    .nav-links { display: flex; align-items: center; gap: 2.2rem; list-style: none; }
-    .nav-links a { color: var(--gray); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+    .nav-logo-text { font-family: var(--sans); font-weight: 700; font-size: 1.2rem; color: var(--white); letter-spacing: -0.02em; }
+    .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+    .nav-links a { color: var(--light-gray); text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.3s; }
     .nav-links a:hover { color: var(--white); }
-    .nav-cta { background: var(--red); color: var(--white) !important; padding: 0.6rem 1.35rem; border-radius: 4px; font-weight: 700 !important; font-size: 0.82rem !important; letter-spacing: 0.05em !important; text-transform: uppercase; transition: all 0.3s !important; }
-    .nav-cta:hover { background: #c7303c !important; transform: translateY(-1px); }
+    .nav-cta { background: var(--red); color: var(--white) !important; padding: 0.75rem 1.6rem; border-radius: 4px; font-weight: 600 !important; letter-spacing: 0.04em !important; transition: all 0.3s !important; box-shadow: 0 4px 20px var(--red-glow); }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 30px rgba(230,57,70,0.5); }
     .mobile-nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
     .mobile-nav-toggle span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
     .mobile-nav-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1090; }

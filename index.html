@@ -1929,6 +1929,25 @@
     background: linear-gradient(135deg, rgba(230,57,70,0.04) 0%, transparent 40%, rgba(230,57,70,0.03) 100%);
   }
 
+  /* ============ CASE STUDY — ENTERPRISE ============ */
+  .case-study-section {
+    padding: 6rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .case-study-section::before {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(93,211,158,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
   .case-study-inner {
     max-width: 1100px;
     margin: 0 auto;
@@ -1948,18 +1967,25 @@
     margin-bottom: 0.5rem;
   }
 
+  .case-study-header h2 em {
+    color: var(--green);
+    font-style: italic;
+  }
+
   .case-study-header p {
     color: var(--gray);
     font-size: 1rem;
   }
 
   .case-study-card {
-    background: var(--dark-card);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 16px;
+    background: linear-gradient(160deg, rgba(20,22,28,0.98), rgba(10,12,18,0.99));
+    border: 1px solid rgba(93,211,158,0.18);
+    border-radius: 20px;
     overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(93,211,158,0.06), 0 30px 60px rgba(0,0,0,0.5), 0 0 80px rgba(93,211,158,0.04);
   }
 
+  /* ---- Top bar ---- */
   .case-study-top {
     display: flex;
     align-items: center;
@@ -1967,80 +1993,195 @@
     padding: 2rem 2.5rem;
     border-bottom: 1px solid rgba(255,255,255,0.06);
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 2rem;
+    background: linear-gradient(90deg, rgba(93,211,158,0.04) 0%, transparent 60%);
   }
 
   .case-study-client {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2rem;
   }
 
   .case-study-logo {
-    width: 52px;
-    height: 52px;
-    background: linear-gradient(135deg, #2d5a27, #4a8c3f);
-    border-radius: 12px;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #1a4a2e, #2d7a4a);
+    border: 1px solid rgba(93,211,158,0.3);
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    box-shadow: 0 0 20px rgba(93,211,158,0.15);
+  }
+
+  .case-study-logo span {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: var(--green);
+    letter-spacing: 0.02em;
   }
 
   .case-study-client-info h3 {
     font-family: var(--serif);
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 700;
+    margin-bottom: 0.5rem;
   }
 
-  .case-study-client-info span {
-    font-size: 0.8rem;
-    color: var(--gray);
+  .cs-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .cs-tag {
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 0.2rem 0.55rem;
+  }
+
+  /* ---- Headline result + journey ---- */
+  .case-study-headline-result {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
   }
 
   .case-study-result {
     display: flex;
     align-items: baseline;
-    gap: 0.5rem;
+    gap: 0.7rem;
   }
 
   .case-study-result .big-num {
     font-family: var(--serif);
-    font-size: 3.5rem;
+    font-size: clamp(3rem, 5vw, 4.5rem);
     font-weight: 900;
-    color: var(--red);
+    color: var(--green);
     line-height: 1;
+    text-shadow: 0 0 40px rgba(93,211,158,0.4);
   }
 
-  .case-study-result .big-label {
+  .big-label-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .big-label {
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--light-gray);
     line-height: 1.3;
   }
 
+  .big-period {
+    font-size: 0.72rem;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+  }
+
+  /* Revenue journey: $3k → $83k */
+  .cs-journey {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+  }
+
+  .journey-from {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .journey-from small, .journey-to small {
+    font-size: 0.65rem;
+    opacity: 0.7;
+    font-weight: 500;
+  }
+
+  .journey-arrow {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    color: var(--green);
+    opacity: 0.7;
+    flex-shrink: 0;
+  }
+
+  .journey-line {
+    width: 32px;
+    height: 1px;
+    background: currentColor;
+  }
+
+  .journey-to {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--green);
+  }
+
+  /* ---- Metrics row ---- */
   .case-study-metrics {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
   }
 
   .case-study-metric {
+    position: relative;
     padding: 2rem 2.5rem;
     border-right: 1px solid rgba(255,255,255,0.06);
     text-align: center;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .case-study-metric:hover {
+    background: rgba(255,255,255,0.025);
   }
 
   .case-study-metric:last-child { border-right: none; }
 
-  .case-study-metric .val {
-    font-family: var(--serif);
-    font-size: 1.8rem;
-    font-weight: 900;
-    margin-bottom: 0.3rem;
+  .metric-stripe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
   }
 
-  .case-study-metric .val.green { color: #6abf4b; }
+  .metric-stripe.green { background: linear-gradient(90deg, transparent, var(--green), transparent); }
+  .metric-stripe.red { background: linear-gradient(90deg, transparent, var(--red), transparent); }
+  .metric-stripe.white { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); }
+
+  .case-study-metric .val {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 0.3rem;
+    transition: text-shadow 0.3s;
+  }
+
+  .case-study-metric:hover .val.green { text-shadow: 0 0 20px rgba(93,211,158,0.5); }
+  .case-study-metric:hover .val.red { text-shadow: 0 0 20px rgba(230,57,70,0.5); }
+
+  .case-study-metric .val.green { color: var(--green); }
   .case-study-metric .val.red { color: var(--red); }
   .case-study-metric .val.white { color: var(--white); }
 
@@ -2050,30 +2191,107 @@
     text-transform: uppercase;
     color: var(--gray);
     font-weight: 600;
+    margin-bottom: 0.3rem;
   }
 
-  /* Chart area */
+  .metric-sub {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.28);
+    font-family: var(--mono);
+  }
+
+  /* ---- Chart ---- */
   .case-study-chart {
-    padding: 2rem 2.5rem 2.5rem;
-    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 2rem 2.5rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
   }
 
   .chart-title {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--gray);
-    margin-bottom: 1.5rem;
+  }
+
+  .chart-phase-pills {
+    display: flex;
+    gap: 0.6rem;
+  }
+
+  .phase-pill {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.65rem;
+    border-radius: 20px;
+  }
+
+  .phase-pill.blue { background: rgba(59,130,246,0.15); color: #93c5fd; border: 1px solid rgba(59,130,246,0.25); }
+  .phase-pill.green { background: rgba(93,211,158,0.12); color: var(--green); border: 1px solid rgba(93,211,158,0.25); }
+
+  .chart-area {
+    display: flex;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .chart-y-axis {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+    width: 48px;
+    flex-shrink: 0;
+  }
+
+  .chart-y-label {
+    font-size: 0.6rem;
+    color: rgba(255,255,255,0.25);
+    font-family: var(--mono);
+    text-align: right;
+    line-height: 1;
+  }
+
+  .chart-main {
+    flex: 1;
+    position: relative;
+    min-width: 0;
+  }
+
+  .chart-gridlines {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    pointer-events: none;
+    padding-bottom: 1.5rem;
+  }
+
+  .chart-gridline {
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.05);
   }
 
   .chart-bars {
     display: flex;
     align-items: flex-end;
     gap: 3px;
-    height: 160px;
+    height: 220px;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
     position: relative;
   }
 
@@ -2082,30 +2300,47 @@
     border-radius: 3px 3px 0 0;
     min-width: 0;
     position: relative;
-    transition: opacity 0.3s;
     cursor: default;
+    transition: filter 0.2s, transform 0.2s;
+    height: 0;
   }
 
-  .chart-bar.blue { background: linear-gradient(to top, #3b82f6, #60a5fa); }
-  .chart-bar.green { background: linear-gradient(to top, #4ade80, #6abf4b); }
+  .chart-bar.blue {
+    background: linear-gradient(to top, #2563eb, #60a5fa);
+    box-shadow: 0 -2px 8px rgba(59,130,246,0.0);
+  }
 
-  .chart-bar:hover { opacity: 0.8; }
+  .chart-bar.green {
+    background: linear-gradient(to top, #16a34a, #5dd39e);
+    box-shadow: 0 -2px 8px rgba(93,211,158,0.0);
+  }
+
+  .chart-bar:hover {
+    filter: brightness(1.2);
+    transform: scaleY(1.02);
+    transform-origin: bottom;
+  }
+
+  .chart-bar.blue:hover { box-shadow: 0 -4px 16px rgba(59,130,246,0.4); }
+  .chart-bar.green:hover { box-shadow: 0 -4px 16px rgba(93,211,158,0.4); }
 
   .chart-bar .tip {
     position: absolute;
     bottom: calc(100% + 6px);
     left: 50%;
     transform: translateX(-50%);
-    background: var(--dark);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
+    background: rgba(10,12,18,0.95);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
     font-size: 0.65rem;
     font-weight: 600;
+    font-family: var(--mono);
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s;
+    transition: opacity 0.15s;
+    z-index: 10;
   }
 
   .chart-bar:hover .tip { opacity: 1; }
@@ -2113,43 +2348,68 @@
   .chart-labels {
     display: flex;
     justify-content: space-between;
-    padding-top: 0.8rem;
+    padding-top: 0.75rem;
+    padding-left: 52px;
   }
 
   .chart-labels span {
-    font-size: 0.65rem;
-    color: var(--gray);
-    font-weight: 500;
+    font-size: 0.62rem;
+    color: rgba(255,255,255,0.3);
+    font-weight: 600;
+    font-family: var(--mono);
   }
 
-  .chart-legend {
+  /* ---- Key wins strip ---- */
+  .cs-wins {
     display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    margin-top: 1.2rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 1.5rem 2.5rem;
+    background: rgba(93,211,158,0.03);
+    border-top: 1px solid rgba(93,211,158,0.08);
   }
 
-  .chart-legend-item {
+  .cs-win {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.5rem;
     font-size: 0.75rem;
-    color: var(--gray);
+    font-weight: 600;
+    color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 0.45rem 0.85rem;
+    letter-spacing: 0.02em;
+    transition: all 0.2s;
   }
 
-  .chart-legend-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 2px;
+  .cs-win:hover {
+    background: rgba(93,211,158,0.1);
+    border-color: rgba(93,211,158,0.25);
+    color: var(--green);
   }
 
-  .chart-legend-dot.blue { background: #3b82f6; }
-  .chart-legend-dot.green { background: #4ade80; }
+  .cs-win-icon {
+    font-size: 0.8rem;
+    color: var(--green);
+    font-weight: 900;
+  }
 
   @media (max-width: 900px) {
     .case-study-metrics { grid-template-columns: 1fr; }
     .case-study-metric { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .case-study-top { flex-direction: column; text-align: center; }
+    .case-study-top { flex-direction: column; align-items: flex-start; }
+    .case-study-headline-result { align-items: flex-start; }
+    .cs-journey { align-self: flex-start; }
+    .chart-labels { padding-left: 0; }
+    .chart-area { flex-direction: column; }
+    .chart-y-axis { flex-direction: row; width: 100%; height: 20px; padding-bottom: 0; }
+    .chart-y-label { writing-mode: initial; }
+    .cs-wins { gap: 0.5rem; padding: 1.25rem 1.5rem; }
+    .case-study-chart { padding: 1.5rem 1.25rem; }
+    .case-study-top { padding: 1.5rem 1.25rem; }
+    .case-study-metric { padding: 1.5rem 1.5rem; }
   }
 
   /* ============ RESPONSIVE ============ */
@@ -2868,47 +3128,89 @@
 <div class="section-divider"></div>
 
 <!-- Case Study: Ole Man RB's Tree Service -->
-<section class="case-study-section reveal" id="case-study">
+<section class="case-study-section" id="case-study">
   <div class="case-study-inner">
-    <div class="case-study-header">
+
+    <div class="case-study-header reveal">
       <div class="section-label"><span class="line"></span> Featured Case Study</div>
-      <h2>Real results. Real business.</h2>
-      <p>See exactly how we helped a local tree service 10× their revenue in two years.</p>
+      <h2>Real results. <em>Real business.</em></h2>
+      <p>See exactly how we helped a local tree service company 10× their monthly revenue in under two years.</p>
     </div>
 
-    <div class="case-study-card">
+    <div class="case-study-card reveal">
+
+      <!-- Top bar: client + headline result -->
       <div class="case-study-top">
         <div class="case-study-client">
-          <div class="case-study-logo">🌳</div>
+          <div class="case-study-logo">
+            <span>RB</span>
+          </div>
           <div class="case-study-client-info">
             <h3>Ole Man RB's Tree Service</h3>
-            <span>Tree Removal & Landscaping · Michigan</span>
+            <div class="cs-tags">
+              <span class="cs-tag">Tree Removal</span>
+              <span class="cs-tag">Michigan</span>
+              <span class="cs-tag">Home Services</span>
+            </div>
           </div>
         </div>
-        <div class="case-study-result">
-          <span class="big-num">10×</span>
-          <span class="big-label">Revenue increase<br>over 2 years</span>
+        <div class="case-study-headline-result">
+          <div class="case-study-result">
+            <span class="big-num cs-counter" data-target="10" data-suffix="×">0×</span>
+            <div class="big-label-wrap">
+              <span class="big-label">Revenue growth</span>
+              <span class="big-period">24 months</span>
+            </div>
+          </div>
+          <div class="cs-journey">
+            <span class="journey-from">$3,150<small>/mo</small></span>
+            <div class="journey-arrow">
+              <div class="journey-line"></div>
+              <svg width="8" height="10" viewBox="0 0 8 10" fill="none"><path d="M0 0L8 5L0 10V0Z" fill="currentColor"/></svg>
+            </div>
+            <span class="journey-to">$83,656<small>/mo</small></span>
+          </div>
         </div>
       </div>
 
+      <!-- Metrics row -->
       <div class="case-study-metrics">
         <div class="case-study-metric">
-          <div class="val green">$83,656</div>
-          <div class="lbl">Peak monthly revenue (2025)</div>
+          <div class="metric-stripe green"></div>
+          <div class="val green cs-counter" data-target="83656" data-prefix="$">$0</div>
+          <div class="lbl">Peak monthly revenue</div>
+          <div class="metric-sub">February 2025</div>
         </div>
         <div class="case-study-metric">
-          <div class="val red">86</div>
-          <div class="lbl">Peak monthly leads (2025)</div>
+          <div class="metric-stripe red"></div>
+          <div class="val red cs-counter" data-target="86">0</div>
+          <div class="lbl">Peak monthly leads</div>
+          <div class="metric-sub">2025 campaign peak</div>
         </div>
         <div class="case-study-metric">
-          <div class="val white">$3,150 → $80K+</div>
-          <div class="lbl">Monthly revenue growth</div>
+          <div class="metric-stripe white"></div>
+          <div class="val white">24 mo.</div>
+          <div class="lbl">Time to 10× revenue</div>
+          <div class="metric-sub">Mar 2023 — Mar 2025</div>
         </div>
       </div>
 
+      <!-- Chart -->
       <div class="case-study-chart">
-        <div class="chart-title">Monthly Revenue — March 2023 to October 2025</div>
-        <div class="chart-bars" id="revenueChart"></div>
+        <div class="chart-header">
+          <div class="chart-title">Monthly Revenue — March 2023 to October 2025</div>
+          <div class="chart-phase-pills">
+            <span class="phase-pill blue">Before ModernApex</span>
+            <span class="phase-pill green">After ModernApex</span>
+          </div>
+        </div>
+        <div class="chart-area">
+          <div class="chart-y-axis" id="chartYAxis"></div>
+          <div class="chart-main">
+            <div class="chart-gridlines" id="chartGridlines"></div>
+            <div class="chart-bars" id="revenueChart"></div>
+          </div>
+        </div>
         <div class="chart-labels">
           <span>Mar '23</span>
           <span>Sep '23</span>
@@ -2917,11 +3219,16 @@
           <span>Mar '25</span>
           <span>Oct '25</span>
         </div>
-        <div class="chart-legend">
-          <div class="chart-legend-item"><div class="chart-legend-dot blue"></div> Before ModernApex</div>
-          <div class="chart-legend-item"><div class="chart-legend-dot green"></div> After ModernApex</div>
-        </div>
       </div>
+
+      <!-- Key wins strip -->
+      <div class="cs-wins">
+        <div class="cs-win"><span class="cs-win-icon">↑</span>86 leads / month peak</div>
+        <div class="cs-win"><span class="cs-win-icon">$</span>$83K peak monthly</div>
+        <div class="cs-win"><span class="cs-win-icon">⏱</span>24-month partnership</div>
+        <div class="cs-win"><span class="cs-win-icon">×</span>10× revenue growth</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -3649,7 +3956,6 @@
 
   // Revenue Chart — real data from Ole Man RB's case study
   const revenueData = [
-    // 2023 (before — blue)
     { month: "Mar '23", value: 3150, type: 'blue' },
     { month: "Apr '23", value: 8150, type: 'blue' },
     { month: "May '23", value: 5100, type: 'blue' },
@@ -3660,7 +3966,6 @@
     { month: "Oct '23", value: 19300, type: 'blue' },
     { month: "Nov '23", value: 0, type: 'blue' },
     { month: "Dec '23", value: 12000, type: 'blue' },
-    // 2024 (after — green)
     { month: "Jan '24", value: 0, type: 'green' },
     { month: "Feb '24", value: 500, type: 'green' },
     { month: "Mar '24", value: 16725, type: 'green' },
@@ -3673,7 +3978,6 @@
     { month: "Oct '24", value: 31775, type: 'green' },
     { month: "Nov '24", value: 33150, type: 'green' },
     { month: "Dec '24", value: 45250, type: 'green' },
-    // 2025 (after — green)
     { month: "Jan '25", value: 56911, type: 'green' },
     { month: "Feb '25", value: 83656, type: 'green' },
     { month: "Mar '25", value: 76486, type: 'green' },
@@ -3687,28 +3991,91 @@
   ];
 
   const maxVal = Math.max(...revenueData.map(d => d.value));
-  const chart = document.getElementById('revenueChart');
+  const chartContainer = document.getElementById('revenueChart');
+  const yAxisEl = document.getElementById('chartYAxis');
+  const gridlinesEl = document.getElementById('chartGridlines');
 
-  revenueData.forEach((d, i) => {
+  // Y-axis: 5 ticks from 0 to maxVal
+  const yTicks = 5;
+  for (let i = 0; i <= yTicks; i++) {
+    const val = Math.round((maxVal / yTicks) * i);
+    const label = document.createElement('div');
+    label.className = 'chart-y-label';
+    label.textContent = val >= 1000 ? '$' + Math.round(val / 1000) + 'k' : '$' + val;
+    yAxisEl.appendChild(label);
+    // Grid line
+    const gl = document.createElement('div');
+    gl.className = 'chart-gridline';
+    gridlinesEl.appendChild(gl);
+  }
+
+  // Build bars (all start at height 0)
+  const bars = [];
+  revenueData.forEach((d) => {
     const bar = document.createElement('div');
     bar.className = 'chart-bar ' + d.type;
-    const pct = d.value > 0 ? Math.max((d.value / maxVal) * 100, 2) : 0;
+    const pct = d.value > 0 ? Math.max((d.value / maxVal) * 100, 1.5) : 0;
+    bar.dataset.pct = pct;
     bar.style.height = '0%';
-    bar.style.opacity = d.value === 0 ? '0.15' : '1';
-
+    bar.style.opacity = d.value === 0 ? '0.12' : '1';
     const tip = document.createElement('div');
     tip.className = 'tip';
-    tip.textContent = d.month + ': $' + d.value.toLocaleString();
+    tip.textContent = d.month + ' · $' + d.value.toLocaleString();
     bar.appendChild(tip);
-
-    chart.appendChild(bar);
-
-    // Animate bars in on scroll
-    setTimeout(() => {
-      bar.style.transition = 'height 0.8s cubic-bezier(0.22,1,0.36,1)';
-      bar.style.height = pct + '%';
-    }, 100 + i * 40);
+    chartContainer.appendChild(bar);
+    bars.push(bar);
   });
+
+  // Animate bars via IntersectionObserver
+  let chartAnimated = false;
+  const chartObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !chartAnimated) {
+      chartAnimated = true;
+      bars.forEach((bar, i) => {
+        setTimeout(() => {
+          bar.style.transition = 'height 0.7s cubic-bezier(0.22,1,0.36,1)';
+          bar.style.height = bar.dataset.pct + '%';
+        }, i * 35);
+      });
+    }
+  }, { threshold: 0.2 });
+  chartObserver.observe(chartContainer);
+
+  // Count-up animation utility
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.target);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800;
+    const startTime = performance.now();
+    function step(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(target * eased);
+      if (target > 999) {
+        el.textContent = prefix + current.toLocaleString() + suffix;
+      } else {
+        el.textContent = prefix + current + suffix;
+      }
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Trigger counters when case study section scrolls into view
+  const counters = document.querySelectorAll('.cs-counter');
+  let countersAnimated = false;
+  if (counters.length) {
+    const counterObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !countersAnimated) {
+        countersAnimated = true;
+        counters.forEach((el) => animateCounter(el));
+      }
+    }, { threshold: 0.3 });
+    counterObserver.observe(document.getElementById('case-study'));
+  }
 </script>
 </body>
 </html>

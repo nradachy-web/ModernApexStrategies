@@ -2432,7 +2432,53 @@
       pointer-events: none;
     }
     .showcase-grid, .services-grid, .reviews-grid { grid-template-columns: 1fr; }
-    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+    .stats-section {
+      padding: 4.5rem 1.2rem;
+    }
+    .stats-header {
+      margin-bottom: 2.5rem;
+    }
+    .stat-card {
+      padding: 1.4rem 0.9rem;
+    }
+    .stat-value {
+      font-size: clamp(1.6rem, 7vw, 2.4rem);
+    }
+    .stat-stars svg {
+      width: 16px;
+      height: 16px;
+    }
+    .stat-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+    }
+    .stat-context {
+      font-size: 0.75rem;
+    }
+    .stats-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.25rem;
+      padding: 1.4rem 1.1rem;
+      margin-top: 1.5rem;
+    }
+    .stats-highlight-num {
+      font-size: 2rem;
+    }
+    .stats-bottom-cta {
+      flex-direction: column;
+      width: 100%;
+      gap: 0.75rem;
+    }
+    .stats-bottom-cta a {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
     .team-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .mobile-nav-toggle {

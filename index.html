@@ -1011,39 +1011,26 @@
   }
 
   .booking-section {
-    display: grid;
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: 2rem;
-    align-items: start;
     background: linear-gradient(150deg, rgba(22,22,22,0.94), rgba(9,11,17,0.96));
     border: 1px solid rgba(93,211,158,0.2);
     border-radius: 16px;
-    padding: 2rem;
+    padding: 2.5rem;
+    max-width: 740px;
+    margin: 0 auto;
   }
 
-  .booking-copy {
-    text-align: left;
-  }
-
-  .booking-copy h3 {
+  .booking-section h3 {
     font-family: var(--serif);
     font-size: 1.75rem;
     line-height: 1.15;
     margin-bottom: 0.8rem;
   }
 
-  .booking-copy p {
+  .booking-section > p {
     color: var(--gray);
     font-size: 0.94rem;
     line-height: 1.65;
     margin-bottom: 1rem;
-  }
-
-  .booking-calendar {
-    border-radius: 12px;
-    overflow: visible;
-    border: 1px solid rgba(255,255,255,0.1);
-    background: #0d1016;
   }
 
   /* Success panel */
@@ -1128,12 +1115,6 @@
     box-shadow: 0 6px 32px rgba(93,211,158,0.5) !important;
   }
 
-  /* Old booking-card kept for fallback */
-  .booking-card {
-    text-align: left;
-    border-color: rgba(93,211,158,0.25);
-  }
-
   .booking-kicker {
     display: inline-flex;
     align-items: center;
@@ -1152,20 +1133,6 @@
     height: 2px;
     background: var(--green);
     box-shadow: 0 0 14px var(--green-glow);
-  }
-
-  .booking-card h3 {
-    font-family: var(--serif);
-    font-size: 1.75rem;
-    line-height: 1.15;
-    margin-bottom: 0.8rem;
-  }
-
-  .booking-card p {
-    color: var(--gray);
-    font-size: 0.94rem;
-    line-height: 1.65;
-    margin-bottom: 1rem;
   }
 
   .booking-benefits {
@@ -1201,29 +1168,6 @@
   .booking-open-link:hover {
     background: rgba(93,211,158,0.2);
     border-color: rgba(93,211,158,0.6);
-  }
-
-  .calendly-embed {
-    margin-top: 1rem;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.1);
-    background: #0d1016;
-  }
-
-  .calendly-inline-widget {
-    width: 100%;
-    min-width: 100% !important;
-    min-height: 700px;
-    height: auto !important;
-    display: block;
-  }
-
-  .booking-note {
-    margin-top: 0.75rem;
-    margin-bottom: 0;
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.58);
   }
 
   .funnel-error,
@@ -2521,9 +2465,6 @@
     .funnel-step {
       flex: 0 0 auto;
     }
-    .booking-section > * {
-      min-width: 0;
-    }
     .funnel-step-line {
       min-width: 40px;
     }
@@ -2539,29 +2480,8 @@
       max-width: 100%;
       min-width: 0;
     }
-    .booking-copy h3,
-    .booking-copy p,
-    .booking-note {
-      overflow-wrap: anywhere;
-    }
-    .booking-calendar {
-      display: none;
-    }
-    .booking-open-link {
-      display: flex;
-      font-size: 1rem;
-      padding: 1rem 1.5rem;
-    }
     .mobile-book-bar {
       display: none;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .booking-note {
-      margin-top: 0.95rem;
-      color: rgba(255,255,255,0.72);
-      font-size: 0.82rem;
     }
   }
 
@@ -3066,23 +2986,15 @@
     </div>
 
     <div class="booking-section" id="bookingSection">
-      <div class="booking-copy">
-        <div class="booking-kicker">Book Instantly</div>
-        <h3>Skip the form and lock in a strategy call now.</h3>
-        <p>If you are ready to talk growth, pick a time directly on our calendar and we will meet 1:1.</p>
-        <ul class="booking-benefits">
-          <li><span class="check">✓</span>15-minute fit and growth call</li>
-          <li><span class="check">✓</span>No pressure, no long sales pitch</li>
-          <li><span class="check">✓</span>Clear next-step plan after the call</li>
-        </ul>
-        <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="btn-secondary booking-open-link" onclick="gtag('event','click',{event_category:'CTA',event_label:'Strategy - Open Calendly Fullscreen'})">Open Full-Screen Calendar</a>
-        <p class="booking-note">On mobile, tap the button above for the smoothest booking experience.</p>
-      </div>
-      <div class="booking-calendar">
-        <!-- Calendly inline widget begin -->
-        <div class="calendly-inline-widget" data-url="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview"></div>
-        <!-- Calendly inline widget end -->
-      </div>
+      <div class="booking-kicker">Book Instantly</div>
+      <h3>Skip the form and lock in a strategy call now.</h3>
+      <p>If you are ready to talk growth, pick a time directly on our calendar and we will meet 1:1.</p>
+      <ul class="booking-benefits">
+        <li><span class="check">✓</span>15-minute fit and growth call</li>
+        <li><span class="check">✓</span>No pressure, no long sales pitch</li>
+        <li><span class="check">✓</span>Clear next-step plan after the call</li>
+      </ul>
+      <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="btn-secondary booking-open-link" onclick="gtag('event','click',{event_category:'CTA',event_label:'Strategy - Open Calendly Fullscreen'})">Open Full-Screen Calendar <span>→</span></a>
     </div>
   </div>
 </section>
@@ -3431,7 +3343,6 @@
   <p>© 2026 ModernApex Strategies. All rights reserved.</p>
 </footer>
 
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script>
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');

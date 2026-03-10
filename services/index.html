@@ -151,6 +151,7 @@
     .svc-nav-tab.active-ads { color: var(--red); border-bottom-color: var(--red); }
     .svc-nav-tab.active-seo { color: var(--green); border-bottom-color: var(--green); }
     .svc-nav-tab.active-web { color: var(--blue); border-bottom-color: var(--blue); }
+    .svc-nav-tab.active-dev { color: var(--purple); border-bottom-color: var(--purple); }
 
     /* ── SERVICE SECTION BASE ── */
     .svc-section { padding: 7rem 2rem; position: relative; }
@@ -174,10 +175,12 @@
     .feature-card-ads:hover { border-color: rgba(230,57,70,0.25); }
     .feature-card-seo:hover { border-color: rgba(93,211,158,0.25); }
     .feature-card-web:hover { border-color: rgba(74,158,255,0.25); }
+    .feature-card-dev:hover { border-color: rgba(167,139,250,0.25); }
     .feature-icon { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1rem; }
     .fi-ads { background: rgba(230,57,70,0.1); border: 1px solid rgba(230,57,70,0.2); }
     .fi-seo { background: rgba(93,211,158,0.1); border: 1px solid rgba(93,211,158,0.2); }
     .fi-web { background: rgba(74,158,255,0.1); border: 1px solid rgba(74,158,255,0.2); }
+    .fi-dev { background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.2); }
     .feature-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.55rem; }
     .feature-card p { font-size: 0.86rem; color: rgba(255,255,255,0.45); line-height: 1.62; }
 
@@ -189,12 +192,14 @@
     .deliverables-card-ads h4 { color: var(--red); }
     .deliverables-card-seo h4 { color: var(--green); }
     .deliverables-card-web h4 { color: var(--blue); }
+    .deliverables-card-dev h4 { color: var(--purple); }
     .del-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
     .del-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.88rem; color: rgba(255,255,255,0.7); line-height: 1.45; }
     .del-list li::before { content: '✓'; font-weight: 700; font-size: 0.82rem; flex-shrink: 0; margin-top: 0.05rem; }
     .del-ads li::before { color: var(--red); }
     .del-seo li::before { color: var(--green); }
     .del-web li::before { color: var(--blue); }
+    .del-dev li::before { color: var(--purple); }
 
     .outcomes-card { background: var(--dark-card); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 2rem; }
     .outcomes-card h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 1.1rem; }
@@ -374,6 +379,7 @@
       <a href="#google-ads" class="svc-anchor-chip"><span>🎯</span> Google Ads Management</a>
       <a href="#seo" class="svc-anchor-chip"><span>🌱</span> SEO</a>
       <a href="#web-design" class="svc-anchor-chip"><span>⚡</span> Web Design</a>
+      <a href="#development" class="svc-anchor-chip"><span>🧠</span> Development & AI</a>
     </div>
   </div>
 </section>
@@ -384,6 +390,7 @@
     <a href="#google-ads" class="svc-nav-tab" data-section="google-ads">🎯 Google Ads Management</a>
     <a href="#seo" class="svc-nav-tab" data-section="seo">🌱 SEO</a>
     <a href="#web-design" class="svc-nav-tab" data-section="web-design">⚡ Web Design</a>
+    <a href="#development" class="svc-nav-tab" data-section="development">🧠 Development & AI</a>
   </div>
 </div>
 
@@ -721,6 +728,112 @@
 </section>
 
 <!-- ─────────────────────────────────────────
+     SERVICE 4: FULL-STACK DEVELOPMENT & AI
+───────────────────────────────────────── -->
+<section class="svc-section" id="development">
+  <div class="svc-section-inner">
+    <div class="svc-section-header reveal">
+      <span class="svc-service-icon">🧠</span>
+      <div class="section-label" style="justify-content:center;color:var(--purple)"><span class="line" style="background:var(--purple)"></span> Service 04</div>
+      <h2>Full-Stack Development<br>&amp; AI Integration</h2>
+      <p>Custom software, mobile apps, web platforms, and AI-powered systems. We build it all, and we build it fast.</p>
+    </div>
+
+    <!-- Featured two-up cards -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.25rem;margin-bottom:1.25rem">
+      <div class="feature-card feature-card-dev reveal" style="position:relative;overflow:hidden;padding:2.25rem">
+        <span style="position:absolute;top:1rem;right:1.5rem;font-family:var(--serif);font-size:5rem;font-weight:900;color:rgba(167,139,250,0.06);line-height:1;pointer-events:none">01</span>
+        <h4 style="font-size:1.25rem;margin-bottom:0.65rem">Intelligent Automation</h4>
+        <p>Automate repetitive tasks and workflows. From data entry to customer communications, save 10–20 hours every week.</p>
+      </div>
+      <div class="feature-card feature-card-dev reveal" style="position:relative;overflow:hidden;padding:2.25rem">
+        <span style="position:absolute;top:1rem;right:1.5rem;font-family:var(--serif);font-size:5rem;font-weight:900;color:rgba(167,139,250,0.06);line-height:1;pointer-events:none">02</span>
+        <h4 style="font-size:1.25rem;margin-bottom:0.65rem">AI-Powered Assistants</h4>
+        <p>Custom chatbots and virtual assistants that handle inquiries, bookings, sales, and support 24/7 in your brand voice.</p>
+      </div>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card feature-card-dev reveal">
+        <div class="feature-icon fi-dev">💻</div>
+        <h4>Custom Web Applications</h4>
+        <p>Full-featured web platforms, dashboards, portals, and SaaS products built with modern frameworks.</p>
+      </div>
+      <div class="feature-card feature-card-dev reveal">
+        <div class="feature-icon fi-dev">📱</div>
+        <h4>iOS &amp; Android Apps</h4>
+        <p>Native and cross-platform mobile apps from concept to App Store. Polished UX, fast performance.</p>
+      </div>
+      <div class="feature-card feature-card-dev reveal">
+        <div class="feature-icon fi-dev">⚙️</div>
+        <h4>Full-Stack Software</h4>
+        <p>End-to-end custom development. APIs, databases, cloud infrastructure, built from scratch for you.</p>
+      </div>
+      <div class="feature-card feature-card-dev reveal">
+        <div class="feature-icon fi-dev">📊</div>
+        <h4>Process Optimization</h4>
+        <p>We analyze bottlenecks and implement AI tools for scheduling, inventory, and resource management.</p>
+      </div>
+    </div>
+
+    <div class="svc-bottom">
+      <div class="deliverables-card deliverables-card-dev reveal">
+        <h4>What's Included</h4>
+        <ul class="del-list del-dev">
+          <li>Discovery &amp; requirements gathering</li>
+          <li>UI/UX design and interactive prototyping</li>
+          <li>Full-stack development (frontend + backend + API)</li>
+          <li>AI/ML integration (chatbots, automation, assistants)</li>
+          <li>iOS &amp; Android native or cross-platform builds</li>
+          <li>Cloud infrastructure &amp; deployment</li>
+          <li>Database architecture &amp; data modeling</li>
+          <li>Testing, QA, and performance optimization</li>
+          <li>Post-launch support &amp; iteration</li>
+        </ul>
+      </div>
+      <div class="outcomes-card reveal">
+        <h4>What You Can Expect</h4>
+        <div class="outcome-row">
+          <div class="outcome-icon">⚡</div>
+          <div>
+            <strong>Faster operations, fewer manual hours</strong>
+            <p>Automation and custom tooling eliminate repetitive work so your team focuses on what matters.</p>
+          </div>
+        </div>
+        <div class="outcome-row">
+          <div class="outcome-icon">🤖</div>
+          <div>
+            <strong>24/7 AI that works in your brand voice</strong>
+            <p>Custom assistants handle inquiries, bookings, and support around the clock — no extra headcount.</p>
+          </div>
+        </div>
+        <div class="outcome-row">
+          <div class="outcome-icon">📱</div>
+          <div>
+            <strong>Software that fits your exact workflow</strong>
+            <p>No more duct-taping SaaS tools together. Get a platform built specifically for how your business operates.</p>
+          </div>
+        </div>
+        <div class="outcome-row">
+          <div class="outcome-icon">📈</div>
+          <div>
+            <strong>A competitive edge through technology</strong>
+            <p>Custom software and AI give you capabilities your competitors can't match with off-the-shelf tools.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-section-cta reveal">
+      <div class="svc-section-cta-btns">
+        <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="btn-primary" style="background:var(--purple);color:#fff;box-shadow:0 4px 25px rgba(167,139,250,0.3)" onclick="gtag('event','click',{event_category:'CTA',event_label:'Services - Dev - Book Call'})">Discuss Your Project <span>→</span></a>
+        <a href="/results/" class="btn-secondary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Services - Dev - See Results'})">See Client Results</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────
      THE GROWTH STACK
 ───────────────────────────────────────── -->
 <section class="stack-section">
@@ -875,8 +988,9 @@
     { id: 'google-ads', tab: '[data-section="google-ads"]' },
     { id: 'seo',        tab: '[data-section="seo"]' },
     { id: 'web-design', tab: '[data-section="web-design"]' },
+    { id: 'development', tab: '[data-section="development"]' },
   ];
-  const activeClasses = { 'google-ads': 'active-ads', 'seo': 'active-seo', 'web-design': 'active-web' };
+  const activeClasses = { 'google-ads': 'active-ads', 'seo': 'active-seo', 'web-design': 'active-web', 'development': 'active-dev' };
 
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {

@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Full-Stack Development & AI Integration | Modern Apex Strategies</title>
+  <meta name="description" content="Custom software, mobile apps, web platforms, and AI-powered systems. Full-stack development and intelligent automation for businesses that move fast.">
+  <meta property="og:title" content="Development & AI | Modern Apex Strategies">
+  <meta property="og:description" content="Custom software, mobile apps, web platforms, and AI-powered systems built from scratch.">
+  <meta property="og:image" content="https://modernapexstrategies.com/assets/og-image.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://modernapexstrategies.com/development/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://modernapexstrategies.com/assets/og-image.png">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJPTQHTT4Y"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-QJPTQHTT4Y');</script>
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --dark: #0d0d0f;
+      --dark-card: #161616;
+      --white: #ffffff;
+      --gray: #888888;
+      --light-gray: #cccccc;
+      --red: #e63946;
+      --red-glow: rgba(230,57,70,0.25);
+      --green: #5dd39e;
+      --purple: #a78bfa;
+      --purple-glow: rgba(167,139,250,0.25);
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { background: var(--black); scroll-behavior: smooth; overflow-x: hidden; }
+    body { background: var(--black); color: var(--white); font-family: var(--sans); overflow-x: hidden; padding-bottom: var(--safe-bottom); }
+    img, svg { max-width: 100%; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: calc(1.2rem + var(--safe-top)) 3rem 1.2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(10,10,10,0.98); backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    nav::before {
+      content: ''; position: absolute; left: 0; right: 0;
+      top: calc(-1 * var(--safe-top)); height: var(--safe-top);
+      background: rgba(10,10,10,0.98); pointer-events: none;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+    .nav-logo-img { height: 36px; width: auto; object-fit: contain; }
+    .nav-logo-text { font-family: var(--sans); font-weight: 700; font-size: 1.2rem; color: var(--white); letter-spacing: -0.02em; }
+    .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+    .nav-links a { color: var(--light-gray); text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--red); color: var(--white) !important; padding: 0.75rem 1.6rem; border-radius: 4px; font-weight: 600 !important; letter-spacing: 0.04em !important; transition: all 0.3s !important; box-shadow: 0 4px 20px var(--red-glow); }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 30px rgba(230,57,70,0.5); }
+    .nav-login { border: 1.5px solid var(--green) !important; color: var(--green) !important; padding: 0.6rem 1.3rem; border-radius: 4px; font-weight: 600 !important; letter-spacing: 0.04em !important; transition: all 0.3s !important; }
+    .nav-login:hover { background: var(--green) !important; color: var(--black) !important; transform: translateY(-1px); box-shadow: 0 6px 30px rgba(93,211,158,0.28); }
+    .mobile-nav-toggle { display: none; flex-direction: column; width: 44px; height: 44px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.02); align-items: center; justify-content: center; gap: 5px; padding: 0; cursor: pointer; transition: border-color 0.25s, background 0.25s; }
+    .mobile-nav-toggle span { width: 18px; height: 2px; background: #ffffff; border-radius: 2px; display: block; transition: transform 0.25s, opacity 0.25s; }
+    body.mobile-nav-open .mobile-nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    body.mobile-nav-open .mobile-nav-toggle span:nth-child(2) { opacity: 0; }
+    body.mobile-nav-open .mobile-nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-nav-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.55); opacity: 0; pointer-events: none; transition: opacity 0.25s; z-index: 1098; }
+    .mobile-nav-panel { position: fixed; top: calc(var(--mobile-nav-top, 72px) + 8px); left: 1rem; right: 1rem; background: rgba(9,10,13,0.99); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 0.65rem; z-index: 1099; opacity: 0; pointer-events: none; transform: translateY(-8px); transition: opacity 0.25s, transform 0.25s; box-shadow: 0 20px 44px rgba(0,0,0,0.45); }
+    .mobile-nav-panel a { display: block; color: #cccccc; text-decoration: none; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.85rem 0.9rem; border-radius: 9px; transition: background 0.2s, color 0.2s; }
+    .mobile-nav-panel a:hover { background: rgba(255,255,255,0.06); color: #ffffff; }
+    .mobile-nav-cta { margin-top: 0.35rem !important; background: var(--red) !important; color: #ffffff !important; text-align: center !important; letter-spacing: 0.04em !important; box-shadow: 0 6px 24px rgba(230,57,70,0.35) !important; }
+    .mobile-nav-login { color: var(--green) !important; border: 1.5px solid var(--green); border-radius: 6px; padding: 0.85rem 1.4rem; text-align: center; font-weight: 600; transition: all 0.3s; }
+    .mobile-nav-login:hover { background: var(--green); color: var(--black) !important; }
+    body.mobile-nav-open .mobile-nav-backdrop { opacity: 1; pointer-events: auto; }
+    body.mobile-nav-open .mobile-nav-panel { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+    /* ── BUTTONS ── */
+    .btn-primary { background: var(--purple); color: var(--white); padding: 1rem 2.2rem; border: none; border-radius: 4px; font-family: var(--sans); font-size: 0.95rem; font-weight: 600; cursor: pointer; letter-spacing: 0.04em; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 25px var(--purple-glow); display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 35px rgba(167,139,250,0.45); }
+    .btn-secondary { background: transparent; color: var(--white); padding: 1rem 2.2rem; border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; font-family: var(--sans); font-size: 0.95rem; font-weight: 500; cursor: pointer; letter-spacing: 0.04em; text-decoration: none; transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.38); background: rgba(255,255,255,0.04); }
+
+    /* ── SHARED ── */
+    .section-label { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple); margin-bottom: 1.25rem; }
+    .section-label .line { width: 28px; height: 2px; background: var(--purple); }
+    .pill { display: inline-flex; align-items: center; gap: 0.45rem; background: rgba(167,139,250,0.12); border: 1px solid rgba(167,139,250,0.3); border-radius: 100px; padding: 0.35rem 1rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--purple); margin-bottom: 1.5rem; }
+    .pulse-dot { width: 7px; height: 7px; background: var(--purple); border-radius: 50%; animation: pulse 1.8s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.75)} }
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── HERO ── */
+    .dev-hero {
+      min-height: 72vh; display: flex; align-items: center;
+      padding: calc(8rem + var(--safe-top)) 2rem 5rem;
+      position: relative; overflow: hidden; text-align: center;
+    }
+    .dev-hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1000px; height: 700px; background: radial-gradient(ellipse, rgba(167,139,250,0.07) 0%, transparent 65%); pointer-events: none; }
+    .dev-hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 2; }
+    .dev-hero h1 { font-family: var(--serif); font-size: clamp(2.6rem, 5.5vw, 4.6rem); font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; }
+    .dev-hero h1 em { color: var(--purple); font-style: italic; }
+    .dev-hero-inner > p { font-size: clamp(1rem, 2vw, 1.18rem); color: var(--gray); line-height: 1.72; margin-bottom: 2.5rem; max-width: 640px; margin-left: auto; margin-right: auto; }
+    .hero-cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ── FEATURE CARDS ── */
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.25rem; margin-bottom: 3.5rem; }
+    .featured-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem; }
+    .feature-card { background: var(--dark-card); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.75rem; transition: border-color 0.3s, transform 0.3s; }
+    .feature-card:hover { transform: translateY(-3px); border-color: rgba(167,139,250,0.25); }
+    .feature-icon { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1rem; background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.2); }
+    .feature-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.55rem; }
+    .feature-card p { font-size: 0.86rem; color: rgba(255,255,255,0.45); line-height: 1.62; }
+
+    /* ── SECTIONS ── */
+    .dev-section { padding: 5rem 2rem; position: relative; }
+    .dev-section:nth-child(even) { background: var(--dark); }
+    .dev-section-inner { max-width: 1100px; margin: 0 auto; }
+
+    /* ── DELIVERABLES / OUTCOMES ── */
+    .svc-bottom { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .deliverables-card { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 2rem; }
+    .deliverables-card h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple); margin-bottom: 1.1rem; }
+    .del-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .del-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.88rem; color: rgba(255,255,255,0.7); line-height: 1.45; }
+    .del-list li::before { content: '✓'; font-weight: 700; font-size: 0.82rem; flex-shrink: 0; margin-top: 0.05rem; color: var(--purple); }
+    .outcomes-card { background: var(--dark-card); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 2rem; }
+    .outcomes-card h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 1.1rem; }
+    .outcome-row { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .outcome-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .outcome-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .outcome-row strong { display: block; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .outcome-row p { font-size: 0.82rem; color: rgba(255,255,255,0.42); line-height: 1.5; }
+
+    /* ── CTA ── */
+    .section-cta { margin-top: 3.5rem; text-align: center; }
+    .section-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ── FINAL CTA ── */
+    .final-cta { background: linear-gradient(160deg, #0d0d0f, #0a0a0a); padding: 7rem 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+    .final-cta-inner { max-width: 720px; margin: 0 auto; }
+    .final-cta h2 { font-family: var(--serif); font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 900; line-height: 1.14; margin-bottom: 1.25rem; }
+    .final-cta h2 em { color: var(--purple); font-style: italic; }
+    .final-cta p { color: var(--gray); font-size: 1rem; line-height: 1.7; margin-bottom: 2.5rem; }
+    .final-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+    .final-disclaimer { font-size: 0.78rem; color: rgba(255,255,255,0.2); letter-spacing: 0.05em; }
+
+    /* ── MOBILE STICKY ── */
+    .mobile-sticky { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 900; background: rgba(10,10,10,0.97); border-top: 1px solid rgba(255,255,255,0.08); padding: 0.85rem 1.2rem calc(0.85rem + var(--safe-bottom)); gap: 0.75rem; }
+    .mobile-sticky a { flex: 1; text-align: center; padding: 0.85rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 700; text-decoration: none; }
+    .sticky-book { background: var(--purple); color: var(--white); box-shadow: 0 4px 18px var(--purple-glow); }
+    .sticky-services { background: rgba(255,255,255,0.06); color: var(--white); border: 1px solid rgba(255,255,255,0.12); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: calc(1rem + var(--safe-top)) 1.2rem 1rem; }
+      .nav-links { display: none; }
+      .mobile-nav-toggle { display: flex; }
+      .dev-hero { padding-top: calc(6rem + var(--safe-top)); }
+      .dev-section { padding: 4rem 1.2rem; }
+      .mobile-sticky { display: flex; }
+      .final-cta { padding-bottom: calc(7rem + var(--safe-bottom)); }
+    }
+    @media (max-width: 500px) {
+      .dev-hero h1 { font-size: 2.4rem; }
+      .hero-cta-row, .section-cta-btns, .final-cta-btns { flex-direction: column; align-items: center; }
+      .hero-cta-row .btn-primary, .hero-cta-row .btn-secondary,
+      .section-cta-btns .btn-primary, .section-cta-btns .btn-secondary,
+      .final-cta-btns .btn-primary, .final-cta-btns .btn-secondary { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/assets/logo-modern-apex.png" alt="ModernApex" class="nav-logo-img">
+    <span class="nav-logo-text">Modern Apex Strategies</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/process/">Process</a></li>
+    <li><a href="/results/">Results</a></li>
+    <li><a href="/reviews/">Reviews</a></li>
+    <li><a href="/team/">Team</a></li>
+    <li><a href="/faq/">FAQ</a></li>
+    <li><a href="https://app.modernapexstrategies.com/login" class="nav-login" onclick="gtag('event','click',{event_category:'CTA',event_label:'Nav - Client Login'})">Login</a></li>
+    <li><a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="nav-cta" onclick="gtag('event','click',{event_category:'CTA',event_label:'Nav - Book Call'})">Book a Free Call</a></li>
+  </ul>
+  <button class="mobile-nav-toggle" id="mobileNavToggle" type="button" aria-label="Open navigation menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+<div class="mobile-nav-panel" id="mobileNavPanel">
+  <a href="/services/">Services</a>
+  <a href="/process/">Process</a>
+  <a href="/results/">Results</a>
+  <a href="/reviews/">Reviews</a>
+  <a href="/team/">Team</a>
+  <a href="/faq/">FAQ</a>
+  <a href="https://app.modernapexstrategies.com/login" class="mobile-nav-login" onclick="gtag('event','click',{event_category:'CTA',event_label:'Mobile Nav - Client Login'})">Login</a>
+  <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="mobile-nav-cta" onclick="gtag('event','click',{event_category:'CTA',event_label:'Mobile Nav - Book Call'})">Book a Free Call →</a>
+</div>
+
+<!-- Mobile sticky -->
+<div class="mobile-sticky">
+  <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="sticky-book" onclick="gtag('event','click',{event_category:'CTA',event_label:'Dev - Mobile Sticky - Book'})">Discuss Your Project</a>
+  <a href="/services/" class="sticky-services" onclick="gtag('event','click',{event_category:'CTA',event_label:'Dev - Mobile Sticky - Services'})">All Services</a>
+</div>
+
+<!-- Hero -->
+<section class="dev-hero">
+  <div class="dev-hero-inner">
+    <div class="pill reveal"><span class="pulse-dot"></span> Software &amp; AI</div>
+    <h1 class="reveal">Full-Stack Development<br>&amp; <em>AI Integration</em></h1>
+    <p class="reveal">Custom software, mobile apps, web platforms, and AI-powered systems. We build it all, and we build it fast.</p>
+    <div class="hero-cta-row reveal">
+      <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="btn-primary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Dev Hero - Book Call'})">Discuss Your Project <span>→</span></a>
+      <a href="/services/" class="btn-secondary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Dev Hero - All Services'})">See All Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Services -->
+<section class="dev-section">
+  <div class="dev-section-inner">
+    <div class="featured-grid">
+      <div class="feature-card reveal" style="position:relative;overflow:hidden;padding:2.25rem">
+        <span style="position:absolute;top:1rem;right:1.5rem;font-family:var(--serif);font-size:5rem;font-weight:900;color:rgba(167,139,250,0.06);line-height:1;pointer-events:none">01</span>
+        <h4 style="font-size:1.25rem;margin-bottom:0.65rem">Intelligent Automation</h4>
+        <p>Automate repetitive tasks and workflows. From data entry to customer communications, save 10–20 hours every week.</p>
+      </div>
+      <div class="feature-card reveal" style="position:relative;overflow:hidden;padding:2.25rem">
+        <span style="position:absolute;top:1rem;right:1.5rem;font-family:var(--serif);font-size:5rem;font-weight:900;color:rgba(167,139,250,0.06);line-height:1;pointer-events:none">02</span>
+        <h4 style="font-size:1.25rem;margin-bottom:0.65rem">AI-Powered Assistants</h4>
+        <p>Custom chatbots and virtual assistants that handle inquiries, bookings, sales, and support 24/7 in your brand voice.</p>
+      </div>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">💻</div>
+        <h4>Custom Web Applications</h4>
+        <p>Full-featured web platforms, dashboards, portals, and SaaS products built with modern frameworks.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">📱</div>
+        <h4>iOS &amp; Android Apps</h4>
+        <p>Native and cross-platform mobile apps from concept to App Store. Polished UX, fast performance.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">⚙️</div>
+        <h4>Full-Stack Software</h4>
+        <p>End-to-end custom development. APIs, databases, cloud infrastructure, built from scratch for you.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">📊</div>
+        <h4>Process Optimization</h4>
+        <p>We analyze bottlenecks and implement AI tools for scheduling, inventory, and resource management.</p>
+      </div>
+    </div>
+
+    <div class="svc-bottom">
+      <div class="deliverables-card reveal">
+        <h4>What's Included</h4>
+        <ul class="del-list">
+          <li>Discovery &amp; requirements gathering</li>
+          <li>UI/UX design and interactive prototyping</li>
+          <li>Full-stack development (frontend + backend + API)</li>
+          <li>AI/ML integration (chatbots, automation, assistants)</li>
+          <li>iOS &amp; Android native or cross-platform builds</li>
+          <li>Cloud infrastructure &amp; deployment</li>
+          <li>Database architecture &amp; data modeling</li>
+          <li>Testing, QA, and performance optimization</li>
+          <li>Post-launch support &amp; iteration</li>
+        </ul>
+      </div>
+      <div class="outcomes-card reveal">
+        <h4>What You Can Expect</h4>
+        <div class="outcome-row">
+          <div class="outcome-icon">⚡</div>
+          <div>
+            <strong>Faster operations, fewer manual hours</strong>
+            <p>Automation and custom tooling eliminate repetitive work so your team focuses on what matters.</p>
+          </div>
+        </div>
+        <div class="outcome-row">
+          <div class="outcome-icon">🤖</div>
+          <div>
+            <strong>24/7 AI that works in your brand voice</strong>
+            <p>Custom assistants handle inquiries, bookings, and support around the clock — no extra headcount.</p>
+          </div>
+        </div>
+        <div class="outcome-row">
+          <div class="outcome-icon">📱</div>
+          <div>
+            <strong>Software that fits your exact workflow</strong>
+            <p>No more duct-taping SaaS tools together. Get a platform built specifically for how your business operates.</p>
+          </div>
+        </div>
+        <div class="outcome-row">
+          <div class="outcome-icon">📈</div>
+          <div>
+            <strong>A competitive edge through technology</strong>
+            <p>Custom software and AI give you capabilities your competitors can't match with off-the-shelf tools.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-cta reveal">
+      <div class="section-cta-btns">
+        <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="btn-primary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Dev Section - Book Call'})">Discuss Your Project <span>→</span></a>
+        <a href="/results/" class="btn-secondary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Dev Section - See Results'})">See Client Results</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <div class="section-label reveal" style="justify-content:center"><span class="line"></span> Let's Build</div>
+    <h2 class="reveal">Your idea. Our code.<br><em>Built fast.</em></h2>
+    <p class="reveal">Book a 15-minute call to walk through your project. We'll scope it out, give you a timeline, and tell you exactly what it takes to ship.</p>
+    <div class="final-cta-btns reveal">
+      <a href="https://calendly.com/modernapexstrategies/modern-apex-strategies-round-table-interview" target="_blank" rel="noopener" class="btn-primary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Dev Final CTA - Book Call'})">Book Your Free Call <span>→</span></a>
+      <a href="/services/" class="btn-secondary" onclick="gtag('event','click',{event_category:'CTA',event_label:'Dev Final CTA - All Services'})">View All Services</a>
+    </div>
+    <p class="final-disclaimer reveal">No commitment required — just a conversation about what's possible.</p>
+  </div>
+</section>
+
+<script>
+  // Mobile nav
+  (function() {
+    const t = document.getElementById('mobileNavToggle');
+    const p = document.getElementById('mobileNavPanel');
+    const b = document.getElementById('mobileNavBackdrop');
+    if (!t || !p || !b) return;
+    const open = () => {
+      document.body.classList.add('mobile-nav-open');
+      t.setAttribute('aria-expanded', 'true');
+    };
+    const close = () => {
+      document.body.classList.remove('mobile-nav-open');
+      t.setAttribute('aria-expanded', 'false');
+    };
+    t.addEventListener('click', () => document.body.classList.contains('mobile-nav-open') ? close() : open());
+    b.addEventListener('click', close);
+    p.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+  })();
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
